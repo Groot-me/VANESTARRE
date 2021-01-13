@@ -1,7 +1,9 @@
+session_start();
+
 <?php
 include 'utils.inc.php';
 
-session_start();
+
 
 start_page('Inscription reussi');
 
