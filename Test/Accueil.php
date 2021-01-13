@@ -55,7 +55,7 @@ start_page('VANESTARRE - Connexion ou Inscription');
             text-transform: uppercase;
             cursor: pointer;
             box-shadow: 0 5px 15px -5px #335D95;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-style: italic;
             color: white;
             background-color: #335D95;
