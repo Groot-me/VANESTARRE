@@ -15,8 +15,13 @@
                 <input type="submit" value="Connexion">
             </div>
             <a id="forgot" href="">Mot de passe oublié ?</a>
-            <button>Créer un compte</button>
+            <button id="btnPopup" class="btnPopup">Créer un compte</button>
         </form>
+        <div id="overlay" class="overlay">
+            <div id="popup" class="popup">
+                <form id="form" action=""
+            </div>
+         </div>
     </div>
 
 </body>
