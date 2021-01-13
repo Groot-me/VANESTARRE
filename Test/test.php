@@ -1,8 +1,5 @@
 <?php
 
-
-include 'utils.inc.php';
-
 function end_page()
 {
     echo  "</body></html>";
