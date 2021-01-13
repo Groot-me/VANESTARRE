@@ -7,7 +7,6 @@ start_page('VANESTARRE - Connexion ou Inscription');
         <form id="form" action="" method="post">
             <input type="text" placeholder="Identifiant" name="uname" required> <br>
             <input type="password" placeholder="Mot de passe" name="psw" required>
-
             <div class="submit">
                 <input type="submit" value="Connexion">
             </div>
