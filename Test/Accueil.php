@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>VANESTARRE - Connexion ou Inscription</title>
     <link rel="stylesheet" href="Accueil.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <h1>VANESTARRE</h1>
