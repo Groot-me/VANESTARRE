@@ -1,0 +1,49 @@
+Index: Test/Accueil.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nrequire 'function.php';\nstart_page('VANESTARRE _ Connexion ou Inscription');\n?>\n    <h1>VANESTARRE</h1>\n    <div class=\"form\">\n        <form id=\"form\" action=\"\" method=\"post\">\n            <input type=\"text\" placeholder=\"Identifiant\" name=\"uname\" required> <br>\n            <input type=\"password\" placeholder=\"Mot de passe\" name=\"psw\" required>\n\n            <div class=\"submit\">\n                <input type=\"submit\" value=\"Connexion\">\n            </div>\n            <a id=\"forgot\" href=\"\">Mot de passe oublié ?</a>\n        </form>\n    </div>\n\n    <style>\n        body {\n            width: 100%;\n            height: 100%;\n            font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n        }\n\n        html, body, div {\n            margin: 0;\n            padding: 0;\n            border: 0;\n            font: inherit;\n            font-size: 100%;\n            vertical-align: baseline;\n        }\n\n        #form {\n            position: absolute;\n            font-family: \"Avenir\";\n            color: rgb(0, 114, 163);\n            top: 35%;\n            left: 41.5%;\n            background-color: transparent;\n            padding: 30px 60px;\n            border: 1px solid #335D95;\n            border-radius: 10px;\n            box-shadow: 0 5px 15px -5px black;\n        }\n\n        input[type=\"submit\"] {\n            width: 200px;\n            height: 40px;\n            border: 1px solid #335D95;\n            border-radius: 10px;\n            font-size: 14px;\n            font-weight: bold;\n            text-transform: uppercase;\n            cursor: pointer;\n            box-shadow: 0 5px 15px -5px #335D95;\n            margin-bottom: 20px;\n            font-style: italic;\n            color: white;\n            background-color: #335D95;\n        }\n\n        .form input[type=\"text\"] {\n            margin-bottom: 10px;\n            padding-left: 20px;\n            width: 180px;\n            height: 40px;\n            border: 1px solid #335D95;\n            border-radius: 10px;\n            font-size: 14px;\n            color: #335D95;\n        }\n\n        .form input[type=\"password\"] {\n            margin-bottom: 10px;\n            padding-left: 20px;\n            width: 180px;\n            height: 40px;\n            border: 1px solid #335D95;\n            border-radius: 10px;\n            font-size: 14px;\n            color: #335D95;\n        }\n\n        #forgot {\n            text-decoration: none;\n            font-size: 14px;\n            color: #335D95;\n            font-weight: bold;\n            position: absolute;\n            margin-left: auto;\n            margin-right: auto;\n        }\n\n        h1 {\n            font-family: 'Avenir';\n            color: #335D95;\n            font-size: 50px;\n            width: 333px;\n            margin-left: auto;\n            margin-right: auto;\n        }\n\n    </style>\n\n<?php\nend_page();\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Test/Accueil.php b/Test/Accueil.php
+--- a/Test/Accueil.php	
++++ b/Test/Accueil.php	
+@@ -1,6 +1,6 @@
+ <?php
+ require 'function.php';
+-start_page('VANESTARRE _ Connexion ou Inscription');
++start_page('VANESTARRE - Connexion ou Inscription');
+ ?>
+     <h1>VANESTARRE</h1>
+     <div class="form">
+@@ -12,6 +12,7 @@
+                 <input type="submit" value="Connexion">
+             </div>
+             <a id="forgot" href="">Mot de passe oublié ?</a>
++            <button>Créer un compte</button>
+         </form>
+     </div>
+ 
+@@ -92,6 +93,22 @@
+             margin-right: auto;
+         }
+ 
++        .form button {
++            width: 200px;
++            height: 40px;
++            border: 1px solid #335D95;
++            border-radius: 10px;
++            font-size: 14px;
++            font-weight: bold;
++            text-transform: uppercase;
++            cursor: pointer;
++            box-shadow: 0 5px 15px -5px #335D95;
++            margin-top: 30px;
++            font-style: italic;
++            color: white;
++            background-color: green;
++        }
++
+         h1 {
+             font-family: 'Avenir';
+             color: #335D95;
