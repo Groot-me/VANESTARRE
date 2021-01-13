@@ -19,7 +19,11 @@
         </form>
         <div id="overlay" class="overlay">
             <div id="popup" class="popup">
-                <form id="form" action=""
+                <form id="form" action="" metho="post">
+                    <input type="text" placeholder="Prénom" name=""
+                    <input type="text" placeholder="Identifiant" name="uname" required> <br>
+                    <input type="password" placeholder="Mot de passe" name="psw" required>
+                </form>
             </div>
          </div>
     </div>
