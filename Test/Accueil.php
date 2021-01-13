@@ -95,13 +95,13 @@ start_page('VANESTARRE - Connexion ou Inscription');
         .form button {
             width: 200px;
             height: 40px;
-            border: 1px solid #335D95;
+            border: 1px solid green;
             border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 5px 15px -5px #335D95;
+            box-shadow: 0 5px 15px -5px green;
             margin-top: 30px;
             font-style: italic;
             color: white;
