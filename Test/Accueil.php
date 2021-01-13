@@ -1,6 +1,6 @@
 <?php
 require 'function.php';
-start_page('VANESTARRE _ Connexion ou Inscription');
+start_page('VANESTARRE - Connexion ou Inscription');
 ?>
     <h1>VANESTARRE</h1>
     <div class="form">
@@ -12,6 +12,7 @@ start_page('VANESTARRE _ Connexion ou Inscription');
                 <input type="submit" value="Connexion">
             </div>
             <a id="forgot" href="">Mot de passe oublié ?</a>
+            <button>Créer un compte</button>
         </form>
     </div>
 
@@ -90,6 +91,22 @@ start_page('VANESTARRE _ Connexion ou Inscription');
             position: absolute;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .form button {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #335D95;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 5px 15px -5px #335D95;
+            margin-top: 30px;
+            font-style: italic;
+            color: white;
+            background-color: green;
         }
 
         h1 {
