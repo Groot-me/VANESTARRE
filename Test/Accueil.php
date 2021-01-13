@@ -1,3 +1,23 @@
+<?php
+if(isset($_POST['username']) && isset($_POST['password'])){
+    $db = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+    $username = $db ->quote( $_POST['username']);
+    $password = sha1($_POST['password']);
+    $sql ="SELECT * FROM user WHERE username = $username  AND password = '$password' ";
+    $select = $db->query($sql);
+    if($select->rowCount() > 0){
+        $_SESSION['Auth'] = $select->fetch();
+        setFlash('Vous êtes maintenant connecté');
+        header('Location:' . WEBROOT . 'admin/index.php');
+        die();
+    }
+
+}
+
+
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
