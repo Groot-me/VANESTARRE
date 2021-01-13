@@ -1,5 +1,5 @@
 <?php
-require 'html.php';
+require 'function.php';
 start_page('VANESTARRE _ Connexion ou Inscription');
 ?>
     <h1>VANESTARRE</h1>
