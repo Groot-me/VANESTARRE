@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="add directory and first php file">
-      <change afterPath="$PROJECT_DIR$/Test/Accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/PHPfile_test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610354543171</updated>
       <workItem from="1610354545340" duration="3503000" />
+      <workItem from="1610549313964" duration="83000" />
     </task>
     <task id="LOCAL-00001" summary="add directory and first php file">
       <created>1610354667799</created>
@@ -69,6 +69,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add directory and first php file" />
