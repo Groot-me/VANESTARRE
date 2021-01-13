@@ -1,5 +1,3 @@
-// function start_page() et end_page()
-
 <?php
 function start_page($title)
 {
