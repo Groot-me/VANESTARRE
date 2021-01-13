@@ -39,7 +39,7 @@ start_page('VANESTARRE - Connexion ou Inscription');
             left: 41.5%;
             background-color: transparent;
             padding: 30px 60px;
-            border: 1px solid #335D95;
+            border: 1px solid hotpink;
             border-radius: 10px;
             box-shadow: 0 5px 15px -5px black;
         }
@@ -47,17 +47,17 @@ start_page('VANESTARRE - Connexion ou Inscription');
         input[type="submit"] {
             width: 200px;
             height: 40px;
-            border: 1px solid #335D95;
+            border: 1px solid hotpink;
             border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 5px 15px -5px #335D95;
+            box-shadow: 0 5px 15px -5px hotpink;
             margin-bottom: 10px;
             font-style: italic;
             color: white;
-            background-color: #335D95;
+            background-color: hotpink;
         }
 
         .form input[type="text"] {
@@ -65,10 +65,10 @@ start_page('VANESTARRE - Connexion ou Inscription');
             padding-left: 20px;
             width: 180px;
             height: 40px;
-            border: 1px solid #335D95;
+            border: 1px solid hotpink;
             border-radius: 10px;
             font-size: 14px;
-            color: #335D95;
+            color: hotpink;
         }
 
         .form input[type="password"] {
@@ -76,16 +76,16 @@ start_page('VANESTARRE - Connexion ou Inscription');
             padding-left: 20px;
             width: 180px;
             height: 40px;
-            border: 1px solid #335D95;
+            border: 1px solid hotpink;
             border-radius: 10px;
             font-size: 14px;
-            color: #335D95;
+            color: hotpink;
         }
 
         #forgot {
             text-decoration: none;
             font-size: 14px;
-            color: #335D95;
+            color: hotpink;
             font-weight: bold;
             position: absolute;
             margin-left: auto;
@@ -95,22 +95,22 @@ start_page('VANESTARRE - Connexion ou Inscription');
         .form button {
             width: 200px;
             height: 40px;
-            border: 1px solid green;
+            border: 1px solid pink;
             border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 5px 15px -5px green;
+            box-shadow: 0 5px 15px -5px pink;
             margin-top: 30px;
             font-style: italic;
             color: white;
-            background-color: green;
+            background-color: pink;
         }
 
         h1 {
             font-family: 'Avenir';
-            color: #335D95;
+            color: pink;
             font-size: 50px;
             width: 333px;
             margin-left: auto;
