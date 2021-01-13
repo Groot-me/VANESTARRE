@@ -71,6 +71,17 @@ start_page('VANESTARRE _ Connexion ou Inscription');
             color: #335D95;
         }
 
+        .form input[type="password"] {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            width: 180px;
+            height: 40px;
+            border: 1px solid #335D95;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #335D95;
+        }
+
         #forgot {
             text-decoration: none;
             font-size: 14px;
