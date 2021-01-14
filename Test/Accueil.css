@@ -17,11 +17,9 @@ html, body, div {
     position: absolute;
     font-family: "Avenir";
     color: rgb(0, 114, 163);
-    top: 35%;
-    left: 41.5%;
+
     background-color: transparent;
     padding: 30px 60px;
-    border: 1px solid #335D95;
     border-radius: 10px;
     box-shadow: 0 5px 15px -5px black;
 }
@@ -99,20 +97,7 @@ h1 {
     margin-right: auto;
 }
 
-.overlay {
-    position: fixed;
-    left: 0px;
-    top:0px;
+.form popup {
+    width: 100px;
     background-color: black;
-    padding: 30px 60px;
-    z-index:1;
-    display:none;
-}
-.popup{
-    margin: 10% auto;
-    padding: 30px 60px;
-    background-color: rgb(243, 243, 243);
-    padding: 1em;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
 }
