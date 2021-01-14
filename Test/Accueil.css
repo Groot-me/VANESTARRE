@@ -88,3 +88,16 @@ input[type="submit"] {
     background-color: green;
 }
 
+h1 {
+    font-family: 'Avenir';
+    color: #335D95;
+    font-size: 50px;
+    width: 333px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form popup {
+    width: 100px;
+    background-color: black;
+}
