@@ -24,22 +24,6 @@ html, body, div {
     box-shadow: 0 5px 15px -5px black;
 }
 
-input[type="submit"] {
-    width: 200px;
-    height: 40px;
-    border: 1px solid #335D95;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 5px 15px -5px #335D95;
-    margin-bottom: 10px;
-    font-style: italic;
-    color: white;
-    background-color: #335D95;
-}
-
 .form input[type="text"] {
     margin-bottom: 10px;
     padding-left: 20px;
