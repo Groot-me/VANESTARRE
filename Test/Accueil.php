@@ -34,13 +34,15 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             <button id="button_modal" onclick="openModal()">Créer un compte</button>
         </form>
         <div class="popup">
+            <header>
+                <p>INSCRIPTION</p>
+            </header>
             <form id="form_popup" action="" method="post">
-                <input type="text" placeholder="Prénom" name="prénom" required>
-                <input type="text" placeholder="Nom" name="nom" required> <br>
-                <input type="text" placeholder="Adresse Mail" name="mail" required> <br>
-                <input type="text" placeholder="Identifiant" name="uname" required> <br>
-                <input type="password" placeholder="Mot de Passe" name=""psw> <br>
-                <input type="submit" value="Inscription">
+                <input id="mail" type="text" placeholder="Adresse Mail" name="mail" required> <br>
+                <input id="id" type="text" placeholder="Identifiant" name="uname" required> <br>
+                <input type="password" placeholder="Mot de Passe" name="psw" required>
+                <input type="password" placeholder="Confirmer le mot de passe" name=confirm_psw" required> <br>
+                <input type="submit" value="S'inscrire">
             </form>
         </div>
     </div>
