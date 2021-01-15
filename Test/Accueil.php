@@ -19,33 +19,64 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 <head>
     <meta charset="utf-8">
     <title>VANESTARRE - Connexion ou Inscription</title>
-    <link rel="stylesheet" href="Accueil.css">
+    <link type="text/css" rel="stylesheet" href="Accueil.css?t=<? echo time(); ?>" media="all">
 </head>
 <body>
+<!--Titre -->
+
     <h1>VANESTARRE</h1>
+
+<!--Formulaire Connexion-->
+
     <div class="form">
         <form id="form" action="" method="post">
             <input type="text" placeholder="Identifiant" name="uname" required> <br>
             <input type="password" placeholder="Mot de passe" name="psw" required>
-            <div class="submit">
-                <input type="submit" value="Connexion">
-            </div>
+
+            <input type="submit" value="Connexion">
+
             <a id="forgot" href="">Mot de passe oublié ?</a>
-            <button id="button_modal" onclick="openModal()">Créer un compte</button>
-        </form>
-        <div class="popup">
-            <header>
-                <p>INSCRIPTION</p>
-            </header>
-            <form id="form_popup" action="" method="post">
-                <input id="mail" type="text" placeholder="Adresse Mail" name="mail" required> <br>
-                <input id="id" type="text" placeholder="Identifiant" name="uname" required> <br>
-                <input type="password" placeholder="Mot de Passe" name="psw" required>
-                <input type="password" placeholder="Confirmer le mot de passe" name=confirm_psw" required> <br>
-                <input type="submit" value="S'inscrire">
-            </form>
-        </div>
-    </div>
+
+            <button id="btnPopup" class="btnPopup"  onclick="openModal()" >Créer un compte</button>
+
+            <button id="btnmembre" class="btnmembre" >Se connecter en tant que membre</button>
+          </form>
+
+
+        <!--Formulaire pop-up d'inscription -->
+
+        <div id="overlay" class="overlay">
+            <div class="popup">
+                <header>
+                    <span id="btnClose" class="btnClose"> &times; </span>
+                    <p>INSCRIPTION</p>
+                </header>
+                <form id="form_popup" action="" method="post">
+                    <input id="mail" type="text" placeholder="Adresse Mail" name="mail" required> <br>
+                    <input id="id" type="text" placeholder="Identifiant" name="uname" required> <br>
+                    <input type="password" placeholder="Mot de Passe" name="psw" required>
+                    <input type="password" placeholder="Confirmer le mot de passe" name=confirm_psw" required> <br>
+                    <input type="submit" value="S'inscrire">
+                </form>
+            </div>
+      </div>
+
+
+
+        <script type="text/javascript" src="script.js"> var btnPopup = document.getElementById('btnPopup');
+            var overlay = document.getElementById('overlay');
+            btnPopup.addEventListener('click',openMoadl);
+            function openMoadl() {
+                overlay.style.display='block';
+            }
+
+
+
+            var btnClose = document.getElementById('btnClose');
+            btnClose.addEventListener('click',closeModal);
+            function closeModal() {
+                overlay.style.display='none';
+            }</script>
 
 </body>
 </html>
