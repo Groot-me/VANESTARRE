@@ -39,7 +39,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
             <button id="btnPopup" class="btnPopup"  onclick="openModal()" >Créer un compte</button>
 
-            <button id="btnmembre" class="btnmembre" >Se connecter en tant que membre</button>
+            <button id="btnmembre" class="btnmembre" >Connexion en tant qu'invité</button>
           </form>
 
 

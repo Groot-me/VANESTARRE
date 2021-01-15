@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="accueil.php">
+    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="a">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_57__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_12_13__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/Helloworld.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Noyau/Controleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Noyau/Vue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/helloworld/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/helloworld/voir.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +27,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="MAMP PHP 8.0.0" />
   <component name="ProjectId" id="1muruqkyDBqiU7p497dnyodq4KU" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -72,7 +61,8 @@
       <workItem from="1610550684257" duration="28000" />
       <workItem from="1610552784625" duration="230000" />
       <workItem from="1610553158377" duration="782000" />
-      <workItem from="1610616619633" duration="948000" />
+      <workItem from="1610616553524" duration="4122000" />
+      <workItem from="1610696994164" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="add directory and first php file">
       <created>1610354667799</created>
@@ -193,7 +183,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610616336027</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Accueil.php">
+      <created>1610616533068</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610616533068</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Accueil.css">
+      <created>1610616632063</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610616632063</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +219,7 @@
     <MESSAGE value="add directory and first php file" />
     <MESSAGE value="a" />
     <MESSAGE value="Accueil.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Accueil.php" />
+    <MESSAGE value="Accueil.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Accueil.css" />
   </component>
 </project>
