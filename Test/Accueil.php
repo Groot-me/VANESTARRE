@@ -22,13 +22,13 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <link type="text/css" rel="stylesheet" href="Accueil.css?t=<? echo time(); ?>" media="all">
 </head>
 <body>
-<!--Titre -->
-
-    <h1>VANESTARRE</h1>
-
-<!--Formulaire Connexion-->
 
     <div class="form">
+        <!--Titre -->
+
+        <h1>VANESTARRE</h1>
+
+        <!--Formulaire Connexion-->
         <form id="form" action="" method="post">
             <input type="text" placeholder="Identifiant" name="uname" required> <br>
             <input type="password" placeholder="Mot de passe" name="psw" required>
@@ -59,7 +59,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                     <input type="submit" value="S'inscrire">
                 </form>
             </div>
-      </div>
+        </div>
+
+    </div>
 
 
 
