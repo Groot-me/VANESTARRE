@@ -1,25 +1,35 @@
-<?php
-if(isset($_POST['username']) && isset($_POST['password'])){
-    $db = new PDO('mysql:host=localhost;dbname=test', 'root', '');
-    $username = $db ->quote( $_POST['username']);
-    $password = sha1($_POST['password']);
-    $sql ="SELECT * FROM user WHERE username = $username  AND password = '$password' ";
-    $select = $db->query($sql);
-    if($select->rowCount() > 0){
-        $_SESSION['Auth'] = $select->fetch();
-        setFlash('Vous êtes maintenant connecté');
-        header('Location:' . WEBROOT . 'admin/index.php');
-        die();
+
+<?php  //CONNEXION AU SITE
+    $auth =0; // INITIALISATION DE L'AUTHENTIFICATION
+    include 'lib/includes.php'; //inclusion de lib
+
+    if(isset($_POST['username']) && isset($_POST['password'])) { // check pasword et username
+        $db = new PDO('mysql:host=localhost;dbname=test', 'root', ''); // connexion à la bd
+        $username = $db->quote($_POST['username']); //affectation du username
+        $password = sha1($_POST['password']); //hachage mdp
+        $sql = "SELECT * FROM users WHERE username = $username  AND password = '$password' "; //requete sql simple
+        $select = $db->query($sql);
+        if ($select->rowCount() > 0) {
+            $_SESSION['Auth'] = $select->fetch(); //chercher le nouveau resultat
+            setFlash('Vous êtes maintenant connecté');
+            header('Location:' . WEBROOT . 'Site.php'); //lien vers Site.
+            die();
+        }
     }
-}
+
 ?>
+
+
+
+
 
 <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>VANESTARRE - Connexion ou Inscription</title>
-    <link type="text/css" rel="stylesheet" href="Accueil.css?t=<? echo time(); ?>" media="all">
+    <link type="text/css" rel="stylesheet" href="Accueil.css?t=<?= time(); ?>" media="all">
+    <?= flash(); ?>
 </head>
 <body>
 
@@ -30,8 +40,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
         <!--Formulaire Connexion-->
         <form id="form" action="" method="post">
-            <input type="text" placeholder="Identifiant" name="uname" required> <br>
-            <input type="password" placeholder="Mot de passe" name="psw" required>
+            <input type="text" placeholder="Identifiant" name="username" required> <br>
+            <input type="password" placeholder="Mot de passe" name="password" required>
 
             <input type="submit" value="Connexion">
 
@@ -65,7 +75,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
 
 
-        <script type="text/javascript" src="script.js"> var btnPopup = document.getElementById('btnPopup');
+        <script type="text/javascript" src="../lib/script.js"> var btnPopup = document.getElementById('btnPopup');
             var overlay = document.getElementById('overlay');
             btnPopup.addEventListener('click',openMoadl);
             function openMoadl() {
