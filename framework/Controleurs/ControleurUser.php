@@ -3,15 +3,15 @@
 
 class ControleurUser
 {
-
-
     try{
-
 
         public function InscriptionAction($Identifiant, $email, $password)
         {
             $new_User = new User ();
-            $new_User->Inscription($Identifiant, $email, $password);
+            if($new_User->Inscription($Identifiant, $email, $password))
+            {
+                echo 'faudra afficher la vue';
+            }
 
         }
 
@@ -24,9 +24,11 @@ class ControleurUser
 
 
     }catch(Exception $e)
+
     {
         $errorMsg = $e->getMessage();
-        require_once('Vues/Views/viewError.php');
+        Vue::montrer('Views/viewError.php');
+
     }
 
 

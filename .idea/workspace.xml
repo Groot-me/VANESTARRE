@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
-      <change afterPath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/Vues/Views/voir.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/data-processing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/helloworld/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Views/inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/helloworld/voir.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Noyau/Controleur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610616336027</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="ControleurUser.php et ajout classe BD ainsi que User.php">
+      <created>1611140291255</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1611140291255</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +219,7 @@
     <MESSAGE value="add directory and first php file" />
     <MESSAGE value="a" />
     <MESSAGE value="Accueil.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Accueil.php" />
+    <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
   </component>
 </project>

@@ -1,3 +1,4 @@
 <?php
 
-echo $errorMsg ;
+echo "<div>".$errorMsg."</div>";
+

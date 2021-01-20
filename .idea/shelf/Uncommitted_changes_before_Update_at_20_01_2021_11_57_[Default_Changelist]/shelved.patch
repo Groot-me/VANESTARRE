@@ -1,0 +1,291 @@
+Index: framework/Controleurs/ControleurUser.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nclass ControleurUser\r\n{\r\n\r\n\r\n    public function InscriptionAction($Identifiant, $email, $password)\r\n    {\r\n        $new_User = new User ();\r\n        $new_User->Inscription($Identifiant, $email ,$password);\r\n\r\n    }\r\n\r\n    public function ConnexionAction($Identifiant, $password)\r\n    {\r\n        $new_User = new User ();\r\n        $new_User->Connexion($Identifiant ,$password);\r\n\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Controleurs/ControleurUser.php b/framework/Controleurs/ControleurUser.php
+--- a/framework/Controleurs/ControleurUser.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/Controleurs/ControleurUser.php	(date 1611140231933)
+@@ -5,19 +5,29 @@
+ {
+ 
+ 
+-    public function InscriptionAction($Identifiant, $email, $password)
+-    {
+-        $new_User = new User ();
+-        $new_User->Inscription($Identifiant, $email ,$password);
++    try{
++
++
++        public function InscriptionAction($Identifiant, $email, $password)
++        {
++            $new_User = new User ();
++            $new_User->Inscription($Identifiant, $email, $password);
+ 
+-    }
++        }
+ 
+-    public function ConnexionAction($Identifiant, $password)
+-    {
+-        $new_User = new User ();
+-        $new_User->Connexion($Identifiant ,$password);
++        public function ConnexionAction($Identifiant, $password)
++        {
++            $new_User = new User ();
++            $new_User->Connexion($Identifiant, $password);
+ 
+-    }
++        }
+ 
+ 
++    }catch(Exception $e)
++    {
++        $errorMsg = $e->getMessage();
++        require_once('Vues/Views/viewError.php');
++    }
++
++
+ }
+\ No newline at end of file
+Index: framework/Modele/BD.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nabstract class BD\r\n{\r\n    private static $_Bdd;\r\n\r\n    //genere la connexion a la BD\r\n    private static function setBdd()\r\n    {\r\n        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');\r\n    }\r\n\r\n    protected function getBdd()\r\n    {\r\n        if(self::$_Bdd == null) self::setBdd();\r\n\r\n        return self::$_Bdd;\r\n\r\n    }\r\n\r\n    protected function getUser($requete)\r\n    {\r\n        $tab = [];\r\n        $req = self::$_Bdd->prepare($requete);\r\n        $req->execute();\r\n\r\n        while($data = $req->fetch(PDO::FETCH_ASSOC))\r\n        {\r\n            $tab[] = $data ;\r\n        }\r\n        return $tab;\r\n        $req->closeCursor();\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Modele/BD.php b/framework/Modele/BD.php
+--- a/framework/Modele/BD.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/Modele/BD.php	(date 1611139277058)
+@@ -8,7 +8,8 @@
+     //genere la connexion a la BD
+     private static function setBdd()
+     {
+-        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');
++        self::$_Bdd = new PDO('mysql:host=localhost:dbname=vanestarre;charset=utf8','root','');
++        self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERMORE_WARNING);
+     }
+ 
+     protected function getBdd()
+@@ -19,7 +20,7 @@
+ 
+     }
+ 
+-    protected function getUser($requete)
++    protected function getObject($requete)
+     {
+         $tab = [];
+         $req = self::$_Bdd->prepare($requete);
+@@ -34,4 +35,11 @@
+ 
+     }
+ 
++    protected function insertObject($requete)
++    {
++        $req = self::$_Bdd->prepare($requete);
++        $req->execute();
++
++    }
++
+ }
+Index: framework/Vues/helloworld/voir.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Vues/helloworld/voir.php b/framework/Vues/Views/voir.php
+rename from framework/Vues/helloworld/voir.php
+rename to framework/Vues/Views/voir.php
+--- a/framework/Vues/helloworld/voir.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/Vues/Views/voir.php	(date 1611140172971)
+@@ -1,6 +1,6 @@
+ <?php
+ 
+ 
+-echo "<p>" . $A_vue['helloworld']  . "</p>";
++echo "<p>" . $A_vue['Helloworld']  . "</p>";
+ 
+ 
+Index: Test/data-processing.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>session_start();\r\n\r\n<?php\r\ninclude 'utils.inc.php';\r\n\r\n\r\n\r\nstart_page('Inscription reussi');\r\n\r\n\r\n\r\n$dbLink = mysqli_connect('127.0.0.1','root','','test') or die('Erreur de connexion au serveur : ' . mysqli_connect_error());\r\n\r\n// Est ce que je m'inscris ?\r\nif(isset($_POST['action']))\r\n{\r\n\r\n    if ($_POST['action'] == 'Inscription') {\r\n        //affectation variable\r\n\r\n        if (isset($_POST['id'], $_POST['sexe'], $_POST['mail'], $_POST['mdp'])) {\r\n            $mail = $_POST['mail'];\r\n            $pseudo = $_POST['id'];\r\n\r\n            $passwd = $_POST['mdp'];\r\n            $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);\r\n\r\n            $sexe = $_POST['sexe'];\r\n            $pays = $_POST['pays'];\r\n            $today = date('Y-m-d');\r\n\r\n        }\r\n        if (isset($_POST['tel'])) {\r\n            $phone = $_POST['tel'];\r\n        } else {\r\n            $phone = \"NULL\";\r\n        }\r\n\r\n\r\n        //verification si le pseudo est deja utilisé\r\n\r\n        $verify = \"SELECT PSEUDO FROM user WHERE PSEUDO ='\" . $pseudo . \"' \";\r\n\r\n        if (!($queryresult = mysqli_query($dbLink, $verify))) {\r\n            echo 'Erreur de requête<br/>';\r\n            // Affiche le type d'erreur.\r\n            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n            // Affiche la requête envoyée.\r\n            echo 'Requête : ' . $verify . '<br/>';\r\n            exit();\r\n        }\r\n\r\n        $dbRow = mysqli_fetch_array($queryresult);\r\n\r\n\r\n        if ($dbRow['PSEUDO'] == null) { //si le pseudo n'est pas utilisé insertion de l'utilisateur\r\n\r\n            //cree la requete d'insertion\r\n            $insert = 'INSERT INTO user VALUES (NULL, \"' . $pseudo . '\" , \"' . $mail . '\", \"' . $sexe . '\", \"' . $mdpHash . '\", \"' . $phone . '\", \"' . $pays . '\", \"' . $today . '\")';\r\n\r\n            if (!($queryresult = mysqli_query($dbLink, $insert))) {\r\n                echo 'Erreur de requête<br/>';\r\n                // Affiche le type d'erreur.\r\n                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n                // Affiche la requête envoyée.\r\n                echo 'Requête : ' . $insert . '<br/>';\r\n                exit();\r\n            } else {\r\n                echo 'Inscription réalisé !!!!!!!!!!! ' . '<br>';\r\n            }\r\n\r\n        } else {\r\n\r\n            echo 'Pseudo deja utiliséééééééééééééééééééééééééééééééé !!!';\r\n\r\n        }\r\n    }\r\n}\r\n//connexion !\r\nelse {\r\n\r\n    if(isset($_POST['pseudo'],$_POST['passwdcon'])) {\r\n        //affectation variable\r\n\r\n        $pseudocon = $_POST['pseudo'];\r\n        $passwdcon = $_POST['passwdcon'];\r\n\r\n        //requete de connexion avec le pseudo\r\n        $query = \"SELECT PSEUDO,PASSWORD FROM user WHERE PSEUDO ='\" . $pseudocon . \"' \";\r\n\r\n\r\n\r\n        // on envoie la requête et on la test\r\n        if (!($queryresult = mysqli_query($dbLink, $query))) {\r\n            echo 'Erreur de requête<br/>';\r\n            // Affiche le type d'erreur.\r\n            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n            // Affiche la requête envoyée.\r\n            echo 'Requête : ' . $query . '<br/>';\r\n            exit();\r\n        }\r\n\r\n        $dbRow = mysqli_fetch_array($queryresult);\r\n\r\n        if($dbRow['PSEUDO'] == null)\r\n        {\r\n            echo 'Mauvais pseudo !!!!!!!!!!!!';\r\n        }\r\n\r\n        if (password_verify($passwdcon, $dbRow['PASSWORD'])) {\r\n\r\n            echo 'Connexion réussi' . \"<br>\" . 'Monsieur ' . $pseudocon;\r\n            echo \"<br>\" . 'Voici votre mot de passe ' . $dbRow['PASSWORD'] . \"<br>\";\r\n\r\n        } else {\r\n\r\n            echo 'MAUVAIS MOT DE PASSSE';\r\n        }\r\n\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n// On créé la requête\r\n$query = 'SELECT * FROM user ORDER BY ID';\r\n\r\n// on envoie la requête et on la test\r\nif(!($dbResult = mysqli_query($dbLink, $query)))\r\n{\r\n    echo 'Erreur de requête<br/>';\r\n// Affiche le type d'erreur.\r\n    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n// Affiche la requête envoyée.\r\n    echo 'Requête : ' . $query . '<br/>';\r\n    exit();\r\n}\r\n\r\n?>\r\n<style>\r\n    table,td,thead {\r\n        border: black 2px solid;\r\n        border-collapse: collapse;\r\n    }\r\n    td {\r\n        padding: 10px;\r\n    }\r\n</style>\r\n\r\n<?php\r\n\r\n\r\necho \"<table><thead>\".\"Mes données\".\"</thdead><tbody>\";\r\nwhile($dbRow = mysqli_fetch_array($dbResult))\r\n{\r\n    echo \"<tr>\";\r\n    echo \"<td>\".$dbRow['ID'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PSEUDO'].\"</td>\";\r\n    echo \"<td>\".$dbRow['MAIL'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PASSWORD'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PHONE'].\"</td>\";\r\n    echo \"<td>\".$dbRow['SEXE'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PAYS'].\"</td>\";\r\n    echo \"<td>\".date('d.m.Y', strtotime($dbRow['DATES'])).\"</td>\";\r\n    echo \"</tr>\";\r\n}\r\n\r\necho \"</tbody></table>\";\r\n\r\n\r\n\r\n\r\n\r\n\r\n//ça laisse tomber j'ai du installer un truc pour le faire c'est bordel\r\n/*\r\n\r\nif(isset($_POST['id'],$_POST['sexe'],$_POST['mail'],$_POST['mdp']))\r\n{\r\n$to = $_POST['mail'];\r\n$id = $_POST['id'];\r\n\r\n$mail_yes = true;\r\n\r\n}\r\n$message = 'Bonjour '.$_POST['sexe'].' '.$id.\"\\n\";\r\n$message .= 'Voici vos identifiants d\\'inscription : ' . $id.\"\\n\" ;\r\n$message .= 'Email : ' . $to .\"\\n\";\r\n$message .= 'Mot de passe : ' . $_POST['mdp'].\"\\n\";\r\nif(isset($_POST['telephone']))\r\n{\r\n$message .= 'Votre n° de telephone: '.$_POST['telephone'].\"\\n\";\r\n}\r\n\r\nif(isset($_POST['pays']))\r\n{\r\n$message .= 'Votre pays : '.$_POST['pays'].\"\\n\";\r\n}\r\n\r\n$subject = 'Inscription reussi';\r\n\r\n\r\nif(mail($to, $subject, $message))\r\n{\r\necho 'Votre mail a bien été envoyé';\r\n}\r\nelse{\r\necho 'un soucis est apparu';\r\n}\r\n\r\n*/
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Test/data-processing.php b/Test/data-processing.php
+--- a/Test/data-processing.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/Test/data-processing.php	(date 1611138585749)
+@@ -23,6 +23,7 @@
+             $pseudo = $_POST['id'];
+ 
+             $passwd = $_POST['mdp'];
++
+             $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);
+ 
+             $sexe = $_POST['sexe'];
+Index: framework/Modele/User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nclass User extends BD\r\n{\r\n    private $identifiants;\r\n    private $email;\r\n    private $password;\r\n\r\n    public function Inscription($identifiants, $email, $password )\r\n    {\r\n        if(isset($identifiants,$email,$password))\r\n        {\r\n            //verification si le pseudo est deja utilisé\r\n            $verify = 'SELECT PSEUDO FROM user WHERE PSEUDO ='.$identifiants ;\r\n            $this->getBdd();\r\n\r\n            if($this->getUser($verify) == null)\r\n            {\r\n                echo 'Inscription réussi';\r\n            }\r\n            else\r\n            {\r\n                echo 'pseudo deja utilisé';\r\n            }\r\n\r\n        }\r\n        else{\r\n\r\n        }\r\n\r\n    }\r\n\r\n    public function Connexion($identifiants, $password) {\r\n\r\n        //verifie arguments\r\n\r\n        //connexion BD\r\n\r\n        //requete\r\n\r\n        // vu\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Modele/User.php b/framework/Modele/User.php
+--- a/framework/Modele/User.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/Modele/User.php	(date 1611139866537)
+@@ -9,24 +9,36 @@
+ 
+     public function Inscription($identifiants, $email, $password )
+     {
+-        if(isset($identifiants,$email,$password))
++        if(isset($identifiants,$email,$password) && ctype_alnum($identifiants) )
+         {
+             //verification si le pseudo est deja utilisé
+-            $verify = 'SELECT PSEUDO FROM user WHERE PSEUDO ='.$identifiants ;
++            $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
++
+             $this->getBdd();
+ 
+-            if($this->getUser($verify) == null)
++            if($this->getObject($verify) == null)
+             {
++
++                //creation du mdp hashé sécurisé
++                $passwd_HASH = password_hash($password,PASSWORD_DEFAULT);
++                //creation date du jour
++                $date = date('Y-m-d');
++
++                $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
+                 echo 'Inscription réussi';
++                header("../../a");
+             }
+             else
+             {
++
+                 echo 'pseudo deja utilisé';
++
+             }
+ 
+         }
+         else{
+ 
++
+         }
+ 
+     }
+Index: framework/index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n<?php\r\n\r\n// Ce fichier est le point d'entrée de votre application\r\n\r\n    require 'Noyau/ChargementAuto.php';\r\n    /*\r\n     url pour notre premier test MVC Hello World,\r\n     nous n'avons pas d'action précisée on visera celle par défaut\r\n     index.php?ctrl=helloworld\r\n    */\r\n\r\n    $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;\r\n    $S_action = isset($_GET['action']) ? $_GET['action'] : null;\r\n\r\n\r\n\r\n    Vue::ouvrirTampon(); //  /Noyau/Vue.php : on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans\r\n\r\n    $tab = array(\"salut\",\"lol\",\"enorme\");\r\n    $O_controleur = new Controleur($S_controleur, $S_action,$tab);\r\n\r\n    var_dump($O_controleur);\r\n\r\n\r\n    $O_controleur->executer();\r\n\r\n    // Les différentes sous-vues ont été \"crachées\" dans le tampon d'affichage, on les récupère\r\n    $contenuPourAffichage = Vue::recupererContenuTampon();\r\n\r\n    // On affiche le contenu dans la partie body du gabarit général\r\n    Vue::montrer('gabarit', array('body' => $contenuPourAffichage));\r\n\r\n?>\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/index.php b/framework/index.php
+--- a/framework/index.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/index.php	(date 1611140173087)
+@@ -7,7 +7,7 @@
+     /*
+      url pour notre premier test MVC Hello World,
+      nous n'avons pas d'action précisée on visera celle par défaut
+-     index.php?ctrl=helloworld
++     index.php?ctrl=Views
+     */
+ 
+     $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
+Index: framework/Controleurs/ControleurHelloworld.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nfinal class ControleurHelloworld\r\n{\r\n    public function defautAction()\r\n    {\r\n        $O_helloworld =  new Helloworld();\r\n\r\n        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));\r\n\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Controleurs/ControleurHelloworld.php b/framework/Controleurs/ControleurHelloworld.php
+--- a/framework/Controleurs/ControleurHelloworld.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/framework/Controleurs/ControleurHelloworld.php	(date 1611140173071)
+@@ -6,7 +6,7 @@
+     {
+         $O_helloworld =  new Helloworld();
+ 
+-        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));
++        Vue::montrer('Views/voir', array('Views' =>  $O_helloworld->donneMessage()));
+ 
+     }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"Finalisation accueil.php\">\r\n      <change afterPath=\"$PROJECT_DIR$/Test/Site.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Test/Site.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/Accueil.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/Accueil.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/Accueil.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/Accueil.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP\" />\r\n  <component name=\"ProjectId\" id=\"1muruqkyDBqiU7p497dnyodq4KU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.lookFeel\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610354543171</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610354543171</updated>\r\n      <workItem from=\"1610354545340\" duration=\"3503000\" />\r\n      <workItem from=\"1610550684257\" duration=\"28000\" />\r\n      <workItem from=\"1610552784625\" duration=\"230000\" />\r\n      <workItem from=\"1610553158377\" duration=\"782000\" />\r\n      <workItem from=\"1610616619633\" duration=\"948000\" />\r\n      <workItem from=\"1610838246071\" duration=\"17778000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"add directory and first php file\">\r\n      <created>1610354667799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610354667799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"a\">\r\n      <created>1610550888548</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550888548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"a\">\r\n      <created>1610550914462</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550914462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"a\">\r\n      <created>1610550977641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550977641</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"a\">\r\n      <created>1610551040762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551040762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"a\">\r\n      <created>1610551078992</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551078992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"a\">\r\n      <created>1610551207850</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551207850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"a\">\r\n      <created>1610551345645</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551345645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"a\">\r\n      <created>1610552135769</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552135769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"a\">\r\n      <created>1610552190948</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552190948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"a\">\r\n      <created>1610552747092</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552747092</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Accueil.php\">\r\n      <created>1610553002713</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553002713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Accueil.php\">\r\n      <created>1610553616816</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553616816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Accueil.php\">\r\n      <created>1610553938288</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553938288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Accueil.php\">\r\n      <created>1610614553149</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610614553149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Accueil.php\">\r\n      <created>1610616308735</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616308735</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Accueil.php\">\r\n      <created>1610616336027</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616336027</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"18\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"add directory and first php file\" />\r\n    <MESSAGE value=\"a\" />\r\n    <MESSAGE value=\"Accueil.php\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Accueil.php\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
++++ b/.idea/workspace.xml	(date 1611139965161)
+@@ -4,15 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Finalisation accueil.php">
+-      <change afterPath="$PROJECT_DIR$/Test/Site.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Test/Site.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" afterDir="false" />
++    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
++      <change afterPath="$PROJECT_DIR$/framework/Vues/helloworld/viewError.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/data-processing.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -192,7 +190,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1610616336027</updated>
+     </task>
+-    <option name="localTasksCounter" value="18" />
++    <task id="LOCAL-00018" summary="ControleurUser.php et ajout classe BD ainsi que User.php">
++      <created>1611136860567</created>
++      <option name="number" value="00018" />
++      <option name="presentableId" value="LOCAL-00018" />
++      <option name="project" value="LOCAL" />
++      <updated>1611136860567</updated>
++    </task>
++    <option name="localTasksCounter" value="19" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -214,6 +219,7 @@
+     <MESSAGE value="add directory and first php file" />
+     <MESSAGE value="a" />
+     <MESSAGE value="Accueil.php" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Accueil.php" />
++    <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
++    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: framework/Vues/Views/viewError.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/Vues/Views/viewError.php b/framework/Vues/Views/viewError.php
+new file mode 100644
+--- /dev/null	(date 1611140188383)
++++ b/framework/Vues/Views/viewError.php	(date 1611140188383)
+@@ -0,0 +1,3 @@
++<?php
++
++echo $errorMsg ;
+\ No newline at end of file
+diff --git a/framework/Vues/helloworld/inscription.php b/framework/Vues/Views/inscription.php
+rename from framework/Vues/helloworld/inscription.php
+rename to framework/Vues/Views/inscription.php

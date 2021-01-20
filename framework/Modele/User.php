@@ -11,6 +11,7 @@ class User extends BD
     {
         if(isset($identifiants,$email,$password) && ctype_alnum($identifiants) )
         {
+
             //verification si le pseudo est deja utilisé
             $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
 
@@ -25,13 +26,16 @@ class User extends BD
                 $date = date('Y-m-d');
 
                 $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
-                echo 'Inscription réussi';
-                header("../../a");
+
+                $this->insertObject($insert);
+
+
+                return true;
+
             }
             else
             {
-
-                echo 'pseudo deja utilisé';
+                throw new Exception("Identifiants deja utilisé ");
 
             }
 
@@ -47,33 +51,41 @@ class User extends BD
 
         //verifie arguments
         if(isset($_POST['username'/*identifiant*/]) && isset($_POST['password'])){
+
             $this->getBdd(); //connexion BD
-            $username = $this->quote($_POST['username']);
-            $password =  password_hash($password, PASSWORD_DEFAULT);
-            $sql = "SELECT * FROM user WHERE username = $username 
-                        AND password = '$password'";
+
+            $sql = "SELECT * FROM user WHERE username = $username AND password = '$password'";
+
+
             $select = $this->query($sql); //requete
+
             if($select->rowCount() > 0 ){
                 $SESSION['Auth'] = $select->fetch();
                 setFlash('Vous êtes maintenant connecté'); //vue
                 header('Location:' . WEBROOT . 'Site.php'); //lien vers Site.
                 die();
             }
+
         }
 
     }
+
     //CONNEXION REUSSIE
-    function flash(){
+    private function flash(){
         $message = 'Vous êtes bien connecté';
         $type = 'succes';
         if(isset($_SESSION['Flash'])){
+
             extract($_SESSION['Flash']);
+
             unset($_SESSION['Flash']);
+
             return "<div class = 'alert alert-$type'>$message</div>";
 
         }//flash()
 
     }
+
     function setFlash($message, $type = 'success'){
         $_SESSION['Flash']['message'] = $message;
         $_SESSION['Flash']['type']    = $type;
