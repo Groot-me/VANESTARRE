@@ -8,7 +8,7 @@ abstract class BD
     //genere la connexion a la BD
     private static function setBdd()
     {
-        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');
+        self::$_Bdd = new PDO('mysql:host=localhost:dbname=vanestarre;charset=utf8','root','');
     }
 
     protected function getBdd()

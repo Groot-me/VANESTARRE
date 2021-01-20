@@ -1,35 +1,29 @@
-
 <?php  //CONNEXION AU SITE
-    $auth =0; // INITIALISATION DE L'AUTHENTIFICATION
-    include 'lib/includes.php'; //inclusion de lib
+$auth =0; // INITIALISATION DE L'AUTHENTIFICATION
+include 'lib/includes.php'; //inclusion de lib
 
-    if(isset($_POST['username']) && isset($_POST['password'])) { // check pasword et username
-        $db = new PDO('mysql:host=localhost;dbname=test', 'root', ''); // connexion à la bd
-        $username = $db->quote($_POST['username']); //affectation du username
-        $password = sha1($_POST['password']); //hachage mdp
-        $sql = "SELECT * FROM users WHERE username = $username  AND password = '$password' "; //requete sql simple
-        $select = $db->query($sql);
-        if ($select->rowCount() > 0) {
-            $_SESSION['Auth'] = $select->fetch(); //chercher le nouveau resultat
-            setFlash('Vous êtes maintenant connecté');
-            header('Location:' . WEBROOT . 'Site.php'); //lien vers Site.
-            die();
-        }
+if(isset($_POST['username']) && isset($_POST['password'])) { // check pasword et username
+    $db = new PDO('mysql:host=localhost;dbname=test', 'root', ''); // connexion à la bd
+    $username = $db->quote($_POST['username']); //affectation du username
+    $password = sha1($_POST['password']); //hachage mdp
+    $sql = "SELECT * FROM users WHERE username = $username  AND password = '$password' "; //requete sql simple
+    $select = $db->query($sql);
+    if ($select->rowCount() > 0) {
+        $_SESSION['Auth'] = $select->fetch(); //chercher le nouveau resultat
+        setFlash('Vous êtes maintenant connecté');
+        header('Location:' . WEBROOT . 'Site.php'); //lien vers Site.
+        die();
     }
+}
 
 ?>
-
-
-
-
-
 <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>VANESTARRE - Connexion ou Inscription</title>
     <link type="text/css" rel="stylesheet" href="Accueil.css?t=<?= time(); ?>" media="all">
-    <?= flash(); ?>
+
 </head>
 <body>
 

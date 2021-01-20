@@ -1,10 +1,14 @@
 
+<?php include 'lib/includes.php';?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>VANESTARRE</title>
     <link type="text/css" rel="stylesheet" href="Site.css?t=<? echo time(); ?>" media="all">
+    <?= flash(); ?>
 </head>
 <body>
 
