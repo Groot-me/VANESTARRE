@@ -54,14 +54,16 @@ final class Controleur
 
         $this->_tab_Arg = $Tab_Arg;
     }
-    
+
+
     //On exécute
     public function executer()
     {
         //fonction de rappel de notre controleur cible (ControleurHelloworld pour notre premier exemple)
-        call_user_func_array(array(new $this->_A_urlDecortique['controleur'], $this->_A_urlDecortique['action']) , array());
+        call_user_func_array(array(new $this->_A_urlDecortique['controleur'], $this->_A_urlDecortique['action']) , $this->_tab_Arg );
 
     }
+
 
 
 }

@@ -21,7 +21,10 @@ final class Vue
             $A_vue = $A_parametres;
             // Démarrage d'un sous-tampon
             ob_start();
+
             include $S_fichier; // c'est dans ce fichier que sera utilisé A_vue, la vue est incluse dans le sous-tampon
-            ob_end_flush();
+
+        ob_end_flush();
     }
+
 }

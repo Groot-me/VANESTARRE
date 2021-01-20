@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -19,7 +20,7 @@
     <div id="Profil_And_List">
             <select onChange="location = this.options[this.selectedIndex].value;">
                 <option style="display: none"></option>
-                <option> <a>Profil</a> </option>
+                <option> Profil </option>
                 <option value="Accueil.php" >Deconnexion</option>
             </select>
     </div>

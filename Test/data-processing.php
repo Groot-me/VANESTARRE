@@ -72,8 +72,8 @@ if(isset($_POST['action']))
         } else {
 
             echo 'Pseudo deja utiliséééééééééééééééééééééééééééééééé !!!';
-        }
 
+        }
     }
 }
 //connexion !
