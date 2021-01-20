@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="login reussi accueil.php">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
+      <change afterPath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework/Vues/Views/voir.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Site.css" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/nice.png" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/nice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/submit_button.png" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/submit_button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/data-processing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/helloworld/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Views/inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/helloworld/voir.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolio" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -63,12 +60,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\larib\PhpstormProjects\VANESTARRE\framework\Vues" />
-      <recent name="C:\Users\larib\PhpstormProjects\VANESTARRE\Test\lib" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -84,10 +75,6 @@
       <workItem from="1610553158377" duration="782000" />
       <workItem from="1610616619633" duration="948000" />
       <workItem from="1610838246071" duration="17778000" />
-      <workItem from="1610985712562" duration="52000" />
-      <workItem from="1611047688528" duration="416000" />
-      <workItem from="1611087269510" duration="80000" />
-      <workItem from="1611126911443" duration="3450000" />
     </task>
     <task id="LOCAL-00001" summary="add directory and first php file">
       <created>1610354667799</created>
@@ -208,14 +195,7 @@
       <option name="project" value="LOCAL" />
       <updated>1610616336027</updated>
     </task>
-    <task id="LOCAL-00018" summary="Finalisation accueil.php">
-      <created>1611128957616</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1611128957616</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +217,6 @@
     <MESSAGE value="add directory and first php file" />
     <MESSAGE value="a" />
     <MESSAGE value="Accueil.php" />
-    <MESSAGE value="Finalisation accueil.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalisation accueil.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Accueil.php" />
   </component>
 </project>

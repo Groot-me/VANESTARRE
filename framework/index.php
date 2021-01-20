@@ -7,7 +7,7 @@
     /*
      url pour notre premier test MVC Hello World,
      nous n'avons pas d'action précisée on visera celle par défaut
-     index.php?ctrl=helloworld
+     index.php?ctrl=Views
     */
 
     $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;

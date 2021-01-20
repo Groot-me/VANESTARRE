@@ -9,23 +9,35 @@ class User extends BD
 
     public function Inscription($identifiants, $email, $password )
     {
-        if(isset($identifiants,$email,$password))
+        if(isset($identifiants,$email,$password) && ctype_alnum($identifiants) )
         {
             //verification si le pseudo est deja utilisé
-            $verify = 'SELECT PSEUDO FROM user WHERE PSEUDO ='.$identifiants ;
+            $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
+
             $this->getBdd();
 
-            if($this->getUser($verify) == null)
+            if($this->getObject($verify) == null)
             {
+
+                //creation du mdp hashé sécurisé
+                $passwd_HASH = password_hash($password,PASSWORD_DEFAULT);
+                //creation date du jour
+                $date = date('Y-m-d');
+
+                $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
                 echo 'Inscription réussi';
+                header("../../a");
             }
             else
             {
+
                 echo 'pseudo deja utilisé';
+
             }
 
         }
         else{
+
 
         }
 

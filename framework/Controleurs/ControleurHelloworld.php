@@ -6,7 +6,7 @@ final class ControleurHelloworld
     {
         $O_helloworld =  new Helloworld();
 
-        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));
+        Vue::montrer('Views/voir', array('Views' =>  $O_helloworld->donneMessage()));
 
     }
 

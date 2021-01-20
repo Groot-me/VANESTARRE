@@ -23,6 +23,7 @@ if(isset($_POST['action']))
             $pseudo = $_POST['id'];
 
             $passwd = $_POST['mdp'];
+
             $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);
 
             $sexe = $_POST['sexe'];
