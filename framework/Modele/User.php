@@ -19,6 +19,10 @@ class User extends BD
             {
                 echo 'Inscription réussi';
             }
+            else
+            {
+                echo 'pseudo deja utilisé';
+            }
 
         }
         else{
