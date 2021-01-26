@@ -28,23 +28,16 @@ class User extends BD
                 $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
 
                 $this->insertObject($insert);
-
-
                 return true;
-
             }
-            else
-            {
+            else {
                 throw new Exception("Identifiants deja utilisé ");
-
             }
-
         }
         else{
 
 
         }
-
     }
 
     public function Connexion($identifiants, $password) {
@@ -67,7 +60,6 @@ class User extends BD
             }
 
         }
-
     }
 
     //CONNEXION REUSSIE
@@ -83,7 +75,6 @@ class User extends BD
             return "<div class = 'alert alert-$type'>$message</div>";
 
         }//flash()
-
     }
 
     function setFlash($message, $type = 'success'){

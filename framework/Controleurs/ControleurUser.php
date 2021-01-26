@@ -23,7 +23,8 @@ class ControleurUser
         }
 
 
-    }catch(Exception $e)
+    }
+    catch(Exception $e)
 
     {
         $errorMsg = $e->getMessage();
