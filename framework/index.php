@@ -17,8 +17,8 @@
 
     Vue::ouvrirTampon(); //  /Noyau/Vue.php : on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans
 
-    $tab = array("salut","lol","enorme");
-    $O_controleur = new Controleur($S_controleur, $S_action,$tab);
+
+    $O_controleur = new Controleur($S_controleur, $S_action);
 
     var_dump($O_controleur);
 
@@ -30,6 +30,7 @@
 
     // On affiche le contenu dans la partie body du gabarit général
     Vue::montrer('gabarit', array('body' => $contenuPourAffichage));
+
 
 ?>
 

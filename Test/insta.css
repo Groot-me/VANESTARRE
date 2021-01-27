@@ -60,10 +60,10 @@ input:focus::-moz-placeholder {
     transition: all 0.7s ease 0s;
 }
 #searchbox input[type="text"]:focus {
-   background: #f7f7f7;
-   border: 2px solid #f7f7f7;
-   width: 200px;
-   padding-left: 10px;
+    background: #f7f7f7;
+    border: 2px solid #f7f7f7;
+    width: 200px;
+    padding-left: 10px;
 
 }
 
@@ -73,10 +73,6 @@ input:focus::-moz-placeholder {
     border-width: 0px;
     width: 43px;
     height: 45px;
-}
-
-#button-submit:hover{
-    cursor: pointer;
 }
 
 
@@ -128,13 +124,9 @@ input:focus::-moz-placeholder {
 /*@@@@@@@@@@@@@@@@@@@@@@ CENTER et ARTICLE @@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #Center {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    flex-wrap: wrap;
-
     width: 50%;
     height: 100%;
+
 
     overflow: auto;
     margin-left: 10px;
@@ -153,7 +145,6 @@ input:focus::-moz-placeholder {
 .global_post {
     width: 450px;
     height: auto;
-    min-height: 550px;
 
     margin: 20px;
 

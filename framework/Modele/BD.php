@@ -3,12 +3,13 @@
 
 abstract class BD
 {
+
     private static $_Bdd;
 
     //genere la connexion a la BD
     private static function setBdd()
     {
-        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');
+        self::$_Bdd = new PDO('mysql:host=localhost;dbname=VANESTARRE;charset=utf8','root','');
         self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
@@ -52,6 +53,9 @@ abstract class BD
         $req->execute();
 
     }
+
+
+
 
 
 

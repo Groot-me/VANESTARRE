@@ -5,12 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/Helloworld.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Noyau/Controleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.css" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,15 +48,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1muruqkyDBqiU7p497dnyodq4KU" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -53,8 +77,16 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Application\wamp64\www\VANESTARRE\framework" />
+      <recent name="D:\Application\wamp64\www\VANESTARRE\Test" />
+      <recent name="D:\Application\wamp64\www\VANESTARRE\framework\Vues" />
+      <recent name="D:\Application\wamp64\www\VANESTARRE\framework\Vues\Views" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -70,6 +102,7 @@
       <workItem from="1610553158377" duration="782000" />
       <workItem from="1610616619633" duration="948000" />
       <workItem from="1610838246071" duration="17778000" />
+      <workItem from="1611685455175" duration="17868000" />
     </task>
     <task id="LOCAL-00001" summary="add directory and first php file">
       <created>1610354667799</created>
@@ -197,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611140291255</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="ControleurUser.php et ajout classe BD ainsi que User.php">
+      <created>1611156179483</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611156179483</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,5 +261,9 @@
     <MESSAGE value="Accueil.php" />
     <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
     <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

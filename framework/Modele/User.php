@@ -15,6 +15,7 @@ class User extends BD
             //verification si le pseudo est deja utilisé
             $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
 
+
             $this->getBdd();
 
             if($this->getObject($verify) == null)
@@ -24,6 +25,7 @@ class User extends BD
                 $passwd_HASH = password_hash($password,PASSWORD_DEFAULT);
                 //creation date du jour
                 $date = date('Y-m-d');
+
 
                 $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
 
