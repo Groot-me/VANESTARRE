@@ -7,7 +7,8 @@ Le site se découpe en plusieurs parties, la partie flux ou se trouve les articl
 
 Nous avons utilisé une architecture MVC, elle permet une organisation du code clair et une bonne flexibilité.Nous avons donc un ensemble de Modele/vue/controleurs qui s'organisent au sein de notre code. Notre site possède également des requêtes Ajax/JQuery pour liker les émojis sans recharger la page.
 
-La configuration minimale conseillé est:
+La configuration minimale conseillé est
+
 -ram 4go
 -processeur > 4eme generation
 -une connexion internet
