@@ -1,0 +1,3404 @@
+Index: framework/Vues/Accueil.css
+===================================================================
+diff --git a/framework/Vues/Accueil.css b/framework/Vues/Accueil.css
+deleted file mode 100644
+--- a/framework/Vues/Accueil.css	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,192 +0,0 @@
+-body {
+-    width: 100%;
+-    height: 100%;
+-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+-}
+-
+-html, body, div {
+-    margin: 0;
+-    padding: 0;
+-    border: 0;
+-    font: inherit;
+-    font-size: 100%;
+-    vertical-align: baseline;
+-}
+-
+-#form {
+-    display: flex;
+-    flex-flow: column;
+-    justify-content: space-evenly;
+-    align-self: center;
+-
+-    position: absolute;
+-
+-    font-family: "Avenir";
+-    color: rgb(0, 114, 163);
+-    margin-left: 41%;
+-    margin-top: 100px;
+-    width: auto;
+-    background-color: transparent;
+-    padding: 30px 60px;
+-    border-radius: 10px;
+-    box-shadow: 0 5px 15px -5px black;
+-}
+-
+-input[type="submit"] {
+-    width: 200px;
+-    height: 40px;
+-    border: 1px solid #335D95;
+-    border-radius: 10px;
+-    font-size: 14px;
+-    font-weight: bold;
+-    text-transform: uppercase;
+-    cursor: pointer;
+-    box-shadow: 0 5px 15px -5px #335D95;
+-    margin-bottom: 10px;
+-    font-style: italic;
+-    color: white;
+-    background-color: #335D95;
+-}
+-
+-.form input[type="text"] {
+-    flex-grow: 1;
+-    margin-bottom: 10px;
+-    padding-left: 15px;
+-    width: 180px;
+-    height: 40px;
+-    border: 1px solid #335D95;
+-    border-radius: 10px;
+-    font-size: 14px;
+-    color: #335D95;
+-    background-color: white;
+-}
+-
+-.form input[type="password"] {
+-    flex-grow: 1;
+-    margin-bottom: 10px;
+-    padding-left: 15px;
+-    width: 180px;
+-    height: 40px;
+-    border: 1px solid #335D95;
+-    border-radius: 10px;
+-    font-size: 14px;
+-    color: #335D95;
+-    background-color: white;
+-}
+-
+-#forgot {
+-    flex-grow: 1;
+-    text-decoration: none;
+-    font-size: 14px;
+-    color: #335D95;
+-    font-weight: bold;
+-    margin-left: auto;
+-    margin-right: auto;
+-}
+-
+-.form button {
+-
+-    flex-grow: 2;
+-
+-    width: 200px;
+-    height: 40px;
+-    border: 1px solid green;
+-    border-radius: 10px;
+-    font-size: 14px;
+-    font-weight: bold;
+-    text-transform: uppercase;
+-    cursor: pointer;
+-    box-shadow: 0 5px 15px -5px green;
+-    margin-top: 30px;
+-    font-style: italic;
+-    color: white;
+-    background-color: green;
+-}
+-
+-h1 {
+-    z-index: 1;
+-    font-family: 'Avenir';
+-    color: #335D95;
+-    font-size: 50px;
+-    width: 333px;
+-    position: relative;
+-    margin-top: 100px;
+-    margin-left: 41%;
+-}
+-
+-/* Div inscription et overlay */
+-
+-.overlay {
+-    position: fixed;
+-    background-color: rgba(0,0 ,0 , 0.5);
+-    width: 100%;
+-    height: 100%;
+-    z-index:1;
+-    display:none;
+-}
+-
+-
+-.popup {
+-    z-index: 2;
+-    position: relative;
+-    margin-left: 38%;
+-    margin-top: 150px;
+-    background-color: #335D95;
+-    border-radius: 10px;
+-    width: 430px;
+-}
+-
+-.popup header {
+-    background-color: #335D95;
+-    height: 50px;
+-    border: 1px solid #335D95;
+-    border-radius: 10px;
+-    font-family: 'Avenir';
+-    font-style: italic;
+-    font-size: 25px;
+-    font-weight: bold;
+-    color: white;
+-    text-align: center;
+-}
+-
+-.popup header span {
+-    width: 20px;
+-    height: 20px;
+-    float: right;
+-    font-size:15pt;
+-    cursor: pointer;
+-    color: rgb(26, 26, 26);
+-    margin-right: 10px;
+-    margin-top: 10px;
+-    border-radius: 50%;
+-    background-color: white;
+-    border: 1px solid transparent;
+-
+-}
+-.popup header span:hover {
+-    border: black 1px solid;
+-}
+-
+-#form_popup {
+-    padding-left: 15px;
+-    padding-top: 15px;
+-    padding-bottom: 15px;
+-}
+-#form_popup input[id="mail"] {
+-    background-color: white;
+-    width: 92%;
+-}
+-
+-#form_popup input[id="id"] {
+-    background-color: white;
+-    width: 92%;
+-}
+-
+-#form_popup input[type="submit"] {
+-    background-color: green;
+-    width: 200px;
+-    margin-left: 100px;
+-}
+-
+-
+-
+Index: framework/Controleurs/ControleurEmoji.php
+===================================================================
+diff --git a/framework/Controleurs/ControleurEmoji.php b/framework/Controleurs/ControleurEmoji.php
+deleted file mode 100644
+--- a/framework/Controleurs/ControleurEmoji.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,25 +0,0 @@
+-<?php
+-
+-
+-class ControleurEmoji
+-{
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @example fait le lien entre ajax et le modele
+-     */
+-    public function ClickEmojiAction()
+-    {
+-        $new_emoji = new Emoji();
+-
+-        if(isset($_GET['emoji'], $_GET['id']))
+-        {
+-            //test sécurité
+-
+-            $new_emoji->ClickOnEmoji($_GET['emoji'],$_GET['id']);
+-        }
+-
+-    }
+-}
+-
+Index: framework/Modele/Article.php
+===================================================================
+diff --git a/framework/Modele/Article.php b/framework/Modele/Article.php
+deleted file mode 100644
+--- a/framework/Modele/Article.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,61 +0,0 @@
+-<?php
+-
+-
+-class Article extends BD
+-{
+-
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @param $Tag le tag de l'article
+-     * @param $Url l'url de l'image
+-     * @param $Message le message de l'article
+-     * @param $Nb_Don le nb de don
+-     */
+-
+-
+-    public function CreerArticle($Tag,$Url,$Message,$Nb_Don)
+-    {
+-        //Faire les controles nécessaires voir avec les pros de la sécurité
+-
+-        $bdd = $this->getBdd();
+-
+-        $requete = 'INSERT INTO `articles` (`id`, `tag`, `message`, `img_source`, `emoji_cute`, `emoji_love`, `emoji_style`, `emoji_swag`, `nb_don`) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?); ';
+-
+-        $tabarg = array(NULL,$Tag,$Message,$Url,0,0,0,0,$Nb_Don);
+-        $req = $bdd->prepare($requete);
+-        if($req->execute($tabarg)) {
+-            echo 'Article crée';
+-        }else {
+-
+-            echo 'Erreur lors de la création d\'article';
+-
+-        }
+-
+-    }
+-
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @return array elle retourne une liste de parametres definissant un article
+-     */
+-    public function Afficher()
+-    {
+-
+-          $bdd = $this->getBdd();
+-          $requete = 'SELECT * FROM articles';
+-          $req = $bdd->prepare($requete);
+-          $req->execute();
+-
+-          while($article = $req->fetch(PDO::FETCH_ASSOC))
+-          {
+-              $tabarticle = array('id'=>$article['id'],'url'=> $article['img_source'], 'text'=>$article['message'], 'tag' => $article['tag'], 'nb_love'=>$article['emoji_love'],'nb_cute'=>$article['emoji_cute'],'nb_style'=>$article['emoji_style'],'nb_swag' => $article['emoji_swag']);
+-              return $tabarticle;
+-
+-          }
+-
+-    }
+-
+-}
+Index: framework/Modele/Helloworld.php
+===================================================================
+diff --git a/framework/Modele/Helloworld.php b/framework/Modele/Helloworld.php
+deleted file mode 100644
+--- a/framework/Modele/Helloworld.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,14 +0,0 @@
+-<?php
+-
+-final class Helloworld
+-{
+-    private $_S_message = "Hello World";
+-
+-    public function donneMessage()
+-    {
+-        return $this->_S_message ;
+-
+-    }
+-
+-
+-}
+\ No newline at end of file
+Index: framework/Controleurs/ControleurHelloworld.php
+===================================================================
+diff --git a/framework/Controleurs/ControleurHelloworld.php b/framework/Controleurs/ControleurHelloworld.php
+deleted file mode 100644
+--- a/framework/Controleurs/ControleurHelloworld.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,15 +0,0 @@
+-<?php
+-
+-final class ControleurHelloworld
+-{
+-    public function defautAction()
+-    {
+-        $O_helloworld =  new Helloworld();
+-
+-        Vue::montrer('Views/voir', array('Views' =>  $O_helloworld->donneMessage()));
+-
+-    }
+-
+-
+-
+-}
+Index: Test/insta.php
+===================================================================
+diff --git a/Test/insta.php b/Test/insta.php
+deleted file mode 100644
+--- a/Test/insta.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,57 +0,0 @@
+-<!doctype html>
+-<html lang="fr">
+-<head>
+-    <meta charset="utf-8">
+-    <title>VANESTARRE</title>
+-    <link type="text/css" rel="stylesheet" href="insta.css?t=<? echo time(); ?>" media="all">
+-
+-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+-
+-</head>
+-<body>
+-
+-<div id="main_bar">
+-    <h2> Vanestarre</h2>
+-
+-    <!-- search bar -->
+-    <form id="searchbox" method="get " action="/search " autocomplete="off ">
+-        <input name="q " type= "text" size= "15" placeholder= "Enter keywords here… " />
+-        <input type="button" id="button-submit" type= "submit " value="" />
+-    </form>
+-
+-    <div id="Profil_And_List">
+-        <select onChange="location = this.options[this.selectedIndex].value;">
+-            <option style="display: none"></option>
+-            <option> Profil </option>
+-            <option value="Accueil.php" >Deconnexion</option>
+-        </select>
+-    </div>
+-
+-</div>
+-
+-<main>
+-    <div id="Parent">
+-        <!-- Left side -->
+-        <div id="Left_Side">
+-
+-        </div>
+-        <!-- Center and main-->
+-        <div id="Center" >
+-            <div class="pagination">
+-                <a href="page1.php" class="pager__next">Next &rightarrow;</a>
+-            </div>
+-        </div> <!-- id='Center' -->
+-
+-
+-        <!--Right Side-->
+-        <div id="Right_Side"></div>
+-
+-
+-    </div> <!-- div Parent --->
+-
+-</main>
+-
+-
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: framework/Vues/gabarit.php
+===================================================================
+diff --git a/framework/Vues/gabarit.php b/framework/Vues/gabarit.php
+deleted file mode 100644
+--- a/framework/Vues/gabarit.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,12 +0,0 @@
+-<!doctype html>
+-<html lang="fr">
+-    <head>
+-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+-        <title>My sweet MVC</title>
+-    </head>
+-    <body>
+-        <?php Vue::montrer('standard/entete'); ?>
+-        <?php echo $A_vue['body']; ?>
+-        <?php Vue::montrer('standard/pied'); ?>
+-    </body>
+-</html>
+\ No newline at end of file
+Index: framework/Vues/standard/pied.php
+===================================================================
+diff --git a/framework/Vues/standard/pied.php b/framework/Vues/standard/pied.php
+deleted file mode 100644
+--- a/framework/Vues/standard/pied.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,1 +0,0 @@
+-<footer>Pied</footer>
+\ No newline at end of file
+Index: Test/ReadMe.md
+===================================================================
+diff --git a/Test/ReadMe.md b/Test/ReadMe.md
+deleted file mode 100644
+--- a/Test/ReadMe.md	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,6 +0,0 @@
+-
+-test.php contient le formulaire d'inscription ou de connexion
+-
+-data-processing.php contient un systeme d'authentification sécurisé via password_hash() et veirdy_password(),
+-analyse d'inscription (pseudo deja existant par exemple)
+-analyse de connexion (mauvais pseudo, mauvais mot de passe)
+Index: Test/page2.php
+===================================================================
+diff --git a/Test/page2.php b/Test/page2.php
+deleted file mode 100644
+--- a/Test/page2.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,161 +0,0 @@
+-<?php
+-
+-
+-if(!isset($A_vue))
+-{
+-
+-    echo 'que fait tu la ?';
+-    die();
+-}
+-
+-
+-?>
+-
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+-    <meta name="robots" content="noindex">
+-
+-    <title>Overflow Page 1</title>
+-
+-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+-    <link rel="stylesheet" href="insta.css"/>
+-
+-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+-
+-</head>
+-<body>
+-
+-<div class="global_post">
+-    <!-- header -->
+-    <div class="header_post">
+-        <img src="https://i.imgur.com/aq39RMA.jpg">
+-        <span>
+-                        <b>
+-                            Vanestarre
+-                        </b>
+-                    </span>
+-    </div>
+-    <!-- main -->
+-    <div class="main_post" >
+-
+-        <div class="main_post_img " style="content: url(<?php echo $A_vue['url'] ?>)"></div>
+-        <div class="main_post_text" >
+-                        <span class="text_span">
+-                            <?php echo $A_vue['text'] ?>
+-                        </span>
+-
+-            <div class="mini_div_hr"></div>
+-
+-            <span class="tag_span" >
+-                            <b>
+-                                <?php echo $A_vue['tag'] ?>
+-                            </b>
+-                        </span>
+-        </div>
+-
+-    </div>
+-    <!-- footer -->
+-
+-
+-    <script>
+-
+-        function emoji(emoji,id)
+-        {
+-            $.ajax({
+-                url: 'ajax.php?emoji='+emoji+'&id='+id,
+-                type: 'GET',
+-                dataType: 'JSON',
+-
+-                success: function(response) {
+-
+-                        var len = Object.keys(response).length;
+-
+-                        if(len == 1)
+-                        {
+-                            var erreur = response.error;
+-                            alert(erreur);
+-
+-                        }else
+-                        {
+-                            var id = response.id;
+-                            var nomemoji = response.emoji;
+-                            var plusorminus = response.result;
+-
+-                            if(plusorminus == 'plus')
+-                            {
+-                                //ajoute 1
+-                                var valeur = document.getElementById('increment_'+nomemoji+'_'+id).innerHTML ;
+-                                var valeur = parseInt(valeur) + 1 ;
+-                                document.getElementById('increment_'+nomemoji+'_'+id).innerHTML='';
+-                                document.getElementById('increment_'+nomemoji+'_'+id).innerHTML=valeur;
+-                            }
+-                            else
+-                            {
+-                                //enleve 1
+-                                var valeur = document.getElementById('increment_'+nomemoji+'_'+id).innerHTML ;
+-                                var valeur = parseInt(valeur) - 1 ;
+-                                if(valeur < 0)
+-                                {
+-                                    alert('Comment on en est arrivé la ?');
+-                                }else
+-                                {
+-                                    document.getElementById('increment_'+nomemoji+'_'+id).innerHTML='';
+-                                    document.getElementById('increment_'+nomemoji+'_'+id).innerHTML=valeur;
+-
+-                                }
+-
+-
+-                            }
+-                        }
+-
+-                }
+-
+-            });
+-
+-
+-
+-
+-        }
+-
+-
+-    </script>
+-
+-    <div class="footer_post">
+-
+-        <div class="emoji_love" onclick="emoji('love', <?=$A_vue['id']?>)"> </div>
+-        <span id="increment_love_<?= $A_vue['id']?>">
+-            <?php echo $A_vue['nb_love'] ?>
+-        </span>
+-        <span> Love </span>
+-
+-        <div class="emoji_cute" onclick="emoji('cute', <?=$A_vue['id']?>)"> </div>
+-        <span id="increment_cute_<?= $A_vue['id']?>">
+-            <?php echo $A_vue['nb_cute'] ?>
+-        </span>
+-        <span> cute </span>
+-
+-        <div class="emoji_style" onclick="emoji('style', <?=$A_vue['id']?>)"> </div>
+-        <span id="increment_style_<?= $A_vue['id']?>">
+-            <?php echo $A_vue['nb_style'] ?>
+-        </span>
+-        <span> style </span>
+-
+-        <div class="emoji_swag" onclick="emoji('swag',<?=$A_vue['id']?> )"> </div>
+-        <span id="increment_swag_<?= $A_vue['id']?>">
+-            <?= $A_vue['nb_swag'] ?>
+-        </span>
+-        <span> swag </span>
+-
+-    </div>
+-
+-</div>
+-
+-
+-
+-</body>
+-</html>
+-
+-
+Index: Test/lib/auth.php
+===================================================================
+diff --git a/Test/lib/auth.php b/Test/lib/auth.php
+deleted file mode 100644
+--- a/Test/lib/auth.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,9 +0,0 @@
+-<?php //AUTHENTIFICATION
+-session_start();
+-if(!isset($auth)){
+-    var_dump($_SESSION);
+-    if (!isset($_SESSION['Auth']['id'])) {
+-        header('Location:' . WEBROOT . 'Accueil.php');
+-        die();
+-    }
+-}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]" date="1611140263351" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 20/01/2021 11:57 [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: Test/data-processing.php
+===================================================================
+diff --git a/Test/data-processing.php b/Test/data-processing.php
+deleted file mode 100644
+--- a/Test/data-processing.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,213 +0,0 @@
+-session_start();
+-
+-<?php
+-include 'utils.inc.php';
+-
+-
+-
+-start_page('Inscription reussi');
+-
+-
+-
+-$dbLink = mysqli_connect('127.0.0.1','root','','test') or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
+-
+-// Est ce que je m'inscris ?
+-if(isset($_POST['action']))
+-{
+-
+-    if ($_POST['action'] == 'Inscription') {
+-        //affectation variable
+-
+-        if (isset($_POST['id'], $_POST['sexe'], $_POST['mail'], $_POST['mdp'])) {
+-            $mail = $_POST['mail'];
+-            $pseudo = $_POST['id'];
+-
+-            $passwd = $_POST['mdp'];
+-
+-            $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);
+-
+-            $sexe = $_POST['sexe'];
+-            $pays = $_POST['pays'];
+-            $today = date('Y-m-d');
+-
+-        }
+-        if (isset($_POST['tel'])) {
+-            $phone = $_POST['tel'];
+-        } else {
+-            $phone = "NULL";
+-        }
+-
+-
+-        //verification si le pseudo est deja utilisé
+-
+-        $verify = "SELECT PSEUDO FROM user WHERE PSEUDO ='" . $pseudo . "' ";
+-
+-        if (!($queryresult = mysqli_query($dbLink, $verify))) {
+-            echo 'Erreur de requête<br/>';
+-            // Affiche le type d'erreur.
+-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+-            // Affiche la requête envoyée.
+-            echo 'Requête : ' . $verify . '<br/>';
+-            exit();
+-        }
+-
+-        $dbRow = mysqli_fetch_array($queryresult);
+-
+-
+-        if ($dbRow['PSEUDO'] == null) { //si le pseudo n'est pas utilisé insertion de l'utilisateur
+-
+-            //cree la requete d'insertion
+-            $insert = 'INSERT INTO user VALUES (NULL, "' . $pseudo . '" , "' . $mail . '", "' . $sexe . '", "' . $mdpHash . '", "' . $phone . '", "' . $pays . '", "' . $today . '")';
+-
+-            if (!($queryresult = mysqli_query($dbLink, $insert))) {
+-                echo 'Erreur de requête<br/>';
+-                // Affiche le type d'erreur.
+-                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+-                // Affiche la requête envoyée.
+-                echo 'Requête : ' . $insert . '<br/>';
+-                exit();
+-            } else {
+-                echo 'Inscription réalisé !!!!!!!!!!! ' . '<br>';
+-            }
+-
+-        } else {
+-
+-            echo 'Pseudo deja utiliséééééééééééééééééééééééééééééééé !!!';
+-
+-        }
+-    }
+-}
+-//connexion !
+-else {
+-
+-    if(isset($_POST['pseudo'],$_POST['passwdcon'])) {
+-        //affectation variable
+-
+-        $pseudocon = $_POST['pseudo'];
+-        $passwdcon = $_POST['passwdcon'];
+-
+-        //requete de connexion avec le pseudo
+-        $query = "SELECT PSEUDO,PASSWORD FROM user WHERE PSEUDO ='" . $pseudocon . "' ";
+-
+-
+-
+-        // on envoie la requête et on la test
+-        if (!($queryresult = mysqli_query($dbLink, $query))) {
+-            echo 'Erreur de requête<br/>';
+-            // Affiche le type d'erreur.
+-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+-            // Affiche la requête envoyée.
+-            echo 'Requête : ' . $query . '<br/>';
+-            exit();
+-        }
+-
+-        $dbRow = mysqli_fetch_array($queryresult);
+-
+-        if($dbRow['PSEUDO'] == null)
+-        {
+-            echo 'Mauvais pseudo !!!!!!!!!!!!';
+-        }
+-
+-        if (password_verify($passwdcon, $dbRow['PASSWORD'])) {
+-
+-            echo 'Connexion réussi' . "<br>" . 'Monsieur ' . $pseudocon;
+-            echo "<br>" . 'Voici votre mot de passe ' . $dbRow['PASSWORD'] . "<br>";
+-
+-        } else {
+-
+-            echo 'MAUVAIS MOT DE PASSSE';
+-        }
+-
+-    }
+-
+-}
+-
+-
+-
+-// On créé la requête
+-$query = 'SELECT * FROM user ORDER BY ID';
+-
+-// on envoie la requête et on la test
+-if(!($dbResult = mysqli_query($dbLink, $query)))
+-{
+-    echo 'Erreur de requête<br/>';
+-// Affiche le type d'erreur.
+-    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+-// Affiche la requête envoyée.
+-    echo 'Requête : ' . $query . '<br/>';
+-    exit();
+-}
+-
+-?>
+-<style>
+-    table,td,thead {
+-        border: black 2px solid;
+-        border-collapse: collapse;
+-    }
+-    td {
+-        padding: 10px;
+-    }
+-</style>
+-
+-<?php
+-
+-
+-echo "<table><thead>"."Mes données"."</thdead><tbody>";
+-while($dbRow = mysqli_fetch_array($dbResult))
+-{
+-    echo "<tr>";
+-    echo "<td>".$dbRow['ID']."</td>";
+-    echo "<td>".$dbRow['PSEUDO']."</td>";
+-    echo "<td>".$dbRow['MAIL']."</td>";
+-    echo "<td>".$dbRow['PASSWORD']."</td>";
+-    echo "<td>".$dbRow['PHONE']."</td>";
+-    echo "<td>".$dbRow['SEXE']."</td>";
+-    echo "<td>".$dbRow['PAYS']."</td>";
+-    echo "<td>".date('d.m.Y', strtotime($dbRow['DATES']))."</td>";
+-    echo "</tr>";
+-}
+-
+-echo "</tbody></table>";
+-
+-
+-
+-
+-
+-
+-//ça laisse tomber j'ai du installer un truc pour le faire c'est bordel
+-/*
+-
+-if(isset($_POST['id'],$_POST['sexe'],$_POST['mail'],$_POST['mdp']))
+-{
+-$to = $_POST['mail'];
+-$id = $_POST['id'];
+-
+-$mail_yes = true;
+-
+-}
+-$message = 'Bonjour '.$_POST['sexe'].' '.$id."\n";
+-$message .= 'Voici vos identifiants d\'inscription : ' . $id."\n" ;
+-$message .= 'Email : ' . $to ."\n";
+-$message .= 'Mot de passe : ' . $_POST['mdp']."\n";
+-if(isset($_POST['telephone']))
+-{
+-$message .= 'Votre n° de telephone: '.$_POST['telephone']."\n";
+-}
+-
+-if(isset($_POST['pays']))
+-{
+-$message .= 'Votre pays : '.$_POST['pays']."\n";
+-}
+-
+-$subject = 'Inscription reussi';
+-
+-
+-if(mail($to, $subject, $message))
+-{
+-echo 'Votre mail a bien été envoyé';
+-}
+-else{
+-echo 'un soucis est apparu';
+-}
+-
+-*/
+\ No newline at end of file
+Index: Test/page1.php
+===================================================================
+diff --git a/Test/page1.php b/Test/page1.php
+deleted file mode 100644
+--- a/Test/page1.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,214 +0,0 @@
+-<?php
+-
+-
+-
+-
+-abstract class BDtest
+-{
+-
+-    private static $_Bdd;
+-
+-    //genere la connexion a la BD
+-    private static function setBdd()
+-    {
+-
+-        self::$_Bdd = new PDO('mysql:host=localhost:dbname=article;charset=utf8','root','');
+-        self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+-    }
+-
+-    protected function getBdd()
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        return self::$_Bdd;
+-
+-    }
+-
+-
+-    //insertion de tuple
+-    protected function insertObject($requete)
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        $req = self::$_Bdd->prepare($requete);
+-        $req->execute();
+-
+-    }
+-
+-    //update de table
+-    protected function UpdateObject($requete)
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        $req = self::$_Bdd->prepare($requete);
+-        $req->execute();
+-
+-    }
+-
+-    //test si emoji existe marche avec n'importe quel requete quasiment certes mais voila xD
+-    protected function EmojiAlreadyExist($requete)
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        $req = self::$_Bdd->prepare($requete);
+-        $req->execute();
+-
+-        if($req == null)
+-        {
+-            return false;
+-        }else {
+-            return true;
+-        }
+-
+-    }
+-
+-
+-}
+-
+-
+-
+-
+-//class constantes
+-
+-final class Constantes
+-{
+-    // Les constantes relatives aux chemins
+-
+-    const REPERTOIRE_VUES = '/';
+-
+-    public static function repertoireRacine() {
+-        return realpath(__DIR__ . '/');
+-    }
+-    public static function repertoireVues() {
+-        return self::repertoireRacine() . self::REPERTOIRE_VUES;
+-    }
+-
+-}
+-
+-// class vue
+-final class Vue {
+-
+-    public static function montrer ($S_localisation, $A_parametres = array())
+-    {
+-        $S_fichier = Constantes::repertoireVues() . $S_localisation . '.php';
+-
+-        $A_vue = $A_parametres;
+-        // Démarrage d'un sous-tampon
+-        ob_start();
+-
+-        include $S_fichier; // c'est dans ce fichier que sera utilisé A_vue, la vue est incluse dans le sous-tampon
+-
+-        ob_end_flush();
+-    }
+-
+-}
+-
+-//class article
+-class article extends BDtest {
+-
+-    private $id;
+-    private $text;
+-    private $tag;
+-    private $url;
+-
+-    private $nb_swag;
+-    private $nb_love;
+-    private $nb_style;
+-    private $nb_cute;
+-
+-
+-    public function GetId()
+-    {
+-        return $this->id;
+-    }
+-
+-
+-    public function ClickOnEmoji($emoji,$id)
+-    {
+-        if($this->id == $id ) {
+-
+-            $this->getBdd();
+-            $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id;
+-
+-            if(!$this->EmojiAlreadyExist($requete))
+-            {
+-
+-                //il n'a jamais cliqué sur cette article de sa vie on insere donc son like dans emoji_control
+-
+-                $requete = 'INSERT INTO `emoji_control` (`id_user`, `id_article`, `nom_emoji`) VALUES ("'. $_SESSION['id_user'] .'", "'. $id .'", "'. $emoji .'")';
+-
+-                $this->insertObject($requete);
+-
+-
+-            }else{
+-
+-                //il a deja liké l'article donc il peut cliquer sur le meme pour enlever le like ou cliquer sur un autre
+-                $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id.'AND nom_emoji = '.$emoji ;
+-
+-                if(!$this->EmojiAlreadyExist($requete)){
+-
+-                    //il clique donc sur un autre emoji
+-                    $requete = 'UPDATE `articles` SET `nom_emoji` ='.$emoji.'WHERE `emoji_control`.`id_user` ='.$_SESSION['id_user'].'AND `emoji_control`.`id_article` ='.$id;
+-                    $this->UpdateObject($requete);
+-
+-
+-                }else{
+-
+-                    //il clique donc sur le meme emoji
+-
+-                    echo ' vous avez deja like cette emoji ';
+-
+-                }
+-
+-
+-
+-            }
+-
+-        }
+-    }
+-
+-
+-    public function __construct($id, $url, $text, $tag = null, $nb_love, $nb_cute, $nb_style, $nb_swag)
+-    {
+-        $this->id = $id ;
+-        $this->url = $url;
+-        $this->text = $text;
+-        $this->tag = $tag;
+-
+-        $this->nb_love = $nb_love;
+-        $this->nb_cute = $nb_cute;
+-        $this->nb_style = $nb_style;
+-        $this->nb_swag = $nb_swag;
+-
+-
+-        //on va dire qu'on cree la vue aussi ici
+-
+-        $tabarticle = array('id'=>$id,'url'=> $url, 'text'=>$text, 'tag' => $tag, 'nb_love'=>$nb_love,'nb_cute'=>$nb_cute,'nb_style'=>$nb_style,'nb_swag' => $nb_swag );
+-        Vue::montrer('page2',$tabarticle);
+-
+-    }
+-
+-}
+-
+-
+-
+-
+-
+-
+-//l'utilisateur s'est connecté et son id est 1
+-
+-$_SESSION['id_user'] = 1;
+-
+-
+-
+-// simulation de boucle et requete qui cree un article
+-$article = new article(1, 'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg', 'SALUT LES POTOOOOOS', 'wow',0,0,1,0);
+-$article = new article(2, 'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg', 'TEST', 'weshdene',0,1,0,0);
+-$article = new article(3, 'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg', 'YOOOOOOOOOOOOOOO', 'enorme',1,0,0,0);
+-$article = new article(4, 'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg', 'YO0000dddddd', 'jpepe',1,0,0,0);
+-
+-
+-?>
+-
+-
+-
+Index: Test/controller.php
+===================================================================
+diff --git a/Test/controller.php b/Test/controller.php
+deleted file mode 100644
+--- a/Test/controller.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,72 +0,0 @@
+-<?php
+-
+-
+-
+-
+-$_SESSION['id_user'] = 2;
+-//la je teste si l'utilisateur à cliqué sur un emoji
+-$_Bdd = new PDO('mysql:host=localhost;dbname=article;charset=utf8','root','');
+-
+-
+-
+-
+-
+-if(isset($_GET['emoji'], $_GET['id'])) {
+-
+-    $emoji = $_GET['emoji'];
+-    $id = $_GET['id'];
+-
+-    $requete = 'INSERT INTO emoji_control VALUES ("'. $_SESSION['id_user'] .'", "'. $id .'", "'. $emoji .'")';
+-
+-    $req = $_Bdd->prepare($requete);
+-    $req->execute();
+-
+-    /*
+-
+-            $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id;
+-
+-
+-            $req = $_Bdd->prepare($requete);
+-
+-
+-            if(!$req->execute())
+-            {
+-
+-                //il n'a jamais cliqué sur cette article de sa vie on insere donc son like dans emoji_control
+-
+-                $requete = 'INSERT INTO `emoji_control` (`id_user`, `id_article`, `nom_emoji`) VALUES ("'. $_SESSION['id_user'] .'", "'. $id .'", "'. $emoji .'")';
+-
+-                $req = $_Bdd->prepare($requete);
+-                $req->execute();
+-
+-            }else{
+-
+-                //il a deja liké l'article donc il peut cliquer sur le meme pour enlever le like ou cliquer sur un autre
+-                $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id.'AND nom_emoji = '.$emoji ;
+-                $req = $_Bdd->prepare($requete);
+-
+-                if(!$req->execute()){
+-
+-                    //il clique donc sur un autre emoji
+-                    $requete = 'UPDATE `articles` SET `nom_emoji` ='.$emoji.'WHERE `emoji_control`.`id_user` ='.$_SESSION['id_user'].'AND `emoji_control`.`id_article` ='.$id;
+-                    $req = $_Bdd->prepare($requete);
+-                    $req->execute();
+-
+-
+-                }else{
+-
+-                    //il clique donc sur le meme emoji
+-
+-                    echo ' vous avez deja like cette emoji ';
+-
+-                }
+-
+-
+-
+-            }
+-
+-
+-    */
+-
+-
+-}
+Index: framework/Noyau/ChargementAuto.php
+===================================================================
+diff --git a/framework/Noyau/ChargementAuto.php b/framework/Noyau/ChargementAuto.php
+deleted file mode 100644
+--- a/framework/Noyau/ChargementAuto.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,47 +0,0 @@
+-<?php
+-
+-require 'Noyau/Constantes.php';
+-
+-final class ChargementAuto
+-{
+-    public static function chargerClassesNoyau ($S_nomDeClasse)
+-    {
+-        $S_fichier = Constantes::repertoireNoyau() . "$S_nomDeClasse.php";
+-        return static::_charger($S_fichier);
+-    }
+-
+-    public static function chargerClassesModele ($S_nomDeClasse)
+-    {
+-        $S_fichier = Constantes::repertoireModele() . "$S_nomDeClasse.php";
+-
+-        return static::_charger($S_fichier);
+-    }
+-
+-
+-    public static function chargerClassesVue ($S_nomDeClasse)
+-    {
+-        $S_fichier = Constantes::repertoireVues() . "$S_nomDeClasse.php";
+-
+-        return static::_charger($S_fichier);
+-    }
+-
+-    public static function chargerClassesControleur ($S_nomDeClasse)
+-    {
+-        $S_fichier = Constantes::repertoireControleurs() . "$S_nomDeClasse.php";
+-
+-        return static::_charger($S_fichier);
+-    }
+-    private static function _charger ($S_fichierACharger)
+-    {
+-        if (is_readable($S_fichierACharger))
+-        {
+-            require $S_fichierACharger;
+-        }
+-    }
+-}
+-
+-// J'empile tout ce beau monde comme j'ai toujours appris à le faire...
+-spl_autoload_register('ChargementAuto::chargerClassesNoyau');
+-spl_autoload_register('ChargementAuto::chargerClassesModele');
+-spl_autoload_register('ChargementAuto::chargerClassesVue');
+-spl_autoload_register('ChargementAuto::chargerClassesControleur');
+Index: framework/Vues/Views/formulairearticle.php
+===================================================================
+diff --git a/framework/Vues/Views/formulairearticle.php b/framework/Vues/Views/formulairearticle.php
+deleted file mode 100644
+--- a/framework/Vues/Views/formulairearticle.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,14 +0,0 @@
+-<?php
+-
+-
+-?>
+-
+-
+-<form id="form_popup" action="" method="get">
+-    <input type="text" placeholder="Tag" name="tag" value=""> <br>
+-    <input type="text" placeholder="URL" name="url" value=""> <br>
+-    <input type="text" placeholder="Message" name="message" value=""> <br>
+-    <input type="number" placeholder="Nombre de Don" name="nbdon" min="1" required > <br>
+-    <input type="submit" action="create" name="test">
+-</form>
+-
+Index: framework/Vues/Views/viewError.php
+===================================================================
+diff --git a/framework/Vues/Views/viewError.php b/framework/Vues/Views/viewError.php
+deleted file mode 100644
+--- a/framework/Vues/Views/viewError.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,4 +0,0 @@
+-<?php
+-
+-echo "<div>".$errorMsg."</div>";
+-
+Index: Test/lib/includes.php
+===================================================================
+diff --git a/Test/lib/includes.php b/Test/lib/includes.php
+deleted file mode 100644
+--- a/Test/lib/includes.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,5 +0,0 @@
+-<?php // inclusion des fichiers
+-include 'constants.php';
+-include 'db.php';
+-include "auth.php";
+-include 'session.php';
+\ No newline at end of file
+Index: framework/Controleurs/ControleurArticle.php
+===================================================================
+diff --git a/framework/Controleurs/ControleurArticle.php b/framework/Controleurs/ControleurArticle.php
+deleted file mode 100644
+--- a/framework/Controleurs/ControleurArticle.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,82 +0,0 @@
+-<?php
+-
+-
+-class ControleurArticle
+-{
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @example appelle CreezArticle()
+-     */
+-    public function CreationAction()
+-    {
+-
+-        if (isset($_GET['tag'], $_GET['url'], $_GET['message'], $_GET['nbdon'])) {
+-
+-            //controle
+-
+-            $tag = $_GET['tag'];
+-            $url = $_GET['url'];
+-            $msg = $_GET['message'];
+-            $nbdon = $_GET['nbdon'];
+-
+-            $new_article = new article();
+-            $new_article->CreerArticle($tag,$url,$msg,$nbdon);
+-
+-        }
+-
+-    }
+-
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @example appelle UpdateArticle
+-     */
+-    public function UpdateAction()
+-    {
+-        if (isset($_GET['tag'], $_GET['url'], $_GET['message'], $_GET['nbdon'])) {
+-
+-            //controle
+-
+-            $tag = $_GET['tag'];
+-            $url = $_GET['url'];
+-            $msg = $_GET['message'];
+-            $nbdon = $_GET['nbdon'];
+-
+-            $new_article = new article();
+-            $new_article->UpdateArticle($tag,$url,$msg,$nbdon);
+-
+-
+-        }
+-
+-    }
+-
+-
+-
+-
+-
+-
+-
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @example Affiche les articles avec les valeurs retournées par Afficher
+-     */
+-
+-    public function AfficherAction()
+-    {
+-
+-        $new_article = new Article();
+-        $article = $new_article->Afficher();
+-
+-        //on va dire qu'elle est direct dans les vues
+-        Vue::montrer('articles',$article);
+-
+-
+-    }
+-
+-
+-}
+Index: framework/Modele/Emoji.php
+===================================================================
+diff --git a/framework/Modele/Emoji.php b/framework/Modele/Emoji.php
+deleted file mode 100644
+--- a/framework/Modele/Emoji.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,84 +0,0 @@
+-<?php
+-
+-
+-class Emoji extends BD
+-{
+-
+-    /**
+-     * @author Jimenez Nathan
+-     * @version 1.0
+-     *
+-     * @param $emoji
+-     * @param $id
+-     *
+-     * @return retourne un format JSON pour la requete AJAX
+-     */
+-
+-    public function ClickOnEmoji($emoji,$id)
+-    {
+-
+-        //verifiez encore les 2 paramatres
+-
+-
+-            $bdd = $this->getBdd();
+-
+-            $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id;
+-            $req = $bdd->prepare();
+-
+-            if(!$req->execute())
+-            {
+-
+-                //il n'a jamais cliqué sur cette article de sa vie on insere donc son like dans emoji_control et on update un like dans article
+-
+-                $requete = 'INSERT INTO emoji_control VALUES (?,?,?)';
+-
+-                $tabarg = array($_SESSION['id_user'],$id,$emoji);
+-                $req = $bdd->prepare($requete);
+-
+-                if(!$req->execute($tabarg))
+-                {
+-
+-                    echo json_encode( array('error'=>'une erreur c`\'est produite essayez d\'actualiser la page') );
+-
+-                }else {
+-                    $requete ='UPDATE articles SET emoji_'.$emoji.' = emoji_'.$emoji.'+1 WHERE `articles`.`id` ='.$id ;
+-                    $req = $bdd->prepare($requete);
+-                    $req->execute($req);
+-
+-                    $return_arr = array('id'=> $id, 'emoji'=>$emoji, 'result'=> 'plus');
+-
+-                    echo json_encode($return_arr);
+-
+-                }
+-
+-                //il a deja liké l'article donc il peut cliquer sur le meme pour enlever le like ou cliquer sur un autre
+-            }else{
+-
+-                $requete = 'SELECT id_user, id_article, nom_emoji FROM emoji_control WHERE id_user = '.$_SESSION['id_user'].' AND id_article = '.$id.'AND nom_emoji = '.$emoji;
+-
+-                $bdd = $this->getBdd();
+-                $req = $bdd->prepare($requete);
+-
+-
+-                if(!$req->execute()){
+-
+-                    //il clique donc sur un autre emoji
+-                    echo json_encode( array('error'=>'Vous ne pouvez pas mettre plusieurs émoji sur un article') );
+-
+-                }else{
+-
+-                    //il clique donc sur le meme emoji
+-                    $requete ='UPDATE articles SET emoji_'.$emoji.' = emoji_'.$emoji.'-1 WHERE `articles`.`id` ='.$id ;
+-                    $req = $bdd->prepare($requete);
+-                    $req->execute($req);
+-
+-                    $return_arr = array('id'=> $id, 'emoji'=>$emoji, 'result'=> 'moins');
+-
+-                    echo json_encode($return_arr);
+-                }
+-
+-            }
+-
+-        }
+-
+-}
+\ No newline at end of file
+Index: Test/app.js
+===================================================================
+diff --git a/Test/app.js b/Test/app.js
+deleted file mode 100644
+--- a/Test/app.js	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,18 +0,0 @@
+-/Décommenter pour voir le résultat
+-
+-
+-addEventListener()
+-
+-//On crée un objet XMLHttpRequest
+-let xhr = new XMLHttpRequest();
+-
+-//On initialise notre requête avec open()
+-xhr.open("GET", "une/url");
+-
+-//On veut une réponse au format JSON
+-xhr.responseType = "json";
+-
+-//On envoie la requête
+-xhr.send();
+-
+-
+Index: framework/Noyau/Constantes.php
+===================================================================
+diff --git a/framework/Noyau/Constantes.php b/framework/Noyau/Constantes.php
+deleted file mode 100644
+--- a/framework/Noyau/Constantes.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,39 +0,0 @@
+-<?php
+-
+-// Rappel : nous sommes dans le répertoire Core, voilà pourquoi dans realpath je "remonte d'un cran" pour faire référence
+-// à la VRAIE racine de mon application
+-
+-final class Constantes
+-{
+-    // Les constantes relatives aux chemins
+-
+-    const REPERTOIRE_VUES        = '/Vues/';
+-
+-    const REPERTOIRE_MODELE      = '/Modele/';
+-
+-    const REPERTOIRE_NOYAU       = '/Noyau/';
+-
+-    const REPERTOIRE_CONTROLEURS = '/Controleurs/';
+-
+-
+-    public static function repertoireRacine() {
+-        return realpath(__DIR__ . '/../');
+-    }
+-
+-    public static function repertoireNoyau() {
+-        return self::repertoireRacine() . self::REPERTOIRE_NOYAU;
+-    }
+-
+-    public static function repertoireVues() {
+-        return self::repertoireRacine() . self::REPERTOIRE_VUES;
+-    }
+-
+-    public static function repertoireModele() {
+-        return self::repertoireRacine() . self::REPERTOIRE_MODELE;
+-    }
+-
+-    public static function repertoireControleurs() {
+-        return self::repertoireRacine() . self::REPERTOIRE_CONTROLEURS;
+-    }
+-    
+-}
+\ No newline at end of file
+Index: framework/Vues/Views/inscription.php
+===================================================================
+diff --git a/framework/Vues/Views/inscription.php b/framework/Vues/Views/inscription.php
+deleted file mode 100644
+--- a/framework/Vues/Views/inscription.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,4 +0,0 @@
+-<?php
+-
+-echo "<p>" . $A_vue['inscription']  . "</p>";
+-
+Index: framework/Vues/Accueil.php
+===================================================================
+diff --git a/framework/Vues/Accueil.php b/framework/Vues/Accueil.php
+deleted file mode 100644
+--- a/framework/Vues/Accueil.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,69 +0,0 @@
+-<!doctype html>
+-<html lang="fr">
+-<head>
+-    <meta charset="utf-8">
+-    <title>VANESTARRE - Connexion ou Inscription</title>
+-    <link type="text/css" rel="stylesheet" href="Accueil.css?t=<?= time(); ?>" media="all">
+-
+-</head>
+-<body>
+-
+-    <div class="form">
+-        <!--Titre -->
+-
+-        <h1>VANESTARRE</h1>
+-
+-        <!--Formulaire Connexion-->
+-        <form id="form" action="" method="post">
+-            <input type="text" placeholder="Identifiant" name="username" required> <br>
+-            <input type="password" placeholder="Mot de passe" name="password" required>
+-
+-            <input type="submit" value="Connexion">
+-
+-            <a id="forgot" href="">Mot de passe oublié ?</a>
+-
+-            <button id="btnPopup" class="btnPopup"  onclick="openModal()" >Créer un compte</button>
+-
+-            <button id="btnmembre" class="btnmembre" >Connexion en tant qu'invité</button>
+-          </form>
+-
+-
+-        <!--Formulaire pop-up d'inscription -->
+-
+-        <div id="overlay" class="overlay">
+-            <div class="popup">
+-                <header>
+-                    <span id="btnClose" class="btnClose"> &times; </span>
+-                    <p>INSCRIPTION</p>
+-                </header>
+-                <form id="form_popup" action="" method="post">
+-                    <input id="mail" type="text" placeholder="Adresse Mail" name="mail" required> <br>
+-                    <input id="id" type="text" placeholder="Identifiant" name="uname" required> <br>
+-                    <input type="password" placeholder="Mot de Passe" name="psw" required>
+-                    <input type="password" placeholder="Confirmer le mot de passe" name=confirm_psw" required> <br>
+-                    <input type="submit" value="S'inscrire">
+-                </form>
+-            </div>
+-        </div>
+-
+-    </div>
+-
+-
+-
+-        <script type="text/javascript" src="../lib/script.js"> var btnPopup = document.getElementById('btnPopup');
+-            var overlay = document.getElementById('overlay');
+-            btnPopup.addEventListener('click',openMoadl);
+-            function openMoadl() {
+-                overlay.style.display='block';
+-            }
+-
+-
+-
+-            var btnClose = document.getElementById('btnClose');
+-            btnClose.addEventListener('click',closeModal);
+-            function closeModal() {
+-                overlay.style.display='none';
+-            }</script>
+-
+-</body>
+-</html>
+Index: framework/.htaccess
+===================================================================
+diff --git a/framework/.htaccess b/framework/.htaccess
+deleted file mode 100644
+--- a/framework/.htaccess	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,7 +0,0 @@
+-RewriteEngine On
+-
+-RewriteCond %{REQUEST_FILENAME} !-f
+-RewriteCond %{REQUEST_FILENAME} !-d
+-
+-RewriteRule ^(.*)$ index.php?ctrl=$1&action=$2
+-
+Index: framework/index.php
+===================================================================
+diff --git a/framework/index.php b/framework/index.php
+deleted file mode 100644
+--- a/framework/index.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,40 +0,0 @@
+-
+-<?php
+-
+-// Ce fichier est le point d'entrée de votre application
+-
+-    require 'Noyau/ChargementAuto.php';
+-    /*
+-     url pour notre premier test MVC Hello World,
+-     nous n'avons pas d'action précisée on visera celle par défaut
+-     index.php?ctrl=Views
+-    */
+-
+-    $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
+-    $S_action = isset($_GET['action']) ? $_GET['action'] : null;
+-
+-
+-
+-    Vue::ouvrirTampon(); //  /Noyau/Vue.php : on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans
+-
+-
+-    $O_controleur = new Controleur($S_controleur, $S_action);
+-
+-    var_dump($O_controleur);
+-
+-
+-    $O_controleur->executer();
+-
+-    // Les différentes sous-vues ont été "crachées" dans le tampon d'affichage, on les récupère
+-    $contenuPourAffichage = Vue::recupererContenuTampon();
+-
+-    // On affiche le contenu dans la partie body du gabarit général
+-    Vue::montrer('gabarit', array('body' => $contenuPourAffichage));
+-
+-
+-?>
+-
+-
+-
+-
+-
+Index: framework/Controleurs/ControleurUser.php
+===================================================================
+diff --git a/framework/Controleurs/ControleurUser.php b/framework/Controleurs/ControleurUser.php
+deleted file mode 100644
+--- a/framework/Controleurs/ControleurUser.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,26 +0,0 @@
+-<?php
+-
+-
+-class ControleurUser
+-{
+-
+-        public function InscriptionAction($Identifiant, $email, $password)
+-        {
+-            $new_User = new User ();
+-            if($new_User->Inscription($Identifiant, $email, $password))
+-            {
+-                echo 'faudra afficher la vue';
+-            }
+-
+-        }
+-
+-        public function ConnexionAction($Identifiant, $password)
+-        {
+-            $new_User = new User ();
+-            $new_User->Connexion($Identifiant, $password);
+-
+-        }
+-
+-
+-}
+-
+Index: framework/Vues/Site.php
+===================================================================
+diff --git a/framework/Vues/Site.php b/framework/Vues/Site.php
+deleted file mode 100644
+--- a/framework/Vues/Site.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,172 +0,0 @@
+-<!doctype html>
+-<html lang="fr">
+-<head>
+-    <meta charset="utf-8">
+-    <title>VANESTARRE</title>
+-    <link type="text/css" rel="stylesheet" href="Site.css?t=<? echo time(); ?>" media="all">
+-
+-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+-
+-</head>
+-<body>
+-
+-<div id="main_bar">
+-    <h2> Vanestarre</h2>
+-
+-    <!-- search bar -->
+-    <form id="searchbox" method="get " action="/search " autocomplete="off ">
+-        <input name="q " type= "text" size= "15" placeholder= "Enter keywords here… " />
+-        <input type="button" id="button-submit" type= "submit " value="" />
+-    </form>
+-
+-    <div id="Profil_And_List">
+-            <select onChange="location = this.options[this.selectedIndex].value;">
+-                <option style="display: none"></option>
+-                <option> Profil </option>
+-                <option value="Accueil.php" >Deconnexion</option>
+-            </select>
+-    </div>
+-
+-</div>
+-
+-<main>
+-    <div id="Parent">
+-        <!-- Left side -->
+-        <div id="Left_Side">
+-
+-        </div>
+-        <!-- Center and main-->
+-        <div id="Center" >
+-
+-
+-            <?php
+-
+-            $db = new PDO('mysql:host=localhost;dbname=article;charset=utf8','root','');
+-            $articleparpages = 1;
+-
+-            $req = 'SELECT id FROM articles';
+-            $ArticlesTotalsReq = $db->prepare($req);
+-            $ArticlesTotalsReq->execute();
+-
+-            $ArticlesTotals = $ArticlesTotalsReq->rowCount();
+-
+-            $pagesTotales = ceil($ArticlesTotals/$articleparpages);
+-
+-            if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $pagesTotales) {
+-                $_GET['page'] = intval($_GET['page']);
+-                $pageCourante = $_GET['page'];
+-            } else {
+-                $pageCourante = 1;
+-            }
+-
+-
+-            $depart = ($pageCourante-1)*$articleparpages;
+-
+-
+-            $req = 'SELECT img_source,tag,message FROM articles ORDER BY id DESC LIMIT '.$depart.','.$articleparpages;
+-
+-            $result = $db->prepare($req);
+-            $result->execute();
+-
+-
+-            while($article = $result->fetch(PDO::FETCH_ASSOC))
+-            {
+-                ?>
+-
+-            <div class="global_post">
+-                <!-- header -->
+-                <div class="header_post">
+-                    <img src="https://i.imgur.com/aq39RMA.jpg">
+-                    <span>
+-                        <b>
+-                            Vanestarre
+-                        </b>
+-                    </span>
+-                </div>
+-                <!-- main -->
+-                <div class="main_post" >
+-
+-                <div class="main_post_img " style="content: url(<?php echo $article['img_source'] ?> )"></div>
+-                    <div class="main_post_text" >
+-                        <span class="text_span">
+-                            <?php echo $article['message']; ?>
+-                        </span>
+-
+-                        <div class="mini_div_hr"></div>
+-
+-                        <span class="tag_span" >
+-                            <b>
+-                                 <?php echo $article['tag']; ?>
+-                            </b>
+-                        </span>
+-                    </div>
+-
+-                </div>
+-                <!-- footer -->
+-                <div class="footer_post">
+-
+-                    <div class="emoji_love"> </div>
+-                    <span> 0 Love </span>
+-                    <div class="emoji_cute"> </div>
+-                    <span> 0 cute </span>
+-                    <div class="emoji_style"> </div>
+-                    <span> 0 style </span>
+-                    <div class="emoji_swag"> </div>
+-                    <span> swag </span>
+-
+-                </div>
+-
+-            </div>
+-
+-
+-            <?php } ?>
+-
+-        </div> <!-- id='Center' -->
+-
+-        <div id="pagination">
+-            <?php
+-            for($i=0;$i<=$pagesTotales;$i++) {
+-                if($i == $pageCourante) {
+-                    echo $i.' ';
+-
+-                } elseif ($i == $pageCourante+1) {
+-                    echo '<a href="Site.php?page='.$i.' " class="suivant" >'.$i.'</a> ';
+-
+-                } else {
+-                    echo '<a href="Site.php?page='.$i.'"  >'.$i.'</a> ';
+-                }
+-            }
+-            ?>
+-
+-        </div>
+-
+-        <!--Right Side-->
+-        <div id="Right_Side"> </div>
+-
+-
+-    </div> <!-- div Parent --->
+-
+-
+-</main>
+-
+-
+-<script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>
+-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+-
+-<script>   let ias = new InfiniteAjaxScroll('#Center', {
+-
+-        scrollContainer: '#Center',
+-        item: '.global_post',
+-        next: '.suivant',
+-        pagination: '#pagination'
+-
+-    });
+-
+-
+-
+-</script>
+-
+-
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: framework/Modele/User.php
+===================================================================
+diff --git a/framework/Modele/User.php b/framework/Modele/User.php
+deleted file mode 100644
+--- a/framework/Modele/User.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,96 +0,0 @@
+-<?php
+-
+-
+-class User extends BD
+-{
+-    private $identifiants;
+-    private $email;
+-    private $password;
+-
+-    public function Inscription($identifiants, $email, $password )
+-    {
+-        if(isset($identifiants,$email,$password) && ctype_alnum($identifiants) )
+-        {
+-
+-            //verification si le pseudo est deja utilisé
+-            $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
+-
+-
+-            $this->getBdd();
+-
+-            if($this->getObject($verify) == null)
+-            {
+-
+-                //creation du mdp hashé sécurisé
+-                $passwd_HASH = password_hash($password,PASSWORD_DEFAULT);
+-                //creation date du jour
+-                $date = date('Y-m-d');
+-
+-
+-                $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
+-
+-                $this->insertObject($insert);
+-
+-
+-                return true;
+-
+-            }
+-            else
+-            {
+-                throw new Exception("Identifiants deja utilisé ");
+-
+-            }
+-
+-        }
+-        else{
+-
+-
+-        }
+-
+-    }
+-
+-    public function Connexion($identifiants, $password) {
+-
+-        //verifie arguments
+-        if(isset($_POST['username'/*identifiant*/]) && isset($_POST['password'])){
+-
+-            $this->getBdd(); //connexion BD
+-
+-            $sql = "SELECT * FROM user WHERE username = $username AND password = '$password'";
+-
+-
+-            $select = $this->query($sql); //requete
+-
+-            if($select->rowCount() > 0 ){
+-                $SESSION['Auth'] = $select->fetch();
+-                setFlash('Vous êtes maintenant connecté'); //vue
+-                header('Location:' . WEBROOT . 'Site.php'); //lien vers Site.
+-                die();
+-            }
+-
+-        }
+-
+-    }
+-
+-    //CONNEXION REUSSIE
+-    private function flash(){
+-        $message = 'Vous êtes bien connecté';
+-        $type = 'succes';
+-        if(isset($_SESSION['Flash'])){
+-
+-            extract($_SESSION['Flash']);
+-
+-            unset($_SESSION['Flash']);
+-
+-            return "<div class = 'alert alert-$type'>$message</div>";
+-
+-        }//flash()
+-
+-    }
+-
+-    function setFlash($message, $type = 'success'){
+-        $_SESSION['Flash']['message'] = $message;
+-        $_SESSION['Flash']['type']    = $type;
+-
+-    }//setFlach
+-}
+Index: framework/Vues/Site.css
+===================================================================
+diff --git a/framework/Vues/Site.css b/framework/Vues/Site.css
+deleted file mode 100644
+--- a/framework/Vues/Site.css	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,318 +0,0 @@
+-@charset "utf-8";
+-
+-html, body {
+-    margin:0;
+-    padding:0;
+-}
+-
+-#main_bar {
+-    display: flex;
+-    align-items: center;
+-    justify-content: space-around;
+-
+-    border-bottom: darkgrey 2px solid;
+-    background-color: transparent;
+-    box-shadow: 0 5px 15px -5px black;
+-}
+-
+-h2 {
+-    font-family: 'Avenir';
+-    color: #335D95;
+-    font-size: 30px;
+-}
+-
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@ SEARCH_BAR @@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-
+-#searchbox {
+-    display: flex;
+-    justify-content: center;
+-}
+-
+-
+-#searchbox input {
+-    outline: none;
+-}
+-input:focus::-webkit-input-placeholder {
+-    color: transparent;
+-}
+-input:focus:-moz-placeholder {
+-    color: transparent;
+-}
+-input:focus::-moz-placeholder {
+-    color: transparent;
+-}
+-#searchbox input[type="text"] {
+-    background: url(http://2.bp.blogspot.com/-xpzxYc77ack/VDpdOE5tzMI/AAAAAAAAAeQ/TyXhIfEIUy4/s1600/search-dark.png) no-repeat 10px 13px #f2f2f2;
+-    border: 2px solid #f2f2f2;
+-    font: bold 12px Arial,Helvetica,Sans-serif;
+-    color: #6A6F75;
+-    width: 160px;
+-    padding: 14px 17px 12px 30px;
+-    -webkit-border-radius: 5px 0px 0px 5px;
+-    -moz-border-radius: 5px 0px 0px 5px;
+-    border-radius: 5px 0px 0px 5px;
+-    text-shadow: 0 2px 3px #fff;
+-    -webkit-transition: all 0.7s ease 0s;
+-    -moz-transition: all 0.7s ease 0s;
+-    -o-transition: all 0.7s ease 0s;
+-    transition: all 0.7s ease 0s;
+-}
+-#searchbox input[type="text"]:focus {
+-   background: #f7f7f7;
+-   border: 2px solid #f7f7f7;
+-   width: 200px;
+-   padding-left: 10px;
+-
+-}
+-
+-#button-submit{
+-    background: url(submit_button.png) no-repeat;
+-    margin-left: -40px;
+-    border-width: 0px;
+-    width: 43px;
+-    height: 45px;
+-}
+-
+-#button-submit:hover{
+-    cursor: pointer;
+-}
+-
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-
+-/*@@@@@@@@@@@@@@@ PROFIL and Choice @@@@@@@@@*/
+-#Profil_And_List select {
+-    outline: none;
+-    -webkit-appearance: none;
+-    -moz-appearance: none;
+-    appearance: none;
+-
+-    height: 50px;
+-    width: 50px;
+-    border-radius: 50%;
+-    background-image: url("https://www.011global.com/Account/Slices/user-anonymous.png") ;
+-    background-size: cover;
+-
+-}
+-#Profil_And_List select:hover{
+-    cursor: pointer;
+-}
+-
+-.test:hover {
+-    cursor: pointer;
+-}
+-
+-/*@@@@@@@@@@@@@@@ end PROFIL and Choice @@@@@@@@@*/
+-
+-#Parent {
+-    display: flex;
+-    position: fixed;
+-    width: 100%;
+-    height: 100%;
+-
+-    margin-top: 10px;
+-}
+-
+-#Left_Side {
+-    float: left;
+-    width: 25%;
+-    height: 100%;
+-    background-color: darkgrey;
+-}
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@ CENTER et ARTICLE @@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-#Center {
+-    display: flex;
+-    justify-content: center;
+-    align-self: center;
+-    flex-wrap: wrap;
+-
+-    width: 50%;
+-    height: 100%;
+-
+-    overflow: auto;
+-    margin-left: 10px;
+-    margin-right: 10px;
+-
+-    border: darkgrey 2px solid;
+-    box-shadow: 0 5px 15px -5px black;
+-    background-color: lightgray;
+-
+-
+-
+-}
+-
+-/* @@@@@@@@ Article @@@@@@@@ */
+-
+-.global_post {
+-    width: 450px;
+-    height: auto;
+-    min-height: 550px;
+-
+-    margin: 20px;
+-
+-
+-}
+-
+-.header_post{
+-    display: flex;
+-    justify-content: flex-start;
+-    flex-flow: row;
+-    align-items: center;
+-
+-    width: available;
+-    height: 70px;
+-    background-color: white;
+-    border-top-left-radius: 10px;
+-    border-top-right-radius: 10px;
+-}
+-
+-/* @@@@@@@@@@@ header post @@@@@@@@@@@@@ */
+-
+-.header_post img {
+-
+-    margin-left: 25px;
+-    margin-right: 10px;
+-
+-    width: 50px;
+-    height: 50px;
+-    border-radius: 50%;
+-}
+-
+-.header_post span {
+-
+-    font-size: large;
+-    font-family: Arial;
+-
+-}
+-
+-/* @@@@@@@@@@@ main post img @@@@@@@@@@@@@ */
+-
+-
+-.main_post {
+-    height: auto;
+-
+-}
+-
+-.main_post_img {
+-
+-    background-size: contain;
+-
+-    width: 450px;
+-
+-}
+-
+-/* @@@@@@@@@@@ main post  text @@@@@@@@@@@@@ */
+-
+-.main_post_text {
+-    display: flex;
+-    flex-flow: column;
+-    justify-content: flex-start;
+-
+-    background-color: white;
+-
+-}
+-
+-.main_post_text span {
+-    display: flex;
+-    justify-content: flex-start;
+-    align-items: center;
+-
+-    margin: 5px;
+-    margin-left: 10px;
+-
+-    font-family: "Comic Sans MS";
+-
+-    height: 30px;
+-    width: auto;
+-
+-}
+-
+-.main_post_text .mini_div_hr {
+-
+-    width: auto;
+-    border-top: 1px solid black;
+-
+-}
+-
+-/* @@@@@@@@@@@ footer post text @@@@@@@@@@@@@ */
+-
+-.footer_post {
+-
+-    display: flex;
+-    flex-flow: row ;
+-    justify-content: flex-start;
+-    align-items: center;
+-
+-    width: 450px;
+-    height: 40px;
+-    background-color: white;
+-    border-bottom-left-radius: 10px;
+-    border-bottom-right-radius: 10px;
+-    border-top: 1px black solid;
+-
+-}
+-
+-.footer_post div {
+-
+-    width: 30px;
+-    height: 30px;
+-
+-    margin-left: 5px;
+-    margin-right: 5px;
+-    border-radius: 20%;
+-    border: darkgrey 1px solid;
+-}
+-
+-.emoji_love {
+-    background-image: url("https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_cute {
+-    background-image: url("Cute.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_style {
+-    background-image: url("https://images.emojiterra.com/google/android-nougat/512px/1f44d.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_swag {
+-    background-image: url("Swag.png") ;
+-    background-color: white;
+-    background-size: cover;
+-    background-repeat: no-repeat;
+-    background-position: center;
+-
+-}
+-
+-.footer_post div:hover {
+-    cursor: pointer;
+-    background-color: lightgray;
+-
+-}
+-
+-
+-
+-/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+-
+-/* @@@@@@@ right Side @@@@@@@@@@*/
+-
+-
+-#Right_Side {
+-    float: right;
+-    width: 25%;
+-    height: 100%;
+-    background-color: darkgrey;
+-}
+\ No newline at end of file
+Index: Test/ajax.php
+===================================================================
+diff --git a/Test/ajax.php b/Test/ajax.php
+deleted file mode 100644
+--- a/Test/ajax.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,36 +0,0 @@
+-<?php
+-
+-
+-if(isset($_GET['emoji'], $_GET['id'])) {
+-
+-    $_SESSION['id_user'] =  754;
+-//la je teste si l'utilisateur à cliqué sur un emoji
+-    $_Bdd = new PDO('mysql:host=localhost;dbname=article;charset=utf8','root','');
+-
+-    $emoji = $_GET['emoji'];
+-    $id = $_GET['id'];
+-
+-    $requete = 'INSERT INTO emoji_control VALUES (?, ? ,?)';
+-
+-    $req = $_Bdd->prepare($requete);
+-
+-    $tab = array($_SESSION['id_user'],$id,$emoji);
+-
+-    if(!$req->execute($tab))
+-    {
+-        echo json_encode( array('error'=>'error') );
+-
+-    }else {
+-        $requete ='UPDATE articles SET emoji_'.$emoji.' = emoji_'.$emoji.'+1 WHERE `articles`.`id` ='.$id ;
+-        $req = $_Bdd->prepare($requete);
+-        $req->execute($tab);
+-
+-
+-        $return_arr = array('id'=> $id, 'emoji'=>$emoji, 'result'=> 'plus');
+-
+-        echo json_encode($return_arr);
+-
+-    }
+-
+-
+-}
+\ No newline at end of file
+Index: framework/Noyau/Vue.php
+===================================================================
+diff --git a/framework/Noyau/Vue.php b/framework/Noyau/Vue.php
+deleted file mode 100644
+--- a/framework/Noyau/Vue.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,30 +0,0 @@
+-<?php
+-
+-final class Vue
+-{
+-    public static function ouvrirTampon()
+-    {
+-        // On démarre le tampon de sortie, on va l'appeler "tampon principal"
+-        ob_start();
+-    }
+-
+-    public static function recupererContenuTampon()
+-    {
+-        // On retourne le contenu du tampon principal
+-        return ob_get_clean();
+-    }
+-
+-    public static function montrer ($S_localisation, $A_parametres = array())
+-    {
+-        $S_fichier = Constantes::repertoireVues() . $S_localisation . '.php';
+-
+-            $A_vue = $A_parametres;
+-            // Démarrage d'un sous-tampon
+-            ob_start();
+-
+-            include $S_fichier; // c'est dans ce fichier que sera utilisé A_vue, la vue est incluse dans le sous-tampon
+-
+-        ob_end_flush();
+-    }
+-
+-}
+Index: framework/Vues/Views/voir.php
+===================================================================
+diff --git a/framework/Vues/Views/voir.php b/framework/Vues/Views/voir.php
+deleted file mode 100644
+--- a/framework/Vues/Views/voir.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,6 +0,0 @@
+-<?php
+-
+-
+-echo "<p>" . $A_vue['Helloworld']  . "</p>";
+-
+-
+Index: Test/insta.css
+===================================================================
+diff --git a/Test/insta.css b/Test/insta.css
+deleted file mode 100644
+--- a/Test/insta.css	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,309 +0,0 @@
+-@charset "utf-8";
+-
+-html, body {
+-    margin:0;
+-    padding:0;
+-}
+-
+-#main_bar {
+-    display: flex;
+-    align-items: center;
+-    justify-content: space-around;
+-
+-    border-bottom: darkgrey 2px solid;
+-    background-color: transparent;
+-    box-shadow: 0 5px 15px -5px black;
+-}
+-
+-h2 {
+-    font-family: 'Avenir';
+-    color: #335D95;
+-    font-size: 30px;
+-}
+-
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@ SEARCH_BAR @@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-
+-#searchbox {
+-    display: flex;
+-    justify-content: center;
+-}
+-
+-
+-#searchbox input {
+-    outline: none;
+-}
+-input:focus::-webkit-input-placeholder {
+-    color: transparent;
+-}
+-input:focus:-moz-placeholder {
+-    color: transparent;
+-}
+-input:focus::-moz-placeholder {
+-    color: transparent;
+-}
+-#searchbox input[type="text"] {
+-    background: url(http://2.bp.blogspot.com/-xpzxYc77ack/VDpdOE5tzMI/AAAAAAAAAeQ/TyXhIfEIUy4/s1600/search-dark.png) no-repeat 10px 13px #f2f2f2;
+-    border: 2px solid #f2f2f2;
+-    font: bold 12px Arial,Helvetica,Sans-serif;
+-    color: #6A6F75;
+-    width: 160px;
+-    padding: 14px 17px 12px 30px;
+-    -webkit-border-radius: 5px 0px 0px 5px;
+-    -moz-border-radius: 5px 0px 0px 5px;
+-    border-radius: 5px 0px 0px 5px;
+-    text-shadow: 0 2px 3px #fff;
+-    -webkit-transition: all 0.7s ease 0s;
+-    -moz-transition: all 0.7s ease 0s;
+-    -o-transition: all 0.7s ease 0s;
+-    transition: all 0.7s ease 0s;
+-}
+-#searchbox input[type="text"]:focus {
+-    background: #f7f7f7;
+-    border: 2px solid #f7f7f7;
+-    width: 200px;
+-    padding-left: 10px;
+-
+-}
+-
+-#button-submit{
+-    background: url(submit_button.png) no-repeat;
+-    margin-left: -40px;
+-    border-width: 0px;
+-    width: 43px;
+-    height: 45px;
+-}
+-
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-
+-/*@@@@@@@@@@@@@@@ PROFIL and Choice @@@@@@@@@*/
+-#Profil_And_List select {
+-    outline: none;
+-    -webkit-appearance: none;
+-    -moz-appearance: none;
+-    appearance: none;
+-
+-    height: 50px;
+-    width: 50px;
+-    border-radius: 50%;
+-    background-image: url("https://www.011global.com/Account/Slices/user-anonymous.png") ;
+-    background-size: cover;
+-
+-}
+-#Profil_And_List select:hover{
+-    cursor: pointer;
+-}
+-
+-.test:hover {
+-    cursor: pointer;
+-}
+-
+-/*@@@@@@@@@@@@@@@ end PROFIL and Choice @@@@@@@@@*/
+-
+-#Parent {
+-    display: flex;
+-    position: fixed;
+-    width: 100%;
+-    height: 100%;
+-
+-    margin-top: 10px;
+-}
+-
+-#Left_Side {
+-    float: left;
+-    width: 25%;
+-    height: 100%;
+-    background-color: darkgrey;
+-}
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-/*@@@@@@@@@@@@@@@@@@@@@@ CENTER et ARTICLE @@@@@@@@@@@@@@@@@@@@@@@@@@*/
+-
+-#Center {
+-    width: 50%;
+-    height: 100%;
+-
+-
+-    overflow: auto;
+-    margin-left: 10px;
+-    margin-right: 10px;
+-
+-    border: darkgrey 2px solid;
+-    box-shadow: 0 5px 15px -5px black;
+-    background-color: lightgray;
+-
+-
+-
+-}
+-
+-/* @@@@@@@@ Article @@@@@@@@ */
+-
+-.global_post {
+-    width: 450px;
+-    height: auto;
+-
+-    margin: 20px;
+-
+-
+-}
+-
+-.header_post{
+-    display: flex;
+-    justify-content: flex-start;
+-    flex-flow: row;
+-    align-items: center;
+-
+-    width: available;
+-    height: 70px;
+-    background-color: white;
+-    border-top-left-radius: 10px;
+-    border-top-right-radius: 10px;
+-}
+-
+-/* @@@@@@@@@@@ header post @@@@@@@@@@@@@ */
+-
+-.header_post img {
+-
+-    margin-left: 25px;
+-    margin-right: 10px;
+-
+-    width: 50px;
+-    height: 50px;
+-    border-radius: 50%;
+-}
+-
+-.header_post span {
+-
+-    font-size: large;
+-    font-family: Arial;
+-
+-}
+-
+-/* @@@@@@@@@@@ main post img @@@@@@@@@@@@@ */
+-
+-
+-.main_post {
+-    height: auto;
+-
+-}
+-
+-.main_post_img {
+-
+-    background-size: contain;
+-
+-    width: 450px;
+-
+-}
+-
+-/* @@@@@@@@@@@ main post  text @@@@@@@@@@@@@ */
+-
+-.main_post_text {
+-    display: flex;
+-    flex-flow: column;
+-    justify-content: flex-start;
+-
+-    background-color: white;
+-
+-}
+-
+-.main_post_text span {
+-    display: flex;
+-    justify-content: flex-start;
+-    align-items: center;
+-
+-    margin: 5px;
+-    margin-left: 10px;
+-
+-    font-family: "Comic Sans MS";
+-
+-    height: 30px;
+-    width: auto;
+-
+-}
+-
+-.main_post_text .mini_div_hr {
+-
+-    width: auto;
+-    border-top: 1px solid black;
+-
+-}
+-
+-/* @@@@@@@@@@@ footer post text @@@@@@@@@@@@@ */
+-
+-.footer_post {
+-
+-    display: flex;
+-    flex-flow: row ;
+-    justify-content: flex-start;
+-    align-items: center;
+-
+-    width: 450px;
+-    height: 40px;
+-    background-color: white;
+-    border-bottom-left-radius: 10px;
+-    border-bottom-right-radius: 10px;
+-    border-top: 1px black solid;
+-
+-}
+-
+-.footer_post div {
+-
+-    width: 30px;
+-    height: 30px;
+-
+-    margin-left: 5px;
+-    margin-right: 5px;
+-    border-radius: 20%;
+-    border: darkgrey 1px solid;
+-}
+-
+-.emoji_love {
+-    background-image: url("https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_cute {
+-    background-image: url("Cute.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_style {
+-    background-image: url("https://images.emojiterra.com/google/android-nougat/512px/1f44d.png");
+-    background-color: white;
+-    background-size: contain;
+-}
+-
+-.emoji_swag {
+-    background-image: url("Swag.png") ;
+-    background-color: white;
+-    background-size: cover;
+-    background-repeat: no-repeat;
+-    background-position: center;
+-
+-}
+-
+-.footer_post div:hover {
+-    cursor: pointer;
+-    background-color: lightgray;
+-
+-}
+-
+-
+-
+-/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+-
+-/* @@@@@@@ right Side @@@@@@@@@@*/
+-
+-
+-#Right_Side {
+-    float: right;
+-    width: 25%;
+-    height: 100%;
+-    background-color: darkgrey;
+-}
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,291 +0,0 @@
+-Index: framework/Controleurs/ControleurUser.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?php\r\n\r\n\r\nclass ControleurUser\r\n{\r\n\r\n\r\n    public function InscriptionAction($Identifiant, $email, $password)\r\n    {\r\n        $new_User = new User ();\r\n        $new_User->Inscription($Identifiant, $email ,$password);\r\n\r\n    }\r\n\r\n    public function ConnexionAction($Identifiant, $password)\r\n    {\r\n        $new_User = new User ();\r\n        $new_User->Connexion($Identifiant ,$password);\r\n\r\n    }\r\n\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Controleurs/ControleurUser.php b/framework/Controleurs/ControleurUser.php
+---- a/framework/Controleurs/ControleurUser.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/Controleurs/ControleurUser.php	(date 1611140231933)
+-@@ -5,19 +5,29 @@
+- {
+- 
+- 
+--    public function InscriptionAction($Identifiant, $email, $password)
+--    {
+--        $new_User = new User ();
+--        $new_User->Inscription($Identifiant, $email ,$password);
+-+    try{
+-+
+-+
+-+        public function InscriptionAction($Identifiant, $email, $password)
+-+        {
+-+            $new_User = new User ();
+-+            $new_User->Inscription($Identifiant, $email, $password);
+- 
+--    }
+-+        }
+- 
+--    public function ConnexionAction($Identifiant, $password)
+--    {
+--        $new_User = new User ();
+--        $new_User->Connexion($Identifiant ,$password);
+-+        public function ConnexionAction($Identifiant, $password)
+-+        {
+-+            $new_User = new User ();
+-+            $new_User->Connexion($Identifiant, $password);
+- 
+--    }
+-+        }
+- 
+- 
+-+    }catch(Exception $e)
+-+    {
+-+        $errorMsg = $e->getMessage();
+-+        require_once('Vues/Views/viewError.php');
+-+    }
+-+
+-+
+- }
+-\ No newline at end of file
+-Index: framework/Modele/BD.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?php\r\n\r\n\r\nabstract class BD\r\n{\r\n    private static $_Bdd;\r\n\r\n    //genere la connexion a la BD\r\n    private static function setBdd()\r\n    {\r\n        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');\r\n    }\r\n\r\n    protected function getBdd()\r\n    {\r\n        if(self::$_Bdd == null) self::setBdd();\r\n\r\n        return self::$_Bdd;\r\n\r\n    }\r\n\r\n    protected function getUser($requete)\r\n    {\r\n        $tab = [];\r\n        $req = self::$_Bdd->prepare($requete);\r\n        $req->execute();\r\n\r\n        while($data = $req->fetch(PDO::FETCH_ASSOC))\r\n        {\r\n            $tab[] = $data ;\r\n        }\r\n        return $tab;\r\n        $req->closeCursor();\r\n\r\n    }\r\n\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Modele/BD.php b/framework/Modele/BD.php
+---- a/framework/Modele/BD.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/Modele/BD.php	(date 1611139277058)
+-@@ -8,7 +8,8 @@
+-     //genere la connexion a la BD
+-     private static function setBdd()
+-     {
+--        self::$_Bdd = new PDO('mysql:host=localhost:dbname=VANESTARRE;charset=utf8','root','');
+-+        self::$_Bdd = new PDO('mysql:host=localhost:dbname=vanestarre;charset=utf8','root','');
+-+        self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERMORE_WARNING);
+-     }
+- 
+-     protected function getBdd()
+-@@ -19,7 +20,7 @@
+- 
+-     }
+- 
+--    protected function getUser($requete)
+-+    protected function getObject($requete)
+-     {
+-         $tab = [];
+-         $req = self::$_Bdd->prepare($requete);
+-@@ -34,4 +35,11 @@
+- 
+-     }
+- 
+-+    protected function insertObject($requete)
+-+    {
+-+        $req = self::$_Bdd->prepare($requete);
+-+        $req->execute();
+-+
+-+    }
+-+
+- }
+-Index: framework/Vues/helloworld/voir.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Vues/helloworld/voir.php b/framework/Vues/Views/voir.php
+-rename from framework/Vues/helloworld/voir.php
+-rename to framework/Vues/Views/voir.php
+---- a/framework/Vues/helloworld/voir.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/Vues/Views/voir.php	(date 1611140172971)
+-@@ -1,6 +1,6 @@
+- <?php
+- 
+- 
+--echo "<p>" . $A_vue['helloworld']  . "</p>";
+-+echo "<p>" . $A_vue['Helloworld']  . "</p>";
+- 
+- 
+-Index: Test/data-processing.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>session_start();\r\n\r\n<?php\r\ninclude 'utils.inc.php';\r\n\r\n\r\n\r\nstart_page('Inscription reussi');\r\n\r\n\r\n\r\n$dbLink = mysqli_connect('127.0.0.1','root','','test') or die('Erreur de connexion au serveur : ' . mysqli_connect_error());\r\n\r\n// Est ce que je m'inscris ?\r\nif(isset($_POST['action']))\r\n{\r\n\r\n    if ($_POST['action'] == 'Inscription') {\r\n        //affectation variable\r\n\r\n        if (isset($_POST['id'], $_POST['sexe'], $_POST['mail'], $_POST['mdp'])) {\r\n            $mail = $_POST['mail'];\r\n            $pseudo = $_POST['id'];\r\n\r\n            $passwd = $_POST['mdp'];\r\n            $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);\r\n\r\n            $sexe = $_POST['sexe'];\r\n            $pays = $_POST['pays'];\r\n            $today = date('Y-m-d');\r\n\r\n        }\r\n        if (isset($_POST['tel'])) {\r\n            $phone = $_POST['tel'];\r\n        } else {\r\n            $phone = \"NULL\";\r\n        }\r\n\r\n\r\n        //verification si le pseudo est deja utilisé\r\n\r\n        $verify = \"SELECT PSEUDO FROM user WHERE PSEUDO ='\" . $pseudo . \"' \";\r\n\r\n        if (!($queryresult = mysqli_query($dbLink, $verify))) {\r\n            echo 'Erreur de requête<br/>';\r\n            // Affiche le type d'erreur.\r\n            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n            // Affiche la requête envoyée.\r\n            echo 'Requête : ' . $verify . '<br/>';\r\n            exit();\r\n        }\r\n\r\n        $dbRow = mysqli_fetch_array($queryresult);\r\n\r\n\r\n        if ($dbRow['PSEUDO'] == null) { //si le pseudo n'est pas utilisé insertion de l'utilisateur\r\n\r\n            //cree la requete d'insertion\r\n            $insert = 'INSERT INTO user VALUES (NULL, \"' . $pseudo . '\" , \"' . $mail . '\", \"' . $sexe . '\", \"' . $mdpHash . '\", \"' . $phone . '\", \"' . $pays . '\", \"' . $today . '\")';\r\n\r\n            if (!($queryresult = mysqli_query($dbLink, $insert))) {\r\n                echo 'Erreur de requête<br/>';\r\n                // Affiche le type d'erreur.\r\n                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n                // Affiche la requête envoyée.\r\n                echo 'Requête : ' . $insert . '<br/>';\r\n                exit();\r\n            } else {\r\n                echo 'Inscription réalisé !!!!!!!!!!! ' . '<br>';\r\n            }\r\n\r\n        } else {\r\n\r\n            echo 'Pseudo deja utiliséééééééééééééééééééééééééééééééé !!!';\r\n\r\n        }\r\n    }\r\n}\r\n//connexion !\r\nelse {\r\n\r\n    if(isset($_POST['pseudo'],$_POST['passwdcon'])) {\r\n        //affectation variable\r\n\r\n        $pseudocon = $_POST['pseudo'];\r\n        $passwdcon = $_POST['passwdcon'];\r\n\r\n        //requete de connexion avec le pseudo\r\n        $query = \"SELECT PSEUDO,PASSWORD FROM user WHERE PSEUDO ='\" . $pseudocon . \"' \";\r\n\r\n\r\n\r\n        // on envoie la requête et on la test\r\n        if (!($queryresult = mysqli_query($dbLink, $query))) {\r\n            echo 'Erreur de requête<br/>';\r\n            // Affiche le type d'erreur.\r\n            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n            // Affiche la requête envoyée.\r\n            echo 'Requête : ' . $query . '<br/>';\r\n            exit();\r\n        }\r\n\r\n        $dbRow = mysqli_fetch_array($queryresult);\r\n\r\n        if($dbRow['PSEUDO'] == null)\r\n        {\r\n            echo 'Mauvais pseudo !!!!!!!!!!!!';\r\n        }\r\n\r\n        if (password_verify($passwdcon, $dbRow['PASSWORD'])) {\r\n\r\n            echo 'Connexion réussi' . \"<br>\" . 'Monsieur ' . $pseudocon;\r\n            echo \"<br>\" . 'Voici votre mot de passe ' . $dbRow['PASSWORD'] . \"<br>\";\r\n\r\n        } else {\r\n\r\n            echo 'MAUVAIS MOT DE PASSSE';\r\n        }\r\n\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n// On créé la requête\r\n$query = 'SELECT * FROM user ORDER BY ID';\r\n\r\n// on envoie la requête et on la test\r\nif(!($dbResult = mysqli_query($dbLink, $query)))\r\n{\r\n    echo 'Erreur de requête<br/>';\r\n// Affiche le type d'erreur.\r\n    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';\r\n// Affiche la requête envoyée.\r\n    echo 'Requête : ' . $query . '<br/>';\r\n    exit();\r\n}\r\n\r\n?>\r\n<style>\r\n    table,td,thead {\r\n        border: black 2px solid;\r\n        border-collapse: collapse;\r\n    }\r\n    td {\r\n        padding: 10px;\r\n    }\r\n</style>\r\n\r\n<?php\r\n\r\n\r\necho \"<table><thead>\".\"Mes données\".\"</thdead><tbody>\";\r\nwhile($dbRow = mysqli_fetch_array($dbResult))\r\n{\r\n    echo \"<tr>\";\r\n    echo \"<td>\".$dbRow['ID'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PSEUDO'].\"</td>\";\r\n    echo \"<td>\".$dbRow['MAIL'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PASSWORD'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PHONE'].\"</td>\";\r\n    echo \"<td>\".$dbRow['SEXE'].\"</td>\";\r\n    echo \"<td>\".$dbRow['PAYS'].\"</td>\";\r\n    echo \"<td>\".date('d.m.Y', strtotime($dbRow['DATES'])).\"</td>\";\r\n    echo \"</tr>\";\r\n}\r\n\r\necho \"</tbody></table>\";\r\n\r\n\r\n\r\n\r\n\r\n\r\n//ça laisse tomber j'ai du installer un truc pour le faire c'est bordel\r\n/*\r\n\r\nif(isset($_POST['id'],$_POST['sexe'],$_POST['mail'],$_POST['mdp']))\r\n{\r\n$to = $_POST['mail'];\r\n$id = $_POST['id'];\r\n\r\n$mail_yes = true;\r\n\r\n}\r\n$message = 'Bonjour '.$_POST['sexe'].' '.$id.\"\\n\";\r\n$message .= 'Voici vos identifiants d\\'inscription : ' . $id.\"\\n\" ;\r\n$message .= 'Email : ' . $to .\"\\n\";\r\n$message .= 'Mot de passe : ' . $_POST['mdp'].\"\\n\";\r\nif(isset($_POST['telephone']))\r\n{\r\n$message .= 'Votre n° de telephone: '.$_POST['telephone'].\"\\n\";\r\n}\r\n\r\nif(isset($_POST['pays']))\r\n{\r\n$message .= 'Votre pays : '.$_POST['pays'].\"\\n\";\r\n}\r\n\r\n$subject = 'Inscription reussi';\r\n\r\n\r\nif(mail($to, $subject, $message))\r\n{\r\necho 'Votre mail a bien été envoyé';\r\n}\r\nelse{\r\necho 'un soucis est apparu';\r\n}\r\n\r\n*/
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/Test/data-processing.php b/Test/data-processing.php
+---- a/Test/data-processing.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/Test/data-processing.php	(date 1611138585749)
+-@@ -23,6 +23,7 @@
+-             $pseudo = $_POST['id'];
+- 
+-             $passwd = $_POST['mdp'];
+-+
+-             $mdpHash = password_hash($passwd, PASSWORD_DEFAULT);
+- 
+-             $sexe = $_POST['sexe'];
+-Index: framework/Modele/User.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?php\r\n\r\n\r\nclass User extends BD\r\n{\r\n    private $identifiants;\r\n    private $email;\r\n    private $password;\r\n\r\n    public function Inscription($identifiants, $email, $password )\r\n    {\r\n        if(isset($identifiants,$email,$password))\r\n        {\r\n            //verification si le pseudo est deja utilisé\r\n            $verify = 'SELECT PSEUDO FROM user WHERE PSEUDO ='.$identifiants ;\r\n            $this->getBdd();\r\n\r\n            if($this->getUser($verify) == null)\r\n            {\r\n                echo 'Inscription réussi';\r\n            }\r\n            else\r\n            {\r\n                echo 'pseudo deja utilisé';\r\n            }\r\n\r\n        }\r\n        else{\r\n\r\n        }\r\n\r\n    }\r\n\r\n    public function Connexion($identifiants, $password) {\r\n\r\n        //verifie arguments\r\n\r\n        //connexion BD\r\n\r\n        //requete\r\n\r\n        // vu\r\n\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Modele/User.php b/framework/Modele/User.php
+---- a/framework/Modele/User.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/Modele/User.php	(date 1611139866537)
+-@@ -9,24 +9,36 @@
+- 
+-     public function Inscription($identifiants, $email, $password )
+-     {
+--        if(isset($identifiants,$email,$password))
+-+        if(isset($identifiants,$email,$password) && ctype_alnum($identifiants) )
+-         {
+-             //verification si le pseudo est deja utilisé
+--            $verify = 'SELECT PSEUDO FROM user WHERE PSEUDO ='.$identifiants ;
+-+            $verify = 'SELECT username FROM user WHERE username = '. $identifiants ;
+-+
+-             $this->getBdd();
+- 
+--            if($this->getUser($verify) == null)
+-+            if($this->getObject($verify) == null)
+-             {
+-+
+-+                //creation du mdp hashé sécurisé
+-+                $passwd_HASH = password_hash($password,PASSWORD_DEFAULT);
+-+                //creation date du jour
+-+                $date = date('Y-m-d');
+-+
+-+                $insert = 'INSERT INTO user VALUES (NULL, "'. $identifiants .'" , "'. $email .'", "'. $passwd_HASH .'", "'. $date.'")';
+-                 echo 'Inscription réussi';
+-+                header("../../a");
+-             }
+-             else
+-             {
+-+
+-                 echo 'pseudo deja utilisé';
+-+
+-             }
+- 
+-         }
+-         else{
+- 
+-+
+-         }
+- 
+-     }
+-Index: framework/index.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>\r\n<?php\r\n\r\n// Ce fichier est le point d'entrée de votre application\r\n\r\n    require 'Noyau/ChargementAuto.php';\r\n    /*\r\n     url pour notre premier test MVC Hello World,\r\n     nous n'avons pas d'action précisée on visera celle par défaut\r\n     index.php?ctrl=helloworld\r\n    */\r\n\r\n    $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;\r\n    $S_action = isset($_GET['action']) ? $_GET['action'] : null;\r\n\r\n\r\n\r\n    Vue::ouvrirTampon(); //  /Noyau/Vue.php : on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans\r\n\r\n    $tab = array(\"salut\",\"lol\",\"enorme\");\r\n    $O_controleur = new Controleur($S_controleur, $S_action,$tab);\r\n\r\n    var_dump($O_controleur);\r\n\r\n\r\n    $O_controleur->executer();\r\n\r\n    // Les différentes sous-vues ont été \"crachées\" dans le tampon d'affichage, on les récupère\r\n    $contenuPourAffichage = Vue::recupererContenuTampon();\r\n\r\n    // On affiche le contenu dans la partie body du gabarit général\r\n    Vue::montrer('gabarit', array('body' => $contenuPourAffichage));\r\n\r\n?>\r\n\r\n\r\n\r\n\r\n\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/index.php b/framework/index.php
+---- a/framework/index.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/index.php	(date 1611140173087)
+-@@ -7,7 +7,7 @@
+-     /*
+-      url pour notre premier test MVC Hello World,
+-      nous n'avons pas d'action précisée on visera celle par défaut
+--     index.php?ctrl=helloworld
+-+     index.php?ctrl=Views
+-     */
+- 
+-     $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
+-Index: framework/Controleurs/ControleurHelloworld.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?php\r\n\r\nfinal class ControleurHelloworld\r\n{\r\n    public function defautAction()\r\n    {\r\n        $O_helloworld =  new Helloworld();\r\n\r\n        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));\r\n\r\n    }\r\n\r\n\r\n\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Controleurs/ControleurHelloworld.php b/framework/Controleurs/ControleurHelloworld.php
+---- a/framework/Controleurs/ControleurHelloworld.php	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/framework/Controleurs/ControleurHelloworld.php	(date 1611140173071)
+-@@ -6,7 +6,7 @@
+-     {
+-         $O_helloworld =  new Helloworld();
+- 
+--        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));
+-+        Vue::montrer('Views/voir', array('Views' =>  $O_helloworld->donneMessage()));
+- 
+-     }
+- 
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"Finalisation accueil.php\">\r\n      <change afterPath=\"$PROJECT_DIR$/Test/Site.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Test/Site.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/Accueil.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/Accueil.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/Accueil.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/Accueil.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP\" />\r\n  <component name=\"ProjectId\" id=\"1muruqkyDBqiU7p497dnyodq4KU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.lookFeel\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610354543171</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610354543171</updated>\r\n      <workItem from=\"1610354545340\" duration=\"3503000\" />\r\n      <workItem from=\"1610550684257\" duration=\"28000\" />\r\n      <workItem from=\"1610552784625\" duration=\"230000\" />\r\n      <workItem from=\"1610553158377\" duration=\"782000\" />\r\n      <workItem from=\"1610616619633\" duration=\"948000\" />\r\n      <workItem from=\"1610838246071\" duration=\"17778000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"add directory and first php file\">\r\n      <created>1610354667799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610354667799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"a\">\r\n      <created>1610550888548</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550888548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"a\">\r\n      <created>1610550914462</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550914462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"a\">\r\n      <created>1610550977641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550977641</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"a\">\r\n      <created>1610551040762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551040762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"a\">\r\n      <created>1610551078992</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551078992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"a\">\r\n      <created>1610551207850</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551207850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"a\">\r\n      <created>1610551345645</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551345645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"a\">\r\n      <created>1610552135769</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552135769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"a\">\r\n      <created>1610552190948</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552190948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"a\">\r\n      <created>1610552747092</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552747092</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Accueil.php\">\r\n      <created>1610553002713</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553002713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Accueil.php\">\r\n      <created>1610553616816</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553616816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Accueil.php\">\r\n      <created>1610553938288</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553938288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Accueil.php\">\r\n      <created>1610614553149</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610614553149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Accueil.php\">\r\n      <created>1610616308735</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616308735</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Accueil.php\">\r\n      <created>1610616336027</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616336027</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"18\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"add directory and first php file\" />\r\n    <MESSAGE value=\"a\" />\r\n    <MESSAGE value=\"Accueil.php\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Accueil.php\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision c5b96b888db4e48cb7fc1b2781716547e3dbaacc)
+-+++ b/.idea/workspace.xml	(date 1611139965161)
+-@@ -4,15 +4,13 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Finalisation accueil.php">
+--      <change afterPath="$PROJECT_DIR$/Test/Site.css" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Test/Site.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" afterDir="false" />
+-+    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
+-+      <change afterPath="$PROJECT_DIR$/framework/Vues/helloworld/viewError.php" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Test/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.css" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Test/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Accueil.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/data-processing.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -192,7 +190,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1610616336027</updated>
+-     </task>
+--    <option name="localTasksCounter" value="18" />
+-+    <task id="LOCAL-00018" summary="ControleurUser.php et ajout classe BD ainsi que User.php">
+-+      <created>1611136860567</created>
+-+      <option name="number" value="00018" />
+-+      <option name="presentableId" value="LOCAL-00018" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1611136860567</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="19" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -214,6 +219,7 @@
+-     <MESSAGE value="add directory and first php file" />
+-     <MESSAGE value="a" />
+-     <MESSAGE value="Accueil.php" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Accueil.php" />
+-+    <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: framework/Vues/Views/viewError.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/framework/Vues/Views/viewError.php b/framework/Vues/Views/viewError.php
+-new file mode 100644
+---- /dev/null	(date 1611140188383)
+-+++ b/framework/Vues/Views/viewError.php	(date 1611140188383)
+-@@ -0,0 +1,3 @@
+-+<?php
+-+
+-+echo $errorMsg ;
+-\ No newline at end of file
+-diff --git a/framework/Vues/helloworld/inscription.php b/framework/Vues/Views/inscription.php
+-rename from framework/Vues/helloworld/inscription.php
+-rename to framework/Vues/Views/inscription.php
+Index: Test/lib/constants.php
+===================================================================
+diff --git a/Test/lib/constants.php b/Test/lib/constants.php
+deleted file mode 100644
+--- a/Test/lib/constants.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,10 +0,0 @@
+-<?php
+-$directory = basename(dirname(dirname(__FILE__)));
+-$url = explode('Test',$_SERVER['REQUEST_URI']);
+-if(count($url) == 1){
+-    define('WEBROOT', '/');
+-}
+-else {
+-
+-    define('WEBROOT', $url[0] . 'Test/');
+-}
+\ No newline at end of file
+Index: Test/lib/db.php
+===================================================================
+diff --git a/Test/lib/db.php b/Test/lib/db.php
+deleted file mode 100644
+--- a/Test/lib/db.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,11 +0,0 @@
+-<?php // CONNEXION A LA BASE DE DONNEE
+-try {
+-    $db = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+-}
+-catch(Exception $e){
+-    echo 'Impossible de se connecter à la base de donnée';
+-    echo $e->getMessage();
+-    die();
+-}
+\ No newline at end of file
+Index: Test/lib/session.php
+===================================================================
+diff --git a/Test/lib/session.php b/Test/lib/session.php
+deleted file mode 100644
+--- a/Test/lib/session.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,18 +0,0 @@
+-<?php // MESSAGE CONNEXION REUSSIE
+-
+-function flash(){
+-    $message = 'Vous êtes bien connecté';
+-    $type = 'succes';
+-    if(isset($_SESSION['Flash'])){
+-        extract($_SESSION['Flash']);
+-        unset($_SESSION['Flash']);
+-        return "<div class = 'alert alert-$type'>$message</div>";
+-
+-    }//flash()
+-
+-}
+-function setFlash($message, $type = 'success'){
+-    $_SESSION['Flash']['message'] = $message;
+-    $_SESSION['Flash']['type']    = $type;
+-
+-}//setFlach
+\ No newline at end of file
+Index: framework/Vues/standard/entete.php
+===================================================================
+diff --git a/framework/Vues/standard/entete.php b/framework/Vues/standard/entete.php
+deleted file mode 100644
+--- a/framework/Vues/standard/entete.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,2 +0,0 @@
+-<?php
+- echo '<header> <h1>Titre</h1></header>';
+Index: framework/Noyau/Controleur.php
+===================================================================
+diff --git a/framework/Noyau/Controleur.php b/framework/Noyau/Controleur.php
+deleted file mode 100644
+--- a/framework/Noyau/Controleur.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,40 +0,0 @@
+-<?php
+-
+-final class Controleur
+-{
+-    private $_A_urlDecortique;
+-
+-    public function __construct ($S_controleur, $S_action)
+-    {
+-
+-        if (empty($S_controleur)) {
+-
+-            // Nous avons pris le parti de préfixer tous les controleurs par "Controleur"
+-            $this->_A_urlDecortique['controleur'] = 'ControleurHelloworld';
+-        } else {
+-
+-            $this->_A_urlDecortique['controleur'] = 'Controleur' . ucfirst($S_controleur);
+-        }
+-
+-        if (empty($S_action)) {
+-            // L'action est vide ! On la valorise par défaut
+-            $this->_A_urlDecortique['action'] = 'defautAction';
+-        } else {
+-            // On part du principe que toutes nos actions sont suffixées par 'Action'...à nous de le rajouter
+-            $this->_A_urlDecortique['action']  = $S_action . 'Action';
+-        }
+-
+-    }
+-
+-    // On exécute
+-    public function executer()
+-    {
+-        print $this->_A_urlDecortique['controleur'];
+-
+-        //fonction de rappel de notre controleur cible (ControleurHelloworld pour notre premier exemple)
+-        call_user_func_array(array(new $this->_A_urlDecortique['controleur'], $this->_A_urlDecortique['action']), array());
+-
+-    }
+-}
+-
+-?>
+\ No newline at end of file
+Index: framework/Modele/BD.php
+===================================================================
+diff --git a/framework/Modele/BD.php b/framework/Modele/BD.php
+deleted file mode 100644
+--- a/framework/Modele/BD.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,62 +0,0 @@
+-<?php
+-
+-
+-abstract class BD
+-{
+-
+-    private static $_Bdd;
+-
+-    //genere la connexion a la BD
+-    private static function setBdd()
+-    {
+-        self::$_Bdd = new PDO('mysql:host=localhost;dbname=VANESTARRE;charset=utf8','root','');
+-        self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+-    }
+-
+-    protected function getBdd()
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        return self::$_Bdd;
+-
+-    }
+-
+-
+-    //recherche de tuple
+-    protected function getUser($requete)
+-    {
+-
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        $tab = [];
+-        $req = self::$_Bdd->prepare($requete);
+-        $req->execute();
+-
+-        while($data = $req->fetch(PDO::FETCH_ASSOC))
+-        {
+-
+-            $tab[] = $data ;
+-
+-        }
+-
+-        return $tab;
+-        $req->closeCursor();
+-
+-    }
+-
+-    //insertion de tuple
+-    protected function insertObject($requete)
+-    {
+-        if(self::$_Bdd == null) self::setBdd();
+-
+-        $req = self::$_Bdd->prepare($requete);
+-        $req->execute();
+-
+-    }
+-
+-
+-
+-
+-
+-
+-}
+Index: Test/logout.php
+===================================================================
+diff --git a/Test/logout.php b/Test/logout.php
+deleted file mode 100644
+--- a/Test/logout.php	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,34 +0,0 @@
+-<?php
+-
+-
+-$id = 5;
+-$user = 5;
+-$emoji = 'swag';
+-
+-$_Bdd = new PDO('mysql:host=localhost;dbname=article;charset=utf8','root','');
+-$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+-
+-$requete = 'INSERT INTO emoji_control VALUES ("'. $user .'", "'. $id .'", "'. $emoji .'")';
+-
+-
+-$req = $_Bdd->prepare($requete);
+-$req->execute();
+-
+-
+-try
+-{
+-$req->execute();
+-
+-
+-} catch (Exception $e){
+-
+-    echo 'ça marche pas ';
+-    die();
+-
+-}
+-
+-echo ' ça marche';
+-
+-
+-
+-?>
+\ No newline at end of file
+Index: Test/lib/script.js
+===================================================================
+diff --git a/Test/lib/script.js b/Test/lib/script.js
+deleted file mode 100644
+--- a/Test/lib/script.js	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ /dev/null	(revision dc1747b070b728084c7aa927608a4531171d9852)
+@@ -1,14 +0,0 @@
+-var btnPopup = document.getElementById('btnPopup');
+-var overlay = document.getElementById('overlay');
+-btnPopup.addEventListener('click',openMoadl);
+-function openMoadl() {
+-    overlay.style.display='block';
+-}
+-
+-
+-
+-var btnClose = document.getElementById('btnClose');
+-btnClose.addEventListener('click',closeModal);
+-function closeModal() {
+-    overlay.style.display='none';
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13_[Default_Changelist]1/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/logout.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/logout.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Controleurs/ControleurUser.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Controleurs/ControleurUser.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/BD.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Modele/BD.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/Helloworld.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Modele/Helloworld.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/User.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Modele/User.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Noyau/Controleur.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Noyau/Controleur.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Accueil.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Vues/Accueil.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Site.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Vues/Site.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Site.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/Vues/Site.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/index.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/framework/index.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1muruqkyDBqiU7p497dnyodq4KU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\Test\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\\Views\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610354543171</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610354543171</updated>\r\n      <workItem from=\"1610354545340\" duration=\"3503000\" />\r\n      <workItem from=\"1610550684257\" duration=\"28000\" />\r\n      <workItem from=\"1610552784625\" duration=\"230000\" />\r\n      <workItem from=\"1610553158377\" duration=\"782000\" />\r\n      <workItem from=\"1610616619633\" duration=\"948000\" />\r\n      <workItem from=\"1610838246071\" duration=\"17778000\" />\r\n      <workItem from=\"1611685455175\" duration=\"17868000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"add directory and first php file\">\r\n      <created>1610354667799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610354667799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"a\">\r\n      <created>1610550888548</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550888548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"a\">\r\n      <created>1610550914462</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550914462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"a\">\r\n      <created>1610550977641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550977641</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"a\">\r\n      <created>1610551040762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551040762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"a\">\r\n      <created>1610551078992</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551078992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"a\">\r\n      <created>1610551207850</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551207850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"a\">\r\n      <created>1610551345645</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551345645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"a\">\r\n      <created>1610552135769</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552135769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"a\">\r\n      <created>1610552190948</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552190948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"a\">\r\n      <created>1610552747092</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552747092</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Accueil.php\">\r\n      <created>1610553002713</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553002713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Accueil.php\">\r\n      <created>1610553616816</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553616816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Accueil.php\">\r\n      <created>1610553938288</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553938288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Accueil.php\">\r\n      <created>1610614553149</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610614553149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Accueil.php\">\r\n      <created>1610616308735</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616308735</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Accueil.php\">\r\n      <created>1610616336027</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616336027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611140291255</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611140291255</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611156179483</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611156179483</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"20\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"add directory and first php file\" />\r\n    <MESSAGE value=\"a\" />\r\n    <MESSAGE value=\"Accueil.php\" />\r\n    <MESSAGE value=\"ControleurUser.php et ajout classe BD ainsi que User.php\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"ControleurUser.php et ajout classe BD ainsi que User.php\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision dc1747b070b728084c7aa927608a4531171d9852)
++++ b/.idea/workspace.xml	(date 1611838007177)
+@@ -4,38 +4,56 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="ControleurUser.php et ajout classe BD ainsi que User.php">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_04__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_13__Default_Changelist_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_17__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_20__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_16_26__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_36__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2021_18_41__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_09_55__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2021_10_41__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2021_09_04__Default_Changelist_.xml" beforeDir="false" />
++    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="push bcp trop gros">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Test/logout.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/BD.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/Helloworld.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Modele/User.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Noyau/Controleur.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Accueil.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.css" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Vues/Site.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/framework/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/ReadMe.md" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/ajax.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/app.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/controller.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/insta.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/insta.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/auth.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/constants.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/db.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/includes.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/script.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/lib/session.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/page1.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Test/page2.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/.htaccess" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurArticle.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurEmoji.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/Article.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/Emoji.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Noyau/ChargementAuto.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Noyau/Constantes.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Noyau/Vue.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Cute.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Swag.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/formulairearticle.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/inscription.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/voir.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/gabarit.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/nice.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/entete.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/pied.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/Vues/submit_button.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -102,7 +120,7 @@
+       <workItem from="1610553158377" duration="782000" />
+       <workItem from="1610616619633" duration="948000" />
+       <workItem from="1610838246071" duration="17778000" />
+-      <workItem from="1611685455175" duration="17868000" />
++      <workItem from="1611685455175" duration="27351000" />
+     </task>
+     <task id="LOCAL-00001" summary="add directory and first php file">
+       <created>1610354667799</created>
+@@ -237,7 +255,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1611156179483</updated>
+     </task>
+-    <option name="localTasksCounter" value="20" />
++    <task id="LOCAL-00020" summary="push bcp trop gros">
++      <created>1611769620323</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1611769620323</updated>
++    </task>
++    <option name="localTasksCounter" value="21" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -260,7 +285,8 @@
+     <MESSAGE value="a" />
+     <MESSAGE value="Accueil.php" />
+     <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+-    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
++    <MESSAGE value="push bcp trop gros" />
++    <option name="LAST_COMMIT_MESSAGE" value="push bcp trop gros" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
