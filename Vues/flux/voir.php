@@ -63,7 +63,7 @@
               </div>
               <!-- main -->
               <div class="main_post" >
-                <div class="main_post_img " style="content: url(<?php echo $article['img_source'] ?>)"></div>
+                <div class="main_post_img" style="content: url(<?php echo $article['img_source'] ?>)"></div>
                 <div class="main_post_text" >
                   <span class="text_span"> <?php echo $article['message'] ?> </span>
 

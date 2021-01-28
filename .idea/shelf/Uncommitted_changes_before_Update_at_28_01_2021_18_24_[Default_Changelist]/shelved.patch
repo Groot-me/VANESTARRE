@@ -1,0 +1,166 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"push bcp trop gros\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/ReadMe.md\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/ajax.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/app.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/controller.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/data-processing.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/insta.css\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/insta.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/auth.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/constants.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/db.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/includes.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/script.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/lib/session.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/logout.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/page1.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/page2.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/.htaccess\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Controleurs/ControleurArticle.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Controleurs/ControleurEmoji.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Controleurs/ControleurUser.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/Article.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/BD.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/Emoji.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/Helloworld.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Modele/User.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Noyau/ChargementAuto.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Noyau/Constantes.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Noyau/Controleur.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Noyau/Vue.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Accueil.css\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Accueil.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Cute.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Site.css\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Site.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Swag.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Views/formulairearticle.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Views/inscription.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Views/viewError.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/Views/voir.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/gabarit.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/nice.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/standard/entete.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/standard/pied.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/Vues/submit_button.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/index.php\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1muruqkyDBqiU7p497dnyodq4KU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\Test\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\\Views\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610354543171</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610354543171</updated>\r\n      <workItem from=\"1610354545340\" duration=\"3503000\" />\r\n      <workItem from=\"1610550684257\" duration=\"28000\" />\r\n      <workItem from=\"1610552784625\" duration=\"230000\" />\r\n      <workItem from=\"1610553158377\" duration=\"782000\" />\r\n      <workItem from=\"1610616619633\" duration=\"948000\" />\r\n      <workItem from=\"1610838246071\" duration=\"17778000\" />\r\n      <workItem from=\"1611685455175\" duration=\"17868000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"add directory and first php file\">\r\n      <created>1610354667799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610354667799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"a\">\r\n      <created>1610550888548</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550888548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"a\">\r\n      <created>1610550914462</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550914462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"a\">\r\n      <created>1610550977641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550977641</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"a\">\r\n      <created>1610551040762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551040762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"a\">\r\n      <created>1610551078992</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551078992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"a\">\r\n      <created>1610551207850</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551207850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"a\">\r\n      <created>1610551345645</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551345645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"a\">\r\n      <created>1610552135769</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552135769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"a\">\r\n      <created>1610552190948</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552190948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"a\">\r\n      <created>1610552747092</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552747092</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Accueil.php\">\r\n      <created>1610553002713</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553002713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Accueil.php\">\r\n      <created>1610553616816</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553616816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Accueil.php\">\r\n      <created>1610553938288</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553938288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Accueil.php\">\r\n      <created>1610614553149</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610614553149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Accueil.php\">\r\n      <created>1610616308735</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616308735</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Accueil.php\">\r\n      <created>1610616336027</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616336027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611140291255</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611140291255</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611156179483</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611156179483</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"20\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"add directory and first php file\" />\r\n    <MESSAGE value=\"a\" />\r\n    <MESSAGE value=\"Accueil.php\" />\r\n    <MESSAGE value=\"ControleurUser.php et ajout classe BD ainsi que User.php\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"ControleurUser.php et ajout classe BD ainsi que User.php\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f5bb786c2da6236c982893756a9f73ec509ea192)
++++ b/.idea/workspace.xml	(date 1611854636227)
+@@ -4,56 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="push bcp trop gros">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml" beforeDir="false" />
++    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Ajout css sur la page modifier le profil, correction de bug et d'affichage">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/ReadMe.md" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/ajax.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/app.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/controller.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/insta.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/insta.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/auth.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/constants.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/db.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/includes.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/script.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/lib/session.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/page1.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/page2.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/.htaccess" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurArticle.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurEmoji.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/Article.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/Emoji.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Noyau/ChargementAuto.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Constantes.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Vue.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Cute.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Swag.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/formulairearticle.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/inscription.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/voir.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/gabarit.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/nice.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/entete.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/pied.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/Vues/submit_button.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -66,8 +19,8 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="CSS File" />
+         <option value="JavaScript File" />
++        <option value="CSS File" />
+       </list>
+     </option>
+   </component>
+@@ -255,7 +208,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1611156179483</updated>
+     </task>
+-    <option name="localTasksCounter" value="20" />
++    <task id="LOCAL-00020" summary="Vanestarre project">
++      <created>1611838351386</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1611838351386</updated>
++    </task>
++    <task id="LOCAL-00021" summary="Ajout css sur la page modifier le profil, correction de bug et d'affichage">
++      <created>1611852959706</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1611852959706</updated>
++    </task>
++    <option name="localTasksCounter" value="22" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -278,7 +245,9 @@
+     <MESSAGE value="a" />
+     <MESSAGE value="Accueil.php" />
+     <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+-    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
++    <MESSAGE value="Vanestarre project" />
++    <MESSAGE value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
++    <option name="LAST_COMMIT_MESSAGE" value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: framework/index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/framework/index.php b/index.php
+rename from framework/index.php
+rename to index.php
+--- a/framework/index.php	(revision f5bb786c2da6236c982893756a9f73ec509ea192)
++++ b/index.php	(date 1611844389760)
+@@ -1,28 +1,15 @@
+-
+ <?php
+-
+ // Ce fichier est le point d'entrée de votre application
+ 
+     require 'Noyau/ChargementAuto.php';
+-    /*
+-     url pour notre premier test MVC Hello World,
+-     nous n'avons pas d'action précisée on visera celle par défaut
+-     index.php?ctrl=Views
+-    */
++
++
+ 
+     $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
+     $S_action = isset($_GET['action']) ? $_GET['action'] : null;
+ 
+-
+-
+     Vue::ouvrirTampon(); //  /Noyau/Vue.php : on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans
+-
+-
+     $O_controleur = new Controleur($S_controleur, $S_action);
+-
+-    var_dump($O_controleur);
+-
+-
+     $O_controleur->executer();
+ 
+     // Les différentes sous-vues ont été "crachées" dans le tampon d'affichage, on les récupère
+@@ -30,11 +17,3 @@
+ 
+     // On affiche le contenu dans la partie body du gabarit général
+     Vue::montrer('gabarit', array('body' => $contenuPourAffichage));
+-
+-
+-?>
+-
+-
+-
+-
+-

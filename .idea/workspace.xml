@@ -4,56 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="push bcp trop gros">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_11_57__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Ajout css sur la page modifier le profil, correction de bug et d'affichage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ReadMe.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ajax.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/data-processing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/insta.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/insta.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/constants.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/includes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/lib/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/logout.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/page1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/page2.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurArticle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurEmoji.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurHelloworld.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Controleurs/ControleurUser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/Article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/BD.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/Emoji.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/Helloworld.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/ChargementAuto.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Constantes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Controleur.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Noyau/Vue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Accueil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Cute.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Site.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Swag.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/formulairearticle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/inscription.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/viewError.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/Views/voir.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/gabarit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/nice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/entete.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/standard/pied.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Vues/submit_button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/flux/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/flux/voir.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -95,7 +49,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -255,7 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611156179483</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Vanestarre project">
+      <created>1611838351386</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611838351386</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Ajout css sur la page modifier le profil, correction de bug et d'affichage">
+      <created>1611852959706</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1611852959706</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +246,9 @@
     <MESSAGE value="a" />
     <MESSAGE value="Accueil.php" />
     <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+    <MESSAGE value="Vanestarre project" />
+    <MESSAGE value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
