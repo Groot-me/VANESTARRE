@@ -10,24 +10,41 @@ Nous avons utilisé une architecture MVC, elle permet une organisation du code c
 La configuration minimale conseillé est
 
 -ram 4go
+
 -processeur > 4eme generation
+
 -une connexion internet
 
 Identifiants de connexion:
+
 Membre site web:
+
 -Username:
+
 -Password:
+
 Vanestarre:
+
 -Username:
+
 -Password:
+
 Base de donnée:
+
 -Username:
+
 -Password:
+
 Hébergeur:
+
 -Username:
+
 -Password:
+
 Compte GIT:
+
 -Username:nathan.jimenez@etu.univ-amu.fr
+
 -Password:
 
 Version 1.0 ReadMe
