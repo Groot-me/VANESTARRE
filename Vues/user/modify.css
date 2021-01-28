@@ -1,0 +1,29 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
+#modify_main_bar {
+
+    background-color: lightgray;
+
+    position: relative;
+
+    display: flex;
+
+
+    border-bottom: darkgrey 2px solid;
+    box-shadow: 0 5px 15px -5px black;
+
+
+}
+
+#modify_main_bar div {
+
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    background-image: url("https://www.011global.com/Account/Slices/user-anonymous.png") ;
+    background-size: contain;
+
+}

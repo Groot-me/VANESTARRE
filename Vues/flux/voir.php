@@ -5,7 +5,7 @@
 
 
 <div id="main_bar">
-    <h2> Vanestarre</h2>
+    <h2><b> Vanestarre </b></h2>
 
     <!-- search bar -->
     <form id="searchbox" method="get " action="/search " autocomplete="off ">
@@ -15,13 +15,13 @@
 
     <?php if(isset($_SESSION['id'])) { ?>
       <div id="Profil_And_List">
-              <select onChange="location = this.options[this.selectedIndex].value;">
+              <select onChange="location = this.options[this.selectedIndex].value; ">
                   <option style="display: none"></option>
-                  <option> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>
+                  <option disabled> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>
                   <option value="index.php?ctrl=user&action=modify"> Profil </option>
                   <option value="index.php?ctrl=login&action=logout" >Deconnexion</option>
-                  <?php if(isset($_SESSION['admin']) && $_SESSION['adin']) { ?>
-                    <optio> Poster un article </option>
+                  <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
+                    <option> Poster un article </option>
                   <?php } ?>
 
               </select>
@@ -52,17 +52,28 @@
           <?php foreach($A_vue['articles'] as $nbr => $article) { ?>
 
           <div class="global_post" id="<?php echo $article['id']; ?>">
-            <div class="main_post_img " style="content: url(<?php echo $article['img_source'] ?>)"></div>
-            <div class="main_post_text" >
-              <span class="text_span"> <?php echo $article['message'] ?> </span>
+              <!-- header -->
+              <div class="header_post">
+                  <img src="https://i.imgur.com/aq39RMA.jpg">
+                  <span>
+                        <b>
+                            Vanestarre
+                        </b>
+                    </span>
+              </div>
+              <!-- main -->
+              <div class="main_post" >
+                <div class="main_post_img " style="content: url(<?php echo $article['img_source'] ?>)"></div>
+                <div class="main_post_text" >
+                  <span class="text_span"> <?php echo $article['message'] ?> </span>
 
-                <div class="mini_div_hr"></div>
+                    <div class="mini_div_hr"></div>
 
-                <span class="tag_span" >
-                  <b> <?php echo $article['tag'] ?> </b>
-                </span>
-            </div>
-
+                    <span class="tag_span" >
+                      <b> <?php echo $article['tag'] ?> </b>
+                    </span>
+                </div>
+              </div>
             <div class="footer_post">
 
               <?php
@@ -93,6 +104,10 @@
 
         </div>
 
+
+    <div id="Right_Side">
+
+    </div>
 
 
 

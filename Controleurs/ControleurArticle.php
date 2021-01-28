@@ -58,7 +58,7 @@ class ControleurArticle
      * @author Jimenez Nathan
      * @version 1.0
      *
-     * @example Affiche les articles avec les valeurs retournées par Afficher
+     * @example appel getbyID et retourne les principaux parametres des articles
      */
 
     public function defautAction()

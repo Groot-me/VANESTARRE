@@ -13,15 +13,13 @@ class Article extends Model
      * @param $Message le message de l'article
      * @param $Nb_Don le nb de don
      */
-
-
     public function CreerArticle($Tag,$Url,$Message,$Nb_Don)
     {
         //Faire les controles nécessaires voir avec les pros de la sécurité
 
         $bdd = $this->getBdd();
 
-        $requete = 'INSERT INTO `articles` (`id`, `tag`, `message`, `img_source`, `emoji_cute`, `emoji_love`, `emoji_style`, `emoji_swag`, `nb_don`) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?); ';
+        $requete = 'INSERT INTO `article` (`id`, `tag`, `message`, `img_source`, `emoji_cute`, `emoji_love`, `emoji_style`, `emoji_swag`, `nb_don`) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?); ';
 
         $tabarg = array(NULL,$Tag,$Message,$Url,0,0,0,0,$Nb_Don);
         $req = $bdd->prepare($requete);

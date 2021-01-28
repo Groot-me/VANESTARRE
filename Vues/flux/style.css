@@ -6,13 +6,17 @@ html, body {
 }
 
 #main_bar {
+
     display: flex;
     align-items: center;
     justify-content: space-around;
 
+    position: relative;
+
     border-bottom: darkgrey 2px solid;
     background-color: transparent;
     box-shadow: 0 5px 15px -5px black;
+
 }
 
 h2 {
@@ -48,7 +52,7 @@ input:focus::-moz-placeholder {
     border: 2px solid #f2f2f2;
     font: bold 12px Arial,Helvetica,Sans-serif;
     color: #6A6F75;
-    width: 160px;
+    width: 200px;
     padding: 14px 17px 12px 30px;
     -webkit-border-radius: 5px 0px 0px 5px;
     -moz-border-radius: 5px 0px 0px 5px;
@@ -90,8 +94,9 @@ input:focus::-moz-placeholder {
     -moz-appearance: none;
     appearance: none;
 
-    height: 50px;
-    width: 50px;
+    margin: 10px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     background-image: url("https://www.011global.com/Account/Slices/user-anonymous.png") ;
     background-size: cover;

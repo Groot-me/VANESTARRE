@@ -7,9 +7,9 @@ abstract class Model
 
     //genere la connexion a la BD
     private static function setBdd() {
-      $servername = 'localhost';
+      $servername = '127.0.0.1';
       $username = 'root';
-      $password = 'root';
+      $password = '';
 
       self::$_Bdd = new PDO("mysql:host=$servername;dbname=projet", $username, $password);
       self::$_Bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
