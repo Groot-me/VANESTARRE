@@ -3,6 +3,7 @@
 
 class ControleurUser
 {
+    try{
 
         public function InscriptionAction($Identifiant, $email, $password)
         {
@@ -22,5 +23,13 @@ class ControleurUser
         }
 
 
-}
+    }catch(Exception $e)
 
+    {
+        $errorMsg = $e->getMessage();
+        Vue::montrer('Views/viewError.php');
+
+    }
+
+
+}
