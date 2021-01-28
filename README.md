@@ -17,31 +17,31 @@ La configuration minimale conseillé est
 
 Identifiants de connexion:
 
-Membre site web:
+# Membre site web:
 
 -Username:
 
 -Password:
 
-Vanestarre:
+# Vanestarre:
 
 -Username:
 
 -Password:
 
-Base de donnée:
+# Base de donnée:
 
 -Username:
 
 -Password:
 
-Hébergeur:
+# Hébergeur:
 
 -Username:
 
 -Password:
 
-Compte GIT:
+# Compte GIT:
 
 -Username: nathan.jimenez@etu.univ-amu.fr
 
