@@ -43,7 +43,7 @@ Hébergeur:
 
 Compte GIT:
 
--Username:nathan.jimenez@etu.univ-amu.fr
+-Username: nathan.jimenez@etu.univ-amu.fr
 
 -Password:
 
