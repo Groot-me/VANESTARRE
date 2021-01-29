@@ -6,17 +6,15 @@ html, body {
 }
 
 #main_bar {
-
     display: flex;
     align-items: center;
     justify-content: space-around;
 
-    position: relative;
-
+	position: relative;
+	
     border-bottom: darkgrey 2px solid;
     background-color: transparent;
     box-shadow: 0 5px 15px -5px black;
-
 }
 
 h2 {
@@ -32,6 +30,9 @@ h2 {
 #searchbox {
     display: flex;
     justify-content: center;
+	
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 
@@ -71,19 +72,6 @@ input:focus::-moz-placeholder {
 
 }
 
-#button-submit{
-    background: url(submit_button.png) no-repeat;
-    margin-left: -40px;
-    border-width: 0px;
-    width: 43px;
-    height: 45px;
-}
-
-#button-submit:hover{
-    cursor: pointer;
-}
-
-
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 
@@ -94,7 +82,8 @@ input:focus::-moz-placeholder {
     -moz-appearance: none;
     appearance: none;
 
-    margin: 10px;
+	margin: 10px;
+	
     height: 70px;
     width: 70px;
     border-radius: 50%;
@@ -158,7 +147,7 @@ input:focus::-moz-placeholder {
 .global_post {
     width: 450px;
     height: auto;
-    min-height: 550px;
+    min-height: 600px;
 
     margin: 20px;
 
@@ -275,34 +264,67 @@ input:focus::-moz-placeholder {
     border: darkgrey 1px solid;
 }
 
+/* all emoji */
+
 .emoji_love {
-    background-image: url("https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png");
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 20%;
+    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Love.png");
     background-color: white;
     background-size: contain;
 }
+
+.emoji_love:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+
 
 .emoji_cute {
-    background-image: url("Cute.png");
-    background-color: white;
-    background-size: contain;
-}
-
-.emoji_style {
-    background-image: url("https://images.emojiterra.com/google/android-nougat/512px/1f44d.png");
-    background-color: white;
-    background-size: contain;
-}
-
-.emoji_swag {
-    background-image: url("Swag.png") ;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 20%;
+    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Cute.png");
     background-color: white;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
+}
+.emoji_cute:hover {
+    cursor: pointer;
+    background-color: lightgray;
 }
 
-.footer_post div:hover {
+
+.emoji_style {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 20%;
+    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/TropStyle.png");
+    background-color: white;
+    background-size: contain;
+}
+
+.emoji_style:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+
+.emoji_swag {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 20%;
+    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Swag.png") ;
+    background-color: white;
+    background-size: cover;
+}
+
+.emoji_swag:hover {
     cursor: pointer;
     background-color: lightgray;
 

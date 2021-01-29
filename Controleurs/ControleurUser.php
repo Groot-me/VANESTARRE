@@ -3,10 +3,16 @@
 final class ControleurUser
 {
     public function defautAction() {
-        $user =  new User();
-
-        Vue::montrer('user/voir', array('users' =>  $user->read()));
-
+		
+		session_start();
+		if(isset($_SESSION['admin']) && $_SESSION['admin']) {
+			
+			$user =  new User();
+        	Vue::montrer('user/voir', array('users' =>  $user->read()));
+		}
+		else {
+			header('Location: ./flux');
+		}
     }
 
     public function deleteAction() {
@@ -51,16 +57,6 @@ final class ControleurUser
         header('Location: /login');
       }
 
-    }
-
-
-
-    public function createBobAction() {
-
-      $user =  new User();
-      $user->create('bob', 'bob@gmail.com', 'azerty123');
-
-      Vue::montrer('user/voir', array('users' =>  $user->read()));
     }
 
 }

@@ -1,0 +1,648 @@
+Index: Vues/flux/voir.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n    <?php //<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n          session_start();\r\n    ?>\r\n\r\n\r\n<div id=\"main_bar\">\r\n    <h2><b> Vanestarre </b></h2>\r\n\r\n    <!-- search bar -->\r\n    <form id=\"searchbox\" method=\"get \" action=\"/search \" autocomplete=\"off \">\r\n        <input name=\"q \" type= \"text\" size= \"15\" placeholder= \"Enter keywords here… \" />\r\n        <input type=\"button\" id=\"button-submit\" type= \"submit \" value=\"\" />\r\n    </form>\r\n\r\n    <?php if(isset($_SESSION['id'])) { ?>\r\n      <div id=\"Profil_And_List\">\r\n              <select onChange=\"location = this.options[this.selectedIndex].value; \">\r\n                  <option style=\"display: none\"></option>\r\n                  <option disabled> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>\r\n                  <option value=\"index.php?ctrl=user&action=modify\"> Profil </option>\r\n                  <option value=\"index.php?ctrl=login&action=logout\" >Deconnexion</option>\r\n                  <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>\r\n                    <option> Poster un article </option>\r\n                  <?php } ?>\r\n\r\n              </select>\r\n      </div>\r\n    <?php\r\n      }\r\n      else {\r\n        ?>\r\n          <div id=\"Profil_And_List\">\r\n            <button type=\"button\" name=\"button\"> <a href=\"index.php?ctrl=login\"> Connexion </a> </button>\r\n            <button type=\"button\" name=\"button\"> <a href=\"index.php?ctrl=register\"> Inscription </a> </button>\r\n          </div>\r\n        <?php\r\n      }\r\n     ?>\r\n\r\n</div>\r\n\r\n<main>\r\n    <div id=\"Parent\">\r\n        <!-- Left side -->\r\n        <div id=\"Left_Side\">\r\n\r\n        </div>\r\n        <!-- Center and main-->\r\n        <div id=\"Center\" >\r\n\r\n          <?php foreach($A_vue['articles'] as $nbr => $article) { ?>\r\n\r\n          <div class=\"global_post\" id=\"<?php echo $article['id']; ?>\">\r\n              <!-- header -->\r\n              <div class=\"header_post\">\r\n                  <img src=\"https://i.imgur.com/aq39RMA.jpg\">\r\n                  <span>\r\n                        <b>\r\n                            Vanestarre\r\n                        </b>\r\n                    </span>\r\n              </div>\r\n              <!-- main -->\r\n              <div class=\"main_post\" >\r\n                <div class=\"main_post_img\" style=\"content: url(<?php echo $article['img_source'] ?>)\"></div>\r\n                <div class=\"main_post_text\" >\r\n                  <span class=\"text_span\"> <?php echo $article['message'] ?> </span>\r\n\r\n                    <div class=\"mini_div_hr\"></div>\r\n\r\n                    <span class=\"tag_span\" >\r\n                      <b> <?php echo $article['tag'] ?> </b>\r\n                    </span>\r\n                </div>\r\n              </div>\r\n            <div class=\"footer_post\">\r\n\r\n              <?php\r\n                foreach(array('style', 'swag', 'cute', 'love') as $EmojiKey => $emojiName) {\r\n              ?>\r\n\r\n                <div id=\"<? echo $EmojiName; ?>\">\r\n                  <span class=\"emoji\"> <a href=\"index.php?ctrl=emoji&action=click&id=<?php echo $article['id']; ?>&emoji=<?php echo $emojiName; ?>\"> E </a> </span>\r\n                  <span class=\"compteur\"> <?= $article['nbr'][$emojiName]; ?> </span>\r\n                </div>\r\n\r\n              <?php } ?>\r\n\r\n            </div>\r\n          </div>\r\n\r\n        <?php } ?>\r\n\r\n\r\n        <div class=\"pagination\">\r\n          <?php for($i = 1; $i < sizeof($A_vue['articles'])/3+1; ++$i) {\r\n            echo $i;\r\n          } ?>\r\n        </div>\r\n\r\n        </div>\r\n\r\n\r\n        </div>\r\n\r\n\r\n    <div id=\"Right_Side\">\r\n\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n</main>\r\n\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/flux/voir.php b/Vues/flux/voir.php
+--- a/Vues/flux/voir.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/flux/voir.php	(date 1611885592401)
+@@ -1,7 +1,7 @@
+ 
+-    <?php //<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+-          session_start();
+-    ?>
++<?php //<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
++session_start();
++?>
+ 
+ 
+ <div id="main_bar">
+@@ -14,29 +14,29 @@
+     </form>
+ 
+     <?php if(isset($_SESSION['id'])) { ?>
+-      <div id="Profil_And_List">
+-              <select onChange="location = this.options[this.selectedIndex].value; ">
+-                  <option style="display: none"></option>
+-                  <option disabled> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>
+-                  <option value="index.php?ctrl=user&action=modify"> Profil </option>
+-                  <option value="index.php?ctrl=login&action=logout" >Deconnexion</option>
+-                  <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
++        <div id="Profil_And_List">
++            <select onChange="location = this.options[this.selectedIndex].value; ">
++                <option style="display: none"></option>
++                <option disabled> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>
++                <option value="index.php?ctrl=user&action=modify"> Profil </option>
++                <option value="index.php?ctrl=login&action=logout" >Deconnexion</option>
++                <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
+                     <option> Poster un article </option>
+-                  <?php } ?>
++                <?php } ?>
+ 
+-              </select>
+-      </div>
+-    <?php
+-      }
+-      else {
++            </select>
++        </div>
++        <?php
++    }
++    else {
+         ?>
+-          <div id="Profil_And_List">
++        <div id="Profil_And_List">
+             <button type="button" name="button"> <a href="index.php?ctrl=login"> Connexion </a> </button>
+             <button type="button" name="button"> <a href="index.php?ctrl=register"> Inscription </a> </button>
+-          </div>
++        </div>
+         <?php
+-      }
+-     ?>
++    }
++    ?>
+ 
+ </div>
+ 
+@@ -49,70 +49,66 @@
+         <!-- Center and main-->
+         <div id="Center" >
+ 
+-          <?php foreach($A_vue['articles'] as $nbr => $article) { ?>
++            <?php foreach($A_vue['articles'] as $nbr => $article) { ?>
+ 
+-          <div class="global_post" id="<?php echo $article['id']; ?>">
+-              <!-- header -->
+-              <div class="header_post">
+-                  <img src="https://i.imgur.com/aq39RMA.jpg">
+-                  <span>
++                <div class="global_post" id="<?php echo $article['id']; ?>">
++                    <!-- header -->
++                    <div class="header_post">
++                        <img src="https://i.imgur.com/aq39RMA.jpg">
++                        <span>
+                         <b>
+                             Vanestarre
+                         </b>
+                     </span>
+-              </div>
+-              <!-- main -->
+-              <div class="main_post" >
+-                <div class="main_post_img" style="content: url(<?php echo $article['img_source'] ?>)"></div>
+-                <div class="main_post_text" >
+-                  <span class="text_span"> <?php echo $article['message'] ?> </span>
++                    </div>
++                    <!-- main -->
++                    <div class="main_post" >
++                        <div class="main_post_img" style="content: url(<?php echo $article['img_source'] ?>)"></div>
++                        <div class="main_post_text" >
++                            <span class="text_span"> <?php echo $article['message'] ?> </span>
+ 
+-                    <div class="mini_div_hr"></div>
++                            <div class="mini_div_hr"></div>
+ 
+-                    <span class="tag_span" >
++                            <span class="tag_span" >
+                       <b> <?php echo $article['tag'] ?> </b>
+                     </span>
+-                </div>
+-              </div>
+-            <div class="footer_post">
++                        </div>
++                    </div>
++                    <div class="footer_post">
+ 
+-              <?php
+-                foreach(array('style', 'swag', 'cute', 'love') as $EmojiKey => $emojiName) {
+-              ?>
++                        <?php
++                        foreach(array('style', 'swag', 'cute', 'love') as $EmojiKey => $emojiName) {
++                            ?>
+ 
+-                <div id="<? echo $EmojiName; ?>">
+-                  <span class="emoji"> <a href="index.php?ctrl=emoji&action=click&id=<?php echo $article['id']; ?>&emoji=<?php echo $emojiName; ?>"> E </a> </span>
+-                  <span class="compteur"> <?= $article['nbr'][$emojiName]; ?> </span>
+-                </div>
++                            <div id="<? echo $EmojiName; ?>">
++                                <span > <a class="emoji_<?php echo $emojiName;?>" href="index.php?ctrl=emoji&action=click&id=<?php echo $article['id']; ?>&emoji=<?php echo $emojiName; ?>" ></a> </span>
++                            </div>
++                            <span class="compteur"> <?= $article['nbr'][$emojiName]; ?> </span>
+ 
+-              <?php } ?>
++                        <?php } ?>
+ 
+-            </div>
+-          </div>
++                    </div>
++                </div>
+ 
+-        <?php } ?>
++            <?php } ?>
+ 
+ 
+-        <div class="pagination">
+-          <?php for($i = 1; $i < sizeof($A_vue['articles'])/3+1; ++$i) {
+-            echo $i;
+-          } ?>
+         </div>
+ 
++        <div id="Right_Side">
++
+         </div>
+ 
+ 
+-        </div>
+-
+-
+-    <div id="Right_Side">
+-
+     </div>
+ 
+ 
+ 
+ 
+ 
++
++
++
+ </main>
+ 
+ 
+Index: Vues/flux/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@charset \"utf-8\";\r\n\r\nhtml, body {\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n#main_bar {\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n\r\n    position: relative;\r\n\r\n    border-bottom: darkgrey 2px solid;\r\n    background-color: transparent;\r\n    box-shadow: 0 5px 15px -5px black;\r\n\r\n}\r\n\r\nh2 {\r\n    font-family: 'Avenir';\r\n    color: #335D95;\r\n    font-size: 30px;\r\n}\r\n\r\n\r\n/*@@@@@@@@@@@@@@@@@@@@@@@ SEARCH_BAR @@@@@@@@@@@@@@@@@@@@@@@@@*/\r\n\r\n\r\n#searchbox {\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n\r\n#searchbox input {\r\n    outline: none;\r\n}\r\ninput:focus::-webkit-input-placeholder {\r\n    color: transparent;\r\n}\r\ninput:focus:-moz-placeholder {\r\n    color: transparent;\r\n}\r\ninput:focus::-moz-placeholder {\r\n    color: transparent;\r\n}\r\n#searchbox input[type=\"text\"] {\r\n    background: url(http://2.bp.blogspot.com/-xpzxYc77ack/VDpdOE5tzMI/AAAAAAAAAeQ/TyXhIfEIUy4/s1600/search-dark.png) no-repeat 10px 13px #f2f2f2;\r\n    border: 2px solid #f2f2f2;\r\n    font: bold 12px Arial,Helvetica,Sans-serif;\r\n    color: #6A6F75;\r\n    width: 200px;\r\n    padding: 14px 17px 12px 30px;\r\n    -webkit-border-radius: 5px 0px 0px 5px;\r\n    -moz-border-radius: 5px 0px 0px 5px;\r\n    border-radius: 5px 0px 0px 5px;\r\n    text-shadow: 0 2px 3px #fff;\r\n    -webkit-transition: all 0.7s ease 0s;\r\n    -moz-transition: all 0.7s ease 0s;\r\n    -o-transition: all 0.7s ease 0s;\r\n    transition: all 0.7s ease 0s;\r\n}\r\n#searchbox input[type=\"text\"]:focus {\r\n   background: #f7f7f7;\r\n   border: 2px solid #f7f7f7;\r\n   width: 200px;\r\n   padding-left: 10px;\r\n\r\n}\r\n\r\n#button-submit{\r\n    background: url(submit_button.png) no-repeat;\r\n    margin-left: -40px;\r\n    border-width: 0px;\r\n    width: 43px;\r\n    height: 45px;\r\n}\r\n\r\n#button-submit:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/\r\n\r\n\r\n/*@@@@@@@@@@@@@@@ PROFIL and Choice @@@@@@@@@*/\r\n#Profil_And_List select {\r\n    outline: none;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n\r\n    margin: 10px;\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n    background-image: url(\"https://www.011global.com/Account/Slices/user-anonymous.png\") ;\r\n    background-size: cover;\r\n\r\n}\r\n#Profil_And_List select:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n.test:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n/*@@@@@@@@@@@@@@@ end PROFIL and Choice @@@@@@@@@*/\r\n\r\n#Parent {\r\n    display: flex;\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    margin-top: 10px;\r\n}\r\n\r\n#Left_Side {\r\n    float: left;\r\n    width: 25%;\r\n    height: 100%;\r\n    background-color: darkgrey;\r\n}\r\n\r\n/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/\r\n\r\n/*@@@@@@@@@@@@@@@@@@@@@@ CENTER et ARTICLE @@@@@@@@@@@@@@@@@@@@@@@@@@*/\r\n\r\n#Center {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-self: center;\r\n    flex-wrap: wrap;\r\n\r\n    width: 50%;\r\n    height: 100%;\r\n\r\n    overflow: auto;\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    border: darkgrey 2px solid;\r\n    box-shadow: 0 5px 15px -5px black;\r\n    background-color: lightgray;\r\n\r\n\r\n\r\n}\r\n\r\n/* @@@@@@@@ Article @@@@@@@@ */\r\n\r\n.global_post {\r\n    width: 450px;\r\n    height: auto;\r\n    min-height: 550px;\r\n\r\n    margin: 20px;\r\n\r\n\r\n}\r\n\r\n.header_post{\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-flow: row;\r\n    align-items: center;\r\n\r\n    width: available;\r\n    height: 70px;\r\n    background-color: white;\r\n    border-top-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n}\r\n\r\n/* @@@@@@@@@@@ header post @@@@@@@@@@@@@ */\r\n\r\n.header_post img {\r\n\r\n    margin-left: 25px;\r\n    margin-right: 10px;\r\n\r\n    width: 50px;\r\n    height: 50px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.header_post span {\r\n\r\n    font-size: large;\r\n    font-family: Arial;\r\n\r\n}\r\n\r\n/* @@@@@@@@@@@ main post img @@@@@@@@@@@@@ */\r\n\r\n\r\n.main_post {\r\n    height: auto;\r\n\r\n}\r\n\r\n.main_post_img {\r\n\r\n    background-size: contain;\r\n\r\n    width: 450px;\r\n\r\n}\r\n\r\n/* @@@@@@@@@@@ main post  text @@@@@@@@@@@@@ */\r\n\r\n.main_post_text {\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: flex-start;\r\n\r\n    background-color: white;\r\n\r\n}\r\n\r\n.main_post_text span {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    margin: 5px;\r\n    margin-left: 10px;\r\n\r\n    font-family: \"Comic Sans MS\";\r\n\r\n    height: 30px;\r\n    width: auto;\r\n\r\n}\r\n\r\n.main_post_text .mini_div_hr {\r\n\r\n    width: auto;\r\n    border-top: 1px solid black;\r\n\r\n}\r\n\r\n/* @@@@@@@@@@@ footer post text @@@@@@@@@@@@@ */\r\n\r\n.footer_post {\r\n\r\n    display: flex;\r\n    flex-flow: row ;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    width: 450px;\r\n    height: 40px;\r\n    background-color: white;\r\n    border-bottom-left-radius: 10px;\r\n    border-bottom-right-radius: 10px;\r\n    border-top: 1px black solid;\r\n\r\n}\r\n\r\n.footer_post div {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    border-radius: 20%;\r\n    border: darkgrey 1px solid;\r\n}\r\n\r\n.emoji_love {\r\n    background-image: url(\"https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png\");\r\n    background-color: white;\r\n    background-size: contain;\r\n}\r\n\r\n.emoji_cute {\r\n    background-image: url(\"Cute.png\");\r\n    background-color: white;\r\n    background-size: contain;\r\n}\r\n\r\n.emoji_style {\r\n    background-image: url(\"https://images.emojiterra.com/google/android-nougat/512px/1f44d.png\");\r\n    background-color: white;\r\n    background-size: contain;\r\n}\r\n\r\n.emoji_swag {\r\n    background-image: url(\"Swag.png\") ;\r\n    background-color: white;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n\r\n}\r\n\r\n.footer_post div:hover {\r\n    cursor: pointer;\r\n    background-color: lightgray;\r\n\r\n}\r\n\r\n\r\n\r\n/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */\r\n\r\n/* @@@@@@@ right Side @@@@@@@@@@*/\r\n\r\n\r\n#Right_Side {\r\n    float: right;\r\n    width: 25%;\r\n    height: 100%;\r\n    background-color: darkgrey;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/flux/style.css b/Vues/flux/style.css
+--- a/Vues/flux/style.css	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/flux/style.css	(date 1611886558328)
+@@ -276,33 +276,64 @@
+ }
+ 
+ .emoji_love {
+-    background-image: url("https://i.pinimg.com/originals/97/7b/cd/977bcdeaa028f7350095fa3d5d032584.png");
++    display: flex;
++    height: 100%;
++    width: 100%;
++    border-radius: 20%;
++    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Love.png");
+     background-color: white;
+     background-size: contain;
+ }
+ 
++.emoji_love:hover {
++    cursor: pointer;
++    background-color: lightgray;
++}
++
++
++
+ .emoji_cute {
+-    background-image: url("Cute.png");
++    display: flex;
++    height: 100%;
++    width: 100%;
++    border-radius: 20%;
++    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Cute.png");
+     background-color: white;
+-    background-size: contain;
++    background-size: cover;
+ }
++.emoji_cute:hover {
++    cursor: pointer;
++    background-color: lightgray;
++}
++
+ 
+ .emoji_style {
+-    background-image: url("https://images.emojiterra.com/google/android-nougat/512px/1f44d.png");
++    display: flex;
++    height: 100%;
++    width: 100%;
++    border-radius: 20%;
++    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/TropStyle.png");
+     background-color: white;
+     background-size: contain;
+ }
+ 
++.emoji_style:hover {
++    cursor: pointer;
++    background-color: lightgray;
++}
++
++
+ .emoji_swag {
+-    background-image: url("Swag.png") ;
++    display: flex;
++    height: 100%;
++    width: 100%;
++    border-radius: 20%;
++    background-image: url("https://www.vanestarre.com/Public/Assets/Images/Icons/Emojis/Swag.png") ;
+     background-color: white;
+     background-size: cover;
+-    background-repeat: no-repeat;
+-    background-position: center;
+-
+ }
+ 
+-.footer_post div:hover {
++.emoji_swag:hover {
+     cursor: pointer;
+     background-color: lightgray;
+ 
+@@ -310,6 +341,8 @@
+ 
+ 
+ 
++
++
+ /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+ 
+ /* @@@@@@@ right Side @@@@@@@@@@*/
+Index: Controleurs/ControleurUpdateProfile.php
+===================================================================
+diff --git a/Controleurs/ControleurUpdateProfile.php b/Controleurs/ControleurUpdateProfile.php
+deleted file mode 100644
+--- a/Controleurs/ControleurUpdateProfile.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ /dev/null	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
+@@ -1,18 +0,0 @@
+-<?php
+-
+-final class ControleurUpdateProfile {
+-
+-    public function defautAction() {
+-
+-      $user = new User();
+-      $userToUpdate = $user->getUserById($_GET['id'])[0];
+-
+-        Vue::montrer('updateProfile/voir', array(
+-          'username' => $userToUpdate['username'],
+-          'email' => $userToUpdate['email'],
+-          'password' => $userToUpdate['password']
+-        ));
+-
+-    }
+-
+-}
+Index: Vues/login/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nbody {\r\n    width: 100%;\r\n    height: 100%;\r\n    font-family: \"Avenir\", Helvetica, Arial, sans-serif;\r\n}\r\n\r\n* {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\nhtml, body, div {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    font: inherit;\r\n    font-size: 100%;\r\n    vertical-align: baseline;\r\n}\r\n\r\n#form {\r\n    display: flex;\r\n    flex-flow: column;\r\n    justify-content: space-evenly;\r\n    align-self: center;\r\n\r\n    position: absolute;\r\n\r\n    font-family: \"Avenir\";\r\n    color: rgb(0, 114, 163);\r\n    margin-top: 500px;\r\n    width: auto;\r\n    background-color: transparent;\r\n    padding: 30px 60px;\r\n    border-radius: 10px;\r\n    box-shadow: 0 5px 15px -5px black;\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 200px;\r\n    height: 40px;\r\n    border: 1px solid #335D95;\r\n    border-radius: 10px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n    cursor: pointer;\r\n    box-shadow: 0 5px 15px -5px #335D95;\r\n    margin-bottom: 10px;\r\n    font-style: italic;\r\n    color: white;\r\n    background-color: #335D95;\r\n}\r\n\r\n.form input[type=\"text\"] {\r\n    flex-grow: 1;\r\n    margin-bottom: 10px;\r\n    padding-left: 15px;\r\n    width: 200px;\r\n    height: 40px;\r\n    border: 1px solid #335D95;\r\n    border-radius: 10px;\r\n    font-size: 14px;\r\n    color: #335D95;\r\n    background-color: white;\r\n}\r\n\r\n.form input[type=\"password\"] {\r\n    flex-grow: 1;\r\n    margin-bottom: 10px;\r\n    padding-left: 15px;\r\n    width: 200px;\r\n    height: 40px;\r\n    border: 1px solid #335D95;\r\n    border-radius: 10px;\r\n    font-size: 14px;\r\n    color: #335D95;\r\n    background-color: white;\r\n}\r\n\r\n.form input:focus {\r\n  transform: scale(1.01);\r\n}\r\n\r\n#forgot {\r\n    flex-grow: 1;\r\n    text-decoration: none;\r\n    font-size: 14px;\r\n    color: #335D95;\r\n    font-weight: bold;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n.form button {\r\n\r\n    flex-grow: 2;\r\n\r\n    width: 200px;\r\n    height: 50px;\r\n    border: 1px solid green;\r\n    border-radius: 10px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n    cursor: pointer;\r\n    box-shadow: 0 5px 15px -5px green;\r\n    margin-top: 30px;\r\n    font-style: italic;\r\n    color: white;\r\n    background-color: green;\r\n}\r\n\r\n.form button:hover {\r\n  transform: scale(1.01);\r\n}\r\n\r\n.form button a {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\nh1 {\r\n    z-index: 1;\r\n    font-family: 'Avenir';\r\n    color: #335D95;\r\n    font-size: 50px;\r\n    width: 333px;\r\n    position: relative;\r\n    margin: 10vh auto;\r\n}\r\n\r\n/* Div inscription et overlay */\r\n\r\n.overlay {\r\n    position: fixed;\r\n    background-color: rgba(0,0 ,0 , 0.5);\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index:1;\r\n    display:none;\r\n}\r\n\r\n\r\n.popup {\r\n    z-index: 2;\r\n    position: relative;\r\n    margin-left: 38%;\r\n    margin-top: 150px;\r\n    background-color: #335D95;\r\n    border-radius: 10px;\r\n    width: 430px;\r\n}\r\n\r\n.popup header {\r\n    background-color: #335D95;\r\n    height: 50px;\r\n    border: 1px solid #335D95;\r\n    border-radius: 10px;\r\n    font-family: 'Avenir';\r\n    font-style: italic;\r\n    font-size: 25px;\r\n    font-weight: bold;\r\n    color: white;\r\n    text-align: center;\r\n}\r\n\r\n.popup header span {\r\n    width: 20px;\r\n    height: 20px;\r\n    float: right;\r\n    font-size:15pt;\r\n    cursor: pointer;\r\n    color: rgb(26, 26, 26);\r\n    margin-right: 10px;\r\n    margin-top: 10px;\r\n    border-radius: 50%;\r\n    background-color: white;\r\n    border: 1px solid transparent;\r\n\r\n}\r\n.popup header span:hover {\r\n    border: black 1px solid;\r\n}\r\n\r\n#form_popup {\r\n    padding-left: 15px;\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n#form_popup input[id=\"mail\"] {\r\n    background-color: white;\r\n    width: 92%;\r\n}\r\n\r\n#form_popup input[id=\"id\"] {\r\n    background-color: white;\r\n    width: 92%;\r\n}\r\n\r\n#form_popup input[type=\"submit\"] {\r\n    background-color: green;\r\n    width: 200px;\r\n    margin-left: 100px;\r\n}\r\n\r\n.error {\r\n  margin-top: 1vh;\r\n  margin-bottom: 2vh;\r\n  color: red;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/login/style.css b/Vues/login/style.css
+--- a/Vues/login/style.css	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/login/style.css	(date 1611885165416)
+@@ -1,25 +1,11 @@
++.form_register_login{
++    position: relative;
+ 
+-body {
+-    width: 100%;
+-    height: 100%;
+-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+-}
+-
+-* {
+-  display: flex;
+-  flex-direction: column;
+-  align-items: center;
+-  justify-content: center;
+-}
++    display: flex;
++    justify-content: center;
+ 
+-html, body, div {
+-    margin: 0;
+-    padding: 0;
+-    border: 0;
+-    font: inherit;
+-    font-size: 100%;
+-    vertical-align: baseline;
+ }
++
+ 
+ #form {
+     display: flex;
+@@ -82,7 +68,7 @@
+ }
+ 
+ .form input:focus {
+-  transform: scale(1.01);
++    transform: scale(1.01);
+ }
+ 
+ #forgot {
+@@ -115,12 +101,12 @@
+ }
+ 
+ .form button:hover {
+-  transform: scale(1.01);
++    transform: scale(1.01);
+ }
+ 
+ .form button a {
+-  color: white;
+-  text-decoration: none;
++    color: white;
++    text-decoration: none;
+ }
+ 
+ h1 {
+@@ -133,82 +119,23 @@
+     margin: 10vh auto;
+ }
+ 
+-/* Div inscription et overlay */
+ 
+-.overlay {
+-    position: fixed;
+-    background-color: rgba(0,0 ,0 , 0.5);
++#linkregister {
++    display: flex;
++    align-items: center;
++    justify-content: center;
++
+     width: 100%;
+     height: 100%;
+-    z-index:1;
+-    display:none;
+-}
+-
+-
+-.popup {
+-    z-index: 2;
+-    position: relative;
+-    margin-left: 38%;
+-    margin-top: 150px;
+-    background-color: #335D95;
+-    border-radius: 10px;
+-    width: 430px;
+-}
+-
+-.popup header {
+-    background-color: #335D95;
+-    height: 50px;
+-    border: 1px solid #335D95;
+-    border-radius: 10px;
+-    font-family: 'Avenir';
+-    font-style: italic;
+-    font-size: 25px;
+-    font-weight: bold;
+-    color: white;
+-    text-align: center;
+-}
+-
+-.popup header span {
+-    width: 20px;
+-    height: 20px;
+-    float: right;
+-    font-size:15pt;
+-    cursor: pointer;
+-    color: rgb(26, 26, 26);
+-    margin-right: 10px;
+-    margin-top: 10px;
+-    border-radius: 50%;
+-    background-color: white;
+-    border: 1px solid transparent;
+ 
+-}
+-.popup header span:hover {
+-    border: black 1px solid;
+ }
+ 
+-#form_popup {
+-    padding-left: 15px;
+-    padding-top: 15px;
+-    padding-bottom: 15px;
+-}
+-#form_popup input[id="mail"] {
+-    background-color: white;
+-    width: 92%;
+-}
++#linkvisitor {
++    display: flex;
++    align-items: center;
++    justify-content: center;
+ 
+-#form_popup input[id="id"] {
+-    background-color: white;
+-    width: 92%;
+-}
++    width: 100%;
++    height: 100%;
+ 
+-#form_popup input[type="submit"] {
+-    background-color: green;
+-    width: 200px;
+-    margin-left: 100px;
+-}
+-
+-.error {
+-  margin-top: 1vh;
+-  margin-bottom: 2vh;
+-  color: red;
+-}
++}
+\ No newline at end of file
+Index: Controleurs/ControleurLogin.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nfinal class ControleurLogin\r\n{\r\n    public function defautAction() {\r\n\r\n      session_start();\r\n      if(isset($_SESSION['id'])) {\r\n        header('Location: ./flux');\r\n      }\r\n\r\n      Vue::montrer('login/voir', array());\r\n\r\n    }\r\n\r\n    public function loginAction() {\r\n\r\n      $user = new User();\r\n      $id = $user->loginSuccess($_POST['username'], sha1($_POST['password']));\r\n\r\n      if($id > 0) {\r\n\r\n        session_start();\r\n\r\n        $_SESSION['id'] = $id;\r\n        $_SESSION['username'] = $_POST['username'];\r\n        $_SESSION['connected'] = True;\r\n\r\n        // if($user->isAdmin($id)) {\r\n        //   $_SESSION['admin'] = True;\r\n        // }\r\n\r\n        header('Location: index.php?ctrl=flux');\r\n      }\r\n      else {\r\n        print 'erreur';\r\n      }\r\n\r\n\r\n    }\r\n\r\n    public function logoutAction() {\r\n\r\n      session_start();\r\n      session_destroy();\r\n      header('Location: ./');\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Controleurs/ControleurLogin.php b/Controleurs/ControleurLogin.php
+--- a/Controleurs/ControleurLogin.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Controleurs/ControleurLogin.php	(date 1611855935191)
+@@ -27,13 +27,16 @@
+         $_SESSION['connected'] = True;
+ 
+         // if($user->isAdmin($id)) {
+-        //   $_SESSION['admin'] = True;
+-        // }
++          // $_SESSION['admin'] = True;
++         //}
+ 
+         header('Location: index.php?ctrl=flux');
+       }
++
+       else {
++
+         print 'erreur';
++
+       }
+ 
+ 
+Index: Vues/Register/voir.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n  <link rel=\"stylesheet\" href=\"../login/style.css\">\r\n\r\n    <div class=\"form\">\r\n\r\n        <h1>INSCRIPTION</h1>\r\n\r\n        <form id=\"form\" action=\"index.php?ctrl=Register&action=register\" method=\"post\">\r\n            <input type=\"text\" placeholder=\"Identifiant\" name=\"username\" required>\r\n            <input type=\"text\" placeholder=\"Adresse Mail\" name=\"email\" required>\r\n            <input type=\"password\" placeholder=\"Mot de Passe\" name=\"password\" required>\r\n            <input type=\"password\" placeholder=\"Confirmer le mot de passe\" name=\"password2\" required>\r\n\r\n            <?php\r\n              session_start();\r\n\r\n              if(isset($_SESSION['error'])) {\r\n                print '<span class=\"error\">'.$_SESSION['error'].'</span>';\r\n                unset($_SESSION['error']);\r\n              }\r\n              ?>\r\n\r\n\r\n            <input type=\"submit\" value=\"S'inscrire\">\r\n        </form>\r\n\r\n    </div>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/Register/voir.php b/Vues/Register/voir.php
+--- a/Vues/Register/voir.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/Register/voir.php	(date 1611882361209)
+@@ -5,6 +5,8 @@
+ 
+         <h1>INSCRIPTION</h1>
+ 
++        <div class="form_register_login">
++
+         <form id="form" action="index.php?ctrl=Register&action=register" method="post">
+             <input type="text" placeholder="Identifiant" name="username" required>
+             <input type="text" placeholder="Adresse Mail" name="email" required>
+@@ -23,5 +25,6 @@
+ 
+             <input type="submit" value="S'inscrire">
+         </form>
++        </div>
+ 
+     </div>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"Ajout css sur la page modifier le profil, correction de bug et d'affichage\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Vues/flux/voir.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Vues/flux/voir.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/framework/index.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/index.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1muruqkyDBqiU7p497dnyodq4KU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"web-ide.project.structure\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\Test\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\" />\r\n      <recent name=\"D:\\Application\\wamp64\\www\\VANESTARRE\\framework\\Vues\\Views\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1610354543171</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1610354543171</updated>\r\n      <workItem from=\"1610354545340\" duration=\"3503000\" />\r\n      <workItem from=\"1610550684257\" duration=\"28000\" />\r\n      <workItem from=\"1610552784625\" duration=\"230000\" />\r\n      <workItem from=\"1610553158377\" duration=\"782000\" />\r\n      <workItem from=\"1610616619633\" duration=\"948000\" />\r\n      <workItem from=\"1610838246071\" duration=\"17778000\" />\r\n      <workItem from=\"1611685455175\" duration=\"17868000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"add directory and first php file\">\r\n      <created>1610354667799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610354667799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"a\">\r\n      <created>1610550888548</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550888548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"a\">\r\n      <created>1610550914462</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550914462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"a\">\r\n      <created>1610550977641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610550977641</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"a\">\r\n      <created>1610551040762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551040762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"a\">\r\n      <created>1610551078992</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551078992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"a\">\r\n      <created>1610551207850</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551207850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"a\">\r\n      <created>1610551345645</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610551345645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"a\">\r\n      <created>1610552135769</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552135769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"a\">\r\n      <created>1610552190948</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552190948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"a\">\r\n      <created>1610552747092</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610552747092</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Accueil.php\">\r\n      <created>1610553002713</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553002713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Accueil.php\">\r\n      <created>1610553616816</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553616816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Accueil.php\">\r\n      <created>1610553938288</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610553938288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Accueil.php\">\r\n      <created>1610614553149</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610614553149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Accueil.php\">\r\n      <created>1610616308735</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616308735</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Accueil.php\">\r\n      <created>1610616336027</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1610616336027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611140291255</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611140291255</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"ControleurUser.php et ajout classe BD ainsi que User.php\">\r\n      <created>1611156179483</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611156179483</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Vanestarre project\">\r\n      <created>1611838351386</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611838351386</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"Ajout css sur la page modifier le profil, correction de bug et d'affichage\">\r\n      <created>1611852959706</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1611852959706</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"22\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"add directory and first php file\" />\r\n    <MESSAGE value=\"a\" />\r\n    <MESSAGE value=\"Accueil.php\" />\r\n    <MESSAGE value=\"ControleurUser.php et ajout classe BD ainsi que User.php\" />\r\n    <MESSAGE value=\"Vanestarre project\" />\r\n    <MESSAGE value=\"Ajout css sur la page modifier le profil, correction de bug et d'affichage\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Ajout css sur la page modifier le profil, correction de bug et d'affichage\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/.idea/workspace.xml	(date 1611886035796)
+@@ -4,10 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Ajout css sur la page modifier le profil, correction de bug et d'affichage">
++    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="index.php">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurLogin.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurUpdateProfile.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Modele/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/user.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Vues/Register/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Register/voir.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Vues/flux/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/flux/style.css" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Vues/flux/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/flux/voir.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/framework/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Vues/login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/login/style.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Vues/login/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/login/voir.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -223,7 +230,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1611852959706</updated>
+     </task>
+-    <option name="localTasksCounter" value="22" />
++    <task id="LOCAL-00022" summary="index.php">
++      <created>1611855085824</created>
++      <option name="number" value="00022" />
++      <option name="presentableId" value="LOCAL-00022" />
++      <option name="project" value="LOCAL" />
++      <updated>1611855085824</updated>
++    </task>
++    <option name="localTasksCounter" value="23" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -248,7 +262,8 @@
+     <MESSAGE value="ControleurUser.php et ajout classe BD ainsi que User.php" />
+     <MESSAGE value="Vanestarre project" />
+     <MESSAGE value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
++    <MESSAGE value="index.php" />
++    <option name="LAST_COMMIT_MESSAGE" value="index.php" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: Modele/user.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>kkkkkk<?php\r\n\r\n  class User extends Model  {\r\n\r\n    public function create($username, $email, $password) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('INSERT INTO user (username, email, password) VALUES (?, ?, ?)');\r\n      $req->execute(array($username, $email, $password));\r\n\r\n    }\r\n\r\n    public function read() {\r\n      $bdd = self::getBdd();\r\n\r\n      $res = $bdd->query('SELECT * FROM user');\r\n      return $res->fetchAll();\r\n\r\n    }\r\n\r\n    public function update($username, $email, $id) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('UPDATE user SET username = ?, email = ? WHERE id= ?');\r\n      $req->execute(array($username, $email, $id));\r\n\r\n    }\r\n\r\n    public function delete($id) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('DELETE FROM user WHERE id=?');\r\n      $test = $req->execute(array($id));\r\n\r\n    }\r\n\r\n    public function getUserById($id) {\r\n      $bdd = self::getBdd();\r\n\r\n      $res = $bdd->query('SELECT * FROM user WHERE id='.$id);\r\n      return $res->fetch();\r\n    }\r\n\r\n    public function loginSuccess($username, $password) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('SELECT * FROM user WHERE username = ? and password = ?');\r\n      $res = $req->execute(array($username, $password));\r\n\r\n      if($res) {\r\n        return $req->fetch()['id'];\r\n      }\r\n     return -1;\r\n\r\n    }\r\n\r\n    public function usernameExist($username) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('SELECT * FROM user WHERE username = ?');\r\n      $req->execute(array($username));\r\n\r\n      return $req->fetch();\r\n\r\n    }\r\n\r\n    public function emailExist($email) {\r\n      $bdd = self::getBdd();\r\n\r\n      $req = $bdd->prepare('SELECT * FROM user WHERE email = ?');\r\n      $req->execute(array($email));\r\n\r\n      return $req->fetch();\r\n\r\n    }\r\n\r\n  }\r\n\r\n ?>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Modele/user.php b/Modele/user.php
+--- a/Modele/user.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Modele/user.php	(date 1611868602799)
+@@ -1,4 +1,4 @@
+-kkkkkk<?php
++<?php
+ 
+   class User extends Model  {
+ 
+Index: Vues/login/voir.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n<div class=\"form\">\r\n        <!--Titre -->\r\n\r\n        <h1>VANESTARRE</h1>\r\n\r\n        <!--Formulaire Connexion-->\r\n        <form id=\"form\" action=\"index.php?ctrl=login&action=login\" method=\"post\">\r\n            <input type=\"text\" placeholder=\"Identifiant\" name=\"username\" required> <br>\r\n            <input type=\"password\" placeholder=\"Mot de passe\" name=\"password\" required>\r\n\r\n            <input type=\"submit\" value=\"Connexion\">\r\n\r\n            <a id=\"forgot\" href=\"\">Mot de passe oublié ?</a>\r\n\r\n            <button id=\"btnRegister\" class=\"btnPopup\"> <a href=\"./register\"> Créer un compte</a> </button>\r\n\r\n            <button id=\"btnInvite\" class=\"btnmembre\"> <a href=\"index.php?ctrl=flux\"> Connexion en mode invité</a> </button>\r\n          </form>\r\n\r\n\r\n    </div>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/login/voir.php b/Vues/login/voir.php
+--- a/Vues/login/voir.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/login/voir.php	(date 1611885165404)
+@@ -1,9 +1,12 @@
++
+ 
+ <div class="form">
+         <!--Titre -->
+ 
+-        <h1>VANESTARRE</h1>
++    <h1>VANESTARRE</h1>
+ 
++<div class="form_register_login">
++
+         <!--Formulaire Connexion-->
+         <form id="form" action="index.php?ctrl=login&action=login" method="post">
+             <input type="text" placeholder="Identifiant" name="username" required> <br>
+@@ -13,10 +16,10 @@
+ 
+             <a id="forgot" href="">Mot de passe oublié ?</a>
+ 
+-            <button id="btnRegister" class="btnPopup"> <a href="./register"> Créer un compte</a> </button>
++            <button id="btnRegister" class="btnPopup"> <a href="./register" id="linkregister"> Créer un compte</a> </button>
+ 
+-            <button id="btnInvite" class="btnmembre"> <a href="index.php?ctrl=flux"> Connexion en mode invité</a> </button>
+-          </form>
+-
++            <button id="btnInvite" class="btnmembre"> <a href="index.php?ctrl=flux" id="linkvisitor"> Connexion en mode invité</a> </button>
++        </form>
++</div>
+ 
+-    </div>
++</div>
+Index: Vues/gabarit.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!doctype html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\r\n        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\r\n\r\n        <link type=\"text/css\" rel=\"stylesheet\" href=\"Vues/flux/style.css\" media=\"all\">\r\n        <link type=\"text/css\" rel=\"stylesheet\" href=\"Vues/user/modify.css\" media=\"all\">\r\n\r\n    </head>\r\n    <body>\r\n        <?php Vue::montrer('standard/entete'); ?>\r\n        <?php echo $A_vue['body'] ?>\r\n        <?php Vue::montrer('standard/pied'); ?>\r\n    </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vues/gabarit.php b/Vues/gabarit.php
+--- a/Vues/gabarit.php	(revision 969d0c8a4a06797733f21ae007ce744c436aff9c)
++++ b/Vues/gabarit.php	(date 1611881847681)
+@@ -5,9 +5,18 @@
+ 
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
++
++        <!--login-->
++        <link type="text/css" rel="stylesheet" href="Vues/login/style.css" media="all">
++
++        <!--register-->
++        
++
+         <link type="text/css" rel="stylesheet" href="Vues/flux/style.css" media="all">
+         <link type="text/css" rel="stylesheet" href="Vues/user/modify.css" media="all">
+ 
++
++
+     </head>
+     <body>
+         <?php Vue::montrer('standard/entete'); ?>

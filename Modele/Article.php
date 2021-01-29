@@ -1,6 +1,5 @@
 <?php
 
-
 class Article extends Model
 {
 
@@ -13,25 +12,26 @@ class Article extends Model
      * @param $Message le message de l'article
      * @param $Nb_Don le nb de don
      */
-    public function CreerArticle($Tag,$Url,$Message,$Nb_Don)
-    {
+
+
+    public function create($tag, $message, $url) {
         //Faire les controles nécessaires voir avec les pros de la sécurité
 
         $bdd = $this->getBdd();
 
-        $requete = 'INSERT INTO `article` (`id`, `tag`, `message`, `img_source`, `emoji_cute`, `emoji_love`, `emoji_style`, `emoji_swag`, `nb_don`) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?); ';
-
-        $tabarg = array(NULL,$Tag,$Message,$Url,0,0,0,0,$Nb_Don);
-        $req = $bdd->prepare($requete);
-        if($req->execute($tabarg)) {
-            echo 'Article crée';
-        }else {
-
-            echo 'Erreur lors de la création d\'article';
+        $req = $bdd->prepare('INSERT INTO article (tag, message, img_source, nb_don) VALUE (?, ?, ?, 0)');
+        $req->execute(array($tag, $message, $url));
 
         }
 
+
+    public function delete($id) {
+      $bdd = $this->getBdd();
+
+      $req = $bdd->prepare('DELETE FROM article WHERE id = ?');
+      $req->execute(array($id));
     }
+
 
     /**
      * @author Jimenez Nathan
@@ -39,12 +39,12 @@ class Article extends Model
      *
      * @return array elle retourne une liste de parametres definissant un article
      */
-    public function get()
-    {
+
+    public function get() {
 
           $bdd = self::getBdd();
 
-          $requete = 'SELECT * FROM article';
+          $requete = 'SELECT * FROM article ORDER BY id DESC';
           $req = $bdd->prepare($requete);
           $req->execute();
 
@@ -52,15 +52,18 @@ class Article extends Model
 
     }
 
-    public function getById($id) {
 
-      $bdd = self::getBdd();
+    public function getByTag($tag) {
 
-      $requete = 'SELECT * FROM article WHERE id = ?';
-      $req = $bdd->prepare($requete);
-      $req->execute(array($id));
+          $bdd = self::getBdd();
 
-      return $req->fetch();
+          $req = $bdd->prepare("SELECT * FROM article WHERE tag LIKE '%$tag%' ORDER BY id DESC");
+          $req->execute(array());
+
+
+          return $req->fetchAll();
+
     }
+
 
 }

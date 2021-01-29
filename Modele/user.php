@@ -1,4 +1,4 @@
-kkkkkk<?php
+<?php
 
   class User extends Model  {
 
@@ -71,6 +71,17 @@ kkkkkk<?php
       $req->execute(array($email));
 
       return $req->fetch();
+
+    }
+
+    public function isAdmin($id) {
+
+      $bdd = self::getBdd();
+
+      $req = $bdd->prepare('SELECT * FROM user WHERE id = ?');
+      $req->execute(array($id));
+
+      return $req->fetch()['admin'] == 1;
 
     }
 

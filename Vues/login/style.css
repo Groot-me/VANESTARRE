@@ -1,25 +1,11 @@
+.form_register_login{
+    position: relative;
 
-body {
-    width: 100%;
-    height: 100%;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+
 }
 
-* {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-html, body, div {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-}
 
 #form {
     display: flex;
@@ -133,82 +119,24 @@ h1 {
     margin: 10vh auto;
 }
 
-/* Div inscription et overlay */
+#linkregister {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.overlay {
-    position: fixed;
-    background-color: rgba(0,0 ,0 , 0.5);
     width: 100%;
     height: 100%;
-    z-index:1;
-    display:none;
+
+}
+
+#linkvisitor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
 }
 
 
-.popup {
-    z-index: 2;
-    position: relative;
-    margin-left: 38%;
-    margin-top: 150px;
-    background-color: #335D95;
-    border-radius: 10px;
-    width: 430px;
-}
-
-.popup header {
-    background-color: #335D95;
-    height: 50px;
-    border: 1px solid #335D95;
-    border-radius: 10px;
-    font-family: 'Avenir';
-    font-style: italic;
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-}
-
-.popup header span {
-    width: 20px;
-    height: 20px;
-    float: right;
-    font-size:15pt;
-    cursor: pointer;
-    color: rgb(26, 26, 26);
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 50%;
-    background-color: white;
-    border: 1px solid transparent;
-
-}
-.popup header span:hover {
-    border: black 1px solid;
-}
-
-#form_popup {
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-#form_popup input[id="mail"] {
-    background-color: white;
-    width: 92%;
-}
-
-#form_popup input[id="id"] {
-    background-color: white;
-    width: 92%;
-}
-
-#form_popup input[type="submit"] {
-    background-color: green;
-    width: 200px;
-    margin-left: 100px;
-}
-
-.error {
-  margin-top: 1vh;
-  margin-bottom: 2vh;
-  color: red;
-}

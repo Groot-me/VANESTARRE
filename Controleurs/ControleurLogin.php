@@ -26,9 +26,9 @@ final class ControleurLogin
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['connected'] = True;
 
-        // if($user->isAdmin($id)) {
-        //   $_SESSION['admin'] = True;
-        // }
+        if($user->isAdmin($id)) {
+          $_SESSION['admin'] = True;
+        }
 
         header('Location: index.php?ctrl=flux');
       }

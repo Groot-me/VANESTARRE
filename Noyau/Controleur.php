@@ -30,8 +30,21 @@ final class Controleur
     public function executer()
     {
         //fonction de rappel de notre controleur cible (ControleurHelloworld pour notre premier exemple)
-        call_user_func_array(array(new $this->_A_urlDecortique['controleur'],
-            $this->_A_urlDecortique['action']), array());
+        try {
+
+          $controller = new $this->_A_urlDecortique['controleur'];
+          $action = $this->_A_urlDecortique['action'];
+
+        } catch(Throwable $e) {
+
+          $this->_A_urlDecortique['controleur'] = 'Controleur' . ucfirst('Erreur');
+          $this->_A_urlDecortique['action']  = 'notFoundAction';
+
+
+        }
+
+        call_user_func_array(array($controller = new $this->_A_urlDecortique['controleur'], $action = $this->_A_urlDecortique['action']), array());
+
 
     }
 }

@@ -7,7 +7,7 @@ class ControleurEmoji
      * @author Jimenez Nathan
      * @version 1.0
      *
-     * @example
+     * @example fait le lien entre ajax et le modele
      */
     public function clickAction()
     {

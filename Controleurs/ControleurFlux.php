@@ -25,6 +25,29 @@
 
     }
 
+
+    public function searchAction() {
+
+      $article = new Article();
+      $articles = $article->getByTag($_POST['tag']);
+
+      $emoji = new Emoji();
+
+      foreach($articles as $nbr => $article) {
+
+        foreach(array('style', 'swag', 'cute', 'love') as $EmojiKey => $emojiName) {
+
+          $emojiNbr = $emoji->getNbrEmoji($article['id'], $emojiName);
+
+          $articles[$nbr]['nbr'][$emojiName] = $emojiNbr;
+        }
+      }
+
+
+      Vue::montrer('flux/voir', array('articles' => $articles));
+
+    }
+
   }
 
  ?>

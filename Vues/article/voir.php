@@ -1,8 +1,17 @@
-<?php
+<div id="article_main_bar">
+    <div>
 
-  //header('Content-type: application/json');
+    </div>
+</div>
+<br>
+<br>
 
-  echo (json_encode($A_vue['article']));
-  //var_dump($A_vue['article']);
 
- ?>
+<form action="index.php?ctrl=article&action=create" method="post">
+
+  <input type="text" name="tag" value="" placeholder="Tag(s)">
+  <input type="text" name="message" value="" placeholder="Message">
+  <input type="text" name="img" value="" placeholder="Url de l'image">
+
+  <input type="submit" name="submit" value="Poster">
+</form>

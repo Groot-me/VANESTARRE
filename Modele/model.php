@@ -7,7 +7,7 @@ abstract class Model
 
     //genere la connexion a la BD
     private static function setBdd() {
-      $servername = '127.0.0.1';
+      $servername = 'localhost';
       $username = 'root';
       $password = '';
 

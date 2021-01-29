@@ -3,7 +3,8 @@
 final class ControleurRegister
 {
     public function defautAction() {
-
+		
+		session_start();
         if(isset($_SESSION['id'])) {
           header('Location: ./flux');
         }
@@ -17,7 +18,7 @@ final class ControleurRegister
 
     session_start();
 
-    $user = new user();
+    $user = new User();
 
       if(!empty($_POST['username']) and !empty($_POST['password']) and !empty($_POST['password2']) and !empty($_POST['email'])){
 

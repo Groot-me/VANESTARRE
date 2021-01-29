@@ -13,5 +13,6 @@
 
   <input type="text" placeholder="Nouveau pseudo" name="username" value="<?= $A_vue['user']['username'] ?>">
   <input type="text" placeholder="Nouveau mail" name="email" value="<?= $A_vue['user']['email'] ?>">
-  <input type="submit" name="submit" value="Valider les modifications">
+  <input type="submit" name="submit" value="Valider modifications">
 </form>
+

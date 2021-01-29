@@ -1,76 +1,42 @@
 <?php
 
 
-class ControleurArticle
-{
+class ControleurArticle {
     /**
      * @author Jimenez Nathan
      * @version 1.0
      *
      * @example appelle CreezArticle()
      */
-    public function CreationAction()
-    {
+    public function defautAction() {
 
-        if (isset($_GET['tag'], $_GET['url'], $_GET['message'], $_GET['nbdon'])) {
-
-            //controle
-
-            $tag = $_GET['tag'];
-            $url = $_GET['url'];
-            $msg = $_GET['message'];
-            $nbdon = $_GET['nbdon'];
-
-            $new_article = new article();
-            $new_article->CreerArticle($tag,$url,$msg,$nbdon);
-
-        }
+      Vue::montrer('article/voir', array());
 
     }
 
-    /**
-     * @author Jimenez Nathan
-     * @version 1.0
-     *
-     * @example appelle UpdateArticle
-     */
-    public function UpdateAction()
-    {
-        if (isset($_GET['tag'], $_GET['url'], $_GET['message'], $_GET['nbdon'])) {
+    public function createAction() {
 
-            //controle
+      $article = new Article();
 
-            $tag = $_GET['tag'];
-            $url = $_GET['url'];
-            $msg = $_GET['message'];
-            $nbdon = $_GET['nbdon'];
+      $article->create($_POST['tag'], $_POST['message'], $_POST['img']);
 
-            $new_article = new article();
-            $new_article->UpdateArticle($tag,$url,$msg,$nbdon);
-
-
-        }
+      header('Location: ./flux');
 
     }
 
 
-    /**
-     * @author Jimenez Nathan
-     * @version 1.0
-     *
-     * @example appel getbyID et retourne les principaux parametres des articles
-     */
+    public function deleteAction() {
+      session_start();
 
-    public function defautAction()
-    {
-
+      if(isset($_SESSION['admin']) && $_SESSION['admin']) {
         $article = new Article();
 
-        $currentArticle = $article->getById($_GET['id']);
-
-        return $currentArticle;
+        $article->delete($_GET['id']);
 
 
     }
 
+    header('Location: ./flux');
+
+  }
 }
