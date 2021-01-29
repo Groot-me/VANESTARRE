@@ -18,7 +18,7 @@ final class ControleurLogin
       $user = new User();
       $id = $user->loginSuccess($_POST['username'], sha1($_POST['password']));
 
-      if($id > 0) {
+      if($id > -1) {
 
         session_start();
 
@@ -30,7 +30,7 @@ final class ControleurLogin
           $_SESSION['admin'] = True;
         }
 
-        header('Location: index.php?ctrl=flux');
+        header('Location: ./flux');
       }
       else {
         print 'erreur';

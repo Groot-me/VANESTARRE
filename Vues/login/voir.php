@@ -12,7 +12,7 @@
 
             <input type="submit" value="Connexion">
 
-            <a id="forgot" href="">Mot de passe oublié ?</a>
+            <a id="forgot" href="index.php?ctrl=user&action=changePwd">Mot de passe oublié ?</a>
 
             <button id="btnRegister" class="btnPopup"> <a href="./register" id="linkregister"> Créer un compte</a> </button>
 

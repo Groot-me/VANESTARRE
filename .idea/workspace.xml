@@ -4,34 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="index.php">
+    <list default="true" id="e113be05-a1b7-4bb8-9d3c-ec0c3f930fa9" name="Default Changelist" comment="Final Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurEmoji.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurEmoji.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurFlux.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurFlux.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controleurs/ControleurLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controleurs/ControleurRegister.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurRegister.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurUpdateProfile.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Controleurs/ControleurUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modele/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modele/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modele/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noyau/ChargementAuto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/ChargementAuto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noyau/Constantes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Constantes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noyau/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Controleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/Register/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Register/voir.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/article/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/article/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/article/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/article/voir.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/flux/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/flux/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/flux/submit_button.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/flux/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/flux/voir.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/login/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/login/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/login/voir.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/user/modify.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/user/modify.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/user/modify.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/user/modify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/user/voir.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/user/voir.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/Category.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Modele/TagSearch.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +84,7 @@
       <workItem from="1610616619633" duration="948000" />
       <workItem from="1610838246071" duration="17778000" />
       <workItem from="1611685455175" duration="17868000" />
+      <workItem from="1611906797680" duration="4617000" />
     </task>
     <task id="LOCAL-00001" summary="add directory and first php file">
       <created>1610354667799</created>
@@ -254,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611855085824</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Final Push">
+      <created>1611893471987</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611893471987</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +273,8 @@
     <MESSAGE value="Vanestarre project" />
     <MESSAGE value="Ajout css sur la page modifier le profil, correction de bug et d'affichage" />
     <MESSAGE value="index.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="index.php" />
+    <MESSAGE value="Final Push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Push" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

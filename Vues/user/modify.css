@@ -25,5 +25,15 @@ html, body {
     width: 100px;
     background-image: url("https://www.011global.com/Account/Slices/user-anonymous.png") ;
     background-size: contain;
+	border-radius:50%
+
+}
+
+
+#modify_main_bar a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 
 }

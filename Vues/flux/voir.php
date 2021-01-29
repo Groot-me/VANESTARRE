@@ -14,13 +14,21 @@
 
     <?php if(isset($_SESSION['id'])) { ?>
       <div id="Profil_And_List">
-              <select onChange="location = this.options[this.selectedIndex].value; ">
+              <select id="select_profil" onChange="location = this.options[this.selectedIndex].value; ">
                   <option style="display: none"></option>
                   <option disabled> <?php echo 'Connecté en tant que '.$_SESSION['username'] ?> </option>
                   <option value="index.php?ctrl=user&action=modify"> Profil </option>
                   <option value="index.php?ctrl=login&action=logout" >Deconnexion</option>
                   <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
+				  
                     <option value="index.php?ctrl=article"> Poster un article </option>
+				  
+				  <script> var div = document.getElementById('select_profil');
+                          div.style.backgroundImage = 'url("https://i.imgur.com/aq39RMA.jpg")' ;
+                          div.style.backgroundSize = 'contain';
+                          div.style.borderRadius = '50%';
+                      </script>
+
                   <?php } ?>
 
               </select>
@@ -79,7 +87,7 @@
                     </span>
                 </div>
               </div>
-            <div class="footer_post">
+         <div class="footer_post">
 
               <?php
                 foreach(array('style', 'swag', 'cute', 'love') as $EmojiKey => $emojiName) {
@@ -118,3 +126,4 @@
 
 </body>
 </html>
+

@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-		<!-- Css Modifier profil -->
+	<!-- Css Modifier profil -->
 		<link type="text/css" rel="stylesheet" href="Vues/user/modify.css" media="all">
 		
 		<!-- Css flux  -->
@@ -15,6 +15,7 @@
 		<!-- Css creation article -->
 		<link type="text/css" rel="stylesheet" href="Vues/article/style.css" media="all">
 		
+
     </head>
     <body>
         <?php Vue::montrer('standard/entete'); ?>

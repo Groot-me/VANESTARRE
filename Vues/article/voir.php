@@ -1,6 +1,6 @@
 <div id="article_main_bar">
     <div>
-
+		<a href="index.php?ctrl=flux"> </a>
     </div>
 </div>
 <br>

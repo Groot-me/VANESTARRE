@@ -3,7 +3,7 @@
 final class ControleurRegister
 {
     public function defautAction() {
-		
+
 		session_start();
         if(isset($_SESSION['id'])) {
           header('Location: ./flux');
@@ -33,9 +33,14 @@ final class ControleurRegister
             if(!$user->emailExist($email)){
 
               $user->create($username, $email, $password);
-
-              $_SESSION['username'] = $username;
-              header('location: index.php');
+				
+			$id = $user->getLastId();
+             $_SESSION['username'] = $username;
+			 $_SESSION['id'] = $id;
+        	 $_SESSION['connected'] = True;
+				
+              header('location: ./flux');
+				
             }else{
               $_SESSION['error'] = 'Email déja utilisée !';
               header('location: index.php?ctrl=register');
@@ -53,11 +58,6 @@ final class ControleurRegister
         $_SESSION['error'] = 'Veuillez remplir tous les champs !';
         header('location: index.php?ctrl=register');
       }
-
-        unset($_SESSION['error']);
-
-        header('Location: index.php?ctrl=login');
-
     }
 
 }
