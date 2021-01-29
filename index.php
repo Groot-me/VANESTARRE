@@ -2,11 +2,8 @@
 // Ce fichier est le point d'entrée de votre application
 
     require 'Noyau/ChargementAuto.php';
-    /*
-     url pour notre premier test MVC Hello World,
-     nous n'avons pas d'action précisée on visera celle par défaut
-     index.php?ctrl=helloworld
-    */
+
+
     $S_controleur = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
     $S_action = isset($_GET['action']) ? $_GET['action'] : null;
 

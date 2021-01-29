@@ -18,11 +18,11 @@
 
     }
 
-    public function update($username, $email, $id) {
+    public function update($username, $email, $password, $id) {
       $bdd = self::getBdd();
 
-      $req = $bdd->prepare('UPDATE user SET username = ?, email = ? WHERE id= ?');
-      $req->execute(array($username, $email, $id));
+      $req = $bdd->prepare('UPDATE user SET username = ?, email = ?, password = ? WHERE id= ?');
+      $req->execute(array($username, $email, $password, $id));
 
     }
 
@@ -46,6 +46,30 @@
 
       $req = $bdd->prepare('SELECT * FROM user WHERE username = ? and password = ?');
       $res = $req->execute(array($username, $password));
+
+
+      if($res) {
+        return $req->fetch()['id'];
+      }
+     return -1;
+
+    }
+	  
+	  public function getLastId(){
+		  $bdd = self::getBdd();
+
+      $req = $bdd->prepare('SELECT MAX(id) AS id FROM user');
+      $res = $req->execute();
+	  return $req->fetch()['id'];
+		  
+	  }
+
+    public function loginSuccessById($id, $password) {
+      $bdd = self::getBdd();
+
+      $req = $bdd->prepare('SELECT * FROM user WHERE id = ? and password = ?');
+      $res = $req->execute(array($id, $password));
+
 
       if($res) {
         return $req->fetch()['id'];
@@ -83,6 +107,30 @@
 
       return $req->fetch()['admin'] == 1;
 
+    }
+
+    public function exist($username, $email) {
+
+      $bdd = self::getBdd();
+
+      $req = $bdd->prepare('SELECT * FROM user WHERE username = ? and email = ?');
+      $res = $req->execute(array($username, $email));
+
+
+      if($res) {
+        return $req->fetch()['id'];
+      }
+      else {
+        return -1;
+      }
+
+    }
+
+    public function setNewMdp($mdp, $id) {
+        $bdd = self::getBdd();
+
+        $req = $bdd->prepare('UPDATE user SET password = ? WHERE id = ?');
+        $res = $req->execute(array($mdp, $id));
     }
 
   }
